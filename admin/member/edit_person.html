@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>微金融</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
+	</head>
+	<body>
+		<div class="header clearfix">
+			<div class="logo fl"><a href="javascript:;"><img src="../images/logo.png" alt="微金融" /></a></div>
+			<div class="header_r fl clearfix">
+				<ul class="nav fl clearfix">
+					<li class="fl"><a href="javascript:;">会员管理</a></li>
+					<li class="fl"><a href="javascript:;">项目管理</a></li>
+					<li class="fl"><a href="javascript:;">产品管理</a></li>
+					<li class="fl"><a href="javascript:;">文章管理</a></li>
+					<li class="fl"><a href="javascript:;">交易管理</a></li>
+					<li class="fl"><a href="javascript:;">系统管理</a></li>
+					<li class="fl"><a href="javascript:;">平台管理</a></li>
+					<!--<li class="fl"><i class="iconfont">&#xe63c;</i></li>-->
+				</ul>
+				<!--ending of nav-->
+				<div class="user fr">
+					<a href="javascript:;"><i class="iconfont">&#xe63c;</i>系统管理员</a>
+					<a href="javascript:;"><i class="iconfont">&#xe61b;</i>退出</a>
+				</div>
+				<!--ending of user-->
+			</div>
+			<!--ending of header_r-->
+		</div>
+		<!--ending of header-->
+		<div class="content clearfix">
+			<div class="left fl">
+				<ul class="menu">
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>会员管理<i class='iconfont arrow'>&#xe604;</i></a>
+						<ul class="submenu">
+							<li><a href="javascript:;">所有会员</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>借款方<i class='iconfont arrow'>&#xe604;</i></a>
+						<ul class="submenu">
+							<li><a href="javascript:;">个人版</a></li>
+							<li><a href="javascript:;">企业版</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>投资方<i class='iconfont arrow'>&#xe604;</i></a>
+						<ul class="submenu">
+							<li><a href="javascript:;">银行</a></li>
+							<li><a href="javascript:;">基金</a></li>
+							<li><a href="javascript:;">P2P</a></li>
+							<li><a href="javascript:;">企业</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>代理商平台<i class='iconfont arrow'>&#xe604;</i></a></li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>管理员<i class='iconfont arrow'>&#xe604;</i></a></li>
+				</ul>
+				<!--ending of menu-->
+			</div>
+			<!--ending of left-->
+			<div class="right fl">
+				<div class="current">
+					<span><a href="javascript:;">会员管理</a></span>
+					<span>/</span>
+					<span><a href="javascript:;">借款方</a></span>
+					<span>/</span>
+					<span>修改个人版</span>
+				</div>
+				<!--ending of current-->
+				<div class="main_form">
+					<form class="editForm" action="" method="">
+						<ul class="clearfix">
+							<li class="clearfix fl width_100">
+								<label class="fl">修改头像：</label>
+								<img class="fl" src="../images/head_photo.jpg" width="66" height="66" alt="头像" />
+								<input class="buttonOrange fl" id="upload_button" type="button" value="选择文件" onclick="" />
+								<input type="hidden fl" name="pic"  value="" readonly="readonly"/>
+								<span class="fl" style="position: relative; left: -98px; top: 40px;">支持的图片格式：GIF、JPG、JPEG、PNG，为了最佳显示效果，建议您选择66*66像素</span>
+							</li>
+							<li class="clearfix fl width_50">
+								<label class="fl">用户名：</label>
+								<input class="inputBlue fl" type="text" value="" placeholder="" name="" datatype="*6-16" />
+							</li>
+							<li class="clearfix fl width_50">
+								<label class="fl">密码：</label>
+								<input class="inputBlue fl" type="password" value="" placeholder="" name="" datatype="n6-16" />
+								<input class="buttonOrange fl" type="button" value="重置密码" onclick="" />
+							</li>
+							<li class="clearfix fl width_50">
+								<label class="fl">昵称：</label>
+								<input class="inputBlue fl" type="text" value="" placeholder="" name="" datatype="*6-16" />
+							</li>
+							<li class="clearfix row_last fl width_50">
+								<label class="fl">性别：</label>
+								<ul class="clearfix fl">
+									<li class="fl">
+										<input type="radio" checked="checked" name="name" value="" placeholder="" />
+										<label>男</label>
+									</li>
+									<li class="fl">
+										<input type="radio" name="name" value="" placeholder="" />
+										<label>女</label>
+									</li>
+								</ul>
+							</li>
+							<li class="clearfix fl width_50">
+								<label class="fl">所在城市：</label>
+								<select class="selectBlue fl">
+									<option selected="selected">武汉</option>
+									<option>北京</option>
+									<option>上海</option>
+									<option>广州</option>
+								</select>
+							</li>
+							<li class="clearfix fl width_50">
+								<label class="fl">电子邮箱：</label>
+								<input class="inputBlue fl" type="text" value="" placeholder="" name="" datatype="e" />
+							</li>
+							<li class="clearfix fl width_50">
+								<label class="fl">QQ：</label>
+								<input class="inputBlue fl" type="text" value="" placeholder="" name="" datatype="n" />
+							</li>
+							<li class="clearfix fl width_50">
+								<label class="fl">真实姓名：</label>
+								<input class="inputBlue fl" type="text" value="" placeholder="" name="" datatype="s" />
+							</li>
+							<li class="clearfix fl width_100">
+								<label class="fl">省份证号：</label>
+								<input class="inputBlue fl" type="text" value="" placeholder="" name="" datatype="n" />
+							</li>
+							<li class="clearfix row_last upload fl width_100">
+								<label class="fl">证件上传：</label>
+								<ul class="clearfix fl">
+									<li class="fl"><img src="../images/upload_photo.jpg" width="200" height="120" alt="头像" /><em>正面</em></li>
+									<li class="fl"><img src="../images/upload_photo.jpg" width="200" height="120" alt="头像" /><em>反面</em></li>
+								</ul>
+							</li>
+							<li class="clearfix fl width_100">
+								<label class="fl">修改完成：</label>
+								<input class="submitOrange fl" type="submit" value="提交" />
+							</li>
+						</ul>
+					</form>
+					<!--ending of form-->
+				</div>
+				<!--ending of main_form-->
+			</div>
+			<!--ending of right-->
+		</div>
+		<!--ending of content-->
+		<div class="footer clearfix">
+			<p>Copyright © 2009-2014 杭州手趣科技 版权所有: 浙ICP备09040239号</p>
+		</div>
+		<!--ending of footer-->
+		
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/script.js"></script>
+		<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+		<script type="text/javascript" src="../kindeditor/kindeditor-min.js"></script>
+		<script type="text/javascript" src="../kindeditor/lang/zh-CN.js"></script>
+		<script type="text/javascript">
+			KindEditor.ready(function(K) {
+				var uploadbutton1 = K.uploadbutton({
+					button : K('#upload_button')[0],
+					fieldName : 'file',
+					url : '',
+					afterUpload : function(data) {
+						$('#img').html('');
+						if (data.error === 0) {
+							K('input[name="pic"]').val(data.url);
+							K('#img').append('<img src="'+ data.url +'">');		
+						} else {
+							alert(data.message);
+						}
+					},
+					afterError : function(str) {
+						alert('文件过大');
+					}
+				});
+				uploadbutton1.fileBox.change(function(e) {
+					uploadbutton1.submit();
+				});
+			});
+			$(document).ready(function(){
+				
+				$(".editForm").Validform({
+					tiptype:3
+				});
+				
+				
+			});
+		</script>
+	</body>
+</html>

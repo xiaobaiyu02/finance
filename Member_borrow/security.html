@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<link rel="stylesheet" type="text/css" href="../css/member_left.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/security.css" />
+	<script>
+		$(function(){
+			$(".member .left ul li a").click(function(){
+				if($(this).siblings("ul").css("display")=="block")
+					$(this).siblings("ul").slideUp();
+				else
+					$(this).siblings("ul").slideDown();
+			})
+			
+			var marginTop=$(window).height()-$(".top").height()-$(".header").height()-$(".nav").height()-$(".member .right").height()-$(".footer").height()-60;
+			if(marginTop>0)
+			$(".footer").css("margin-top",marginTop);
+		})
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" class="active">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	
+	<div class="member">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="member.html">会员中心</a>
+				</li>
+				<li>
+					<a href="business.html">推荐查看</a>
+				</li>
+				<li>
+					<a href="mypublish.html">我发布的项目</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="active">我的账户</a>
+					<ul>
+						<li><a href="person.html">基本资料</a></li><li><a href="company.html">企业资料</a></li>
+						<!--如果注册时是 我要借款——>个人,则只要<li><a href="person.html" class="underline">基本资料</a></li>-->
+						<!--如果注册时是 我要借款——>企业,则只要<li><a href="company.html" class="underline">企业资料</a></li>-->
+						<li><a href="security.html" class="underline">安全认证</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0)">增值服务</a>
+					<ul>
+						<li><a href="">产品推广</a></li>
+						<li><a href="">财富管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">帮助中心</a>
+				</li>
+			</ul>
+		</div><div class="right">
+			<div class="right_header">
+				<h1>安全认证</h1><span>&nbsp;&nbsp;&nbsp;&nbsp;/ Safety Certification</span>
+				<a href="publishProject.html">发布项目</a>
+			</div>
+			<ul class="security">
+				<li>
+					<h1><img src="../images/ico_security1.png" alt="">登录密码</h1>
+					<p>安全强度高的登录密码可以使账号更安全，建议您设置一个包含数字和 字母，并长度超过6位以上的登录密码</p>
+					<a href="">修改</a>
+				</li>
+				<li>
+					<h1><img src="../images/ico_security2.png" alt="">邮箱未认证</h1>
+					<p>邮箱认证可提高账号的安全性，同时也是找回密码等操作时验证您身份 的途径之一 </p>
+					<a href="">认证</a>
+				</li>
+				<li>
+					<h1><img src="../images/ico_security3.png" alt="">实名未认证</h1>
+					<p>实名认证可提高账号的安全性和信任级别</p>
+					<a href="">认证</a>
+				</li>
+				<li>
+					<h1><img src="../images/ico_security4.png" alt="">企业资质未认证</h1>
+					<p>营业执照认证可提高账号的安全性和信任级别</p>
+					<a href="">认证</a>
+				</li>
+			</ul>
+
+	</div>
+	</div>
+
+	<div class="clear"></div>
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+
+</body>
+</html>

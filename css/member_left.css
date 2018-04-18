@@ -1,0 +1,133 @@
+.hea{
+	border-bottom: 1px solid #d0d0d0;
+}
+.member{
+	width: 1024px;
+	margin: 0 auto;
+	padding-top: 30px;
+	
+}
+.member .left{
+	display: inline-block;
+	width: 18%;
+}
+.member .left a{
+	padding-left: 40px;
+}
+.member .left>ul{
+	border: 1px solid #d0d0d0;
+	border-top: 3px solid #ba1c21;
+}
+.member .left>ul>li>a{
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	color: #606060;
+	font-size: 15px;
+	background-color: #e6e6e6;
+	border-bottom: 1px solid #d0d0d0;
+}
+.member .left>ul>li>a.active{
+	color: #ba1b20;
+}
+.member .left>ul>li>a:before{
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	position: relative;
+	top: 2px;
+	right: 4px;
+}
+.member .left>ul>li:nth-child(1)>a:before{
+	background: url(../images/spirite_member.png) 0 -102px no-repeat;	
+}
+.member .left>ul>li:nth-child(2)>a:before{
+	background: url(../images/spirite_member.png) 0 -119px no-repeat;	
+}
+.member .left>ul>li:nth-child(3)>a:before{
+	background: url(../images/spirite_member.png) 0 -137px no-repeat;	
+}
+.member .left>ul>li:nth-child(4)>a:before{
+	background: url(../images/spirite_member.png) 0 -154px no-repeat;	
+}
+.member .left>ul>li:nth-child(5)>a:before{
+	background: url(../images/spirite_member.png) 0 -170px no-repeat;	
+}
+.member .left>ul>li:nth-child(6)>a:before{
+	background: url(../images/spirite_member.png) 0 -188px no-repeat;	
+}
+.member .left>ul>li:nth-child(4)>a:after,.member .left>ul>li:nth-child(5)>a:after{
+	content: url(../images/ico_view2.png);
+	vertical-align: -3px;
+	margin-left: 40px;
+}
+
+.member .left>ul>li:nth-child(1)>a.active:before{
+	background: url(../images/spirite_member.png) 0 0 no-repeat;	
+}
+.member .left>ul>li:nth-child(2)>a.active:before{
+	background: url(../images/spirite_member.png) 0 -18px no-repeat;	
+}
+.member .left>ul>li:nth-child(3)>a.active:before{
+	background: url(../images/spirite_member.png) 0 -35px no-repeat;	
+}
+.member .left>ul>li:nth-child(4)>a.active:before{
+	background: url(../images/spirite_member.png) 0 -52px no-repeat;	
+}
+.member .left>ul>li:nth-child(5)>a.active:before{
+	background: url(../images/spirite_member.png) 0 -69px no-repeat;	
+}
+.member .left>ul>li:nth-child(6)>a.active:before{
+	background: url(../images/spirite_member.png) 0 -86px no-repeat;	
+}
+.member .left li ul li a.active{
+	color: #ba1b20;
+}
+.member .left li ul li a{
+	line-height: 30px;
+	color: #444444;
+	font-size: 14px;
+	padding-left: 55px;
+}
+.member .left li ul li a.underline{
+	text-decoration: underline;
+}
+.member .left a:hover{
+	text-decoration: underline;
+}
+.member .left li ul{
+	padding: 10px 0;
+	border-bottom: 1px solid #d0d0d0;
+	display: block;
+}
+.member .right{
+	width: 80%;
+	float: right;
+}
+.member .right .right_header h1{
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	display: inline-block;
+	font-size: 15px;
+	border-bottom: 2px solid #ba1b20;
+}
+.member .right .right_header span{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 13px;
+	border-bottom: 1px solid #ba1b20;
+}
+.member .right .right_header a{
+	float: right;
+	display: inline-block;
+	line-height: 32px;
+	width: 80px;
+	text-align: center;
+	color: #fff;
+	font-size: 15px;
+	background-color: #ba1b20;
+	border-radius: 4px;
+}

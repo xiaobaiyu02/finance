@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../js/suggest.js"></script>
+	<script type="text/javascript" src="../js/aircity.js"></script>
+
+	<script type="text/javascript" src="../js/jquery.flexslider-min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/flexslider.css" />
+	<link rel="stylesheet" type="text/css" href="../css/city.css" />
+	<link rel="stylesheet" type="text/css" href="../css/investlist.css" />
+	<script>
+		$(function(){
+			$(".banner_form").Validform({
+				tiptype:3
+			});
+			$('.flexslider').flexslider();
+			$("#arrcity1").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcity_3word1',attachObject:'#suggest1'});
+
+			$(".condition li a").click(function(){
+				$(this).parent().find("a").removeClass("choose");
+				$(this).addClass("choose")
+			})
+
+			$(".briefintro .title li:nth-child(1)").click(function(){
+				$(".briefintro .title li").removeClass("active");
+				$(".briefintro .intro li").hide();
+				$(this).addClass("active");
+				$(".briefintro .intro li:nth-child(1)").show();
+			})
+			$(".briefintro .title li:nth-child(2)").click(function(){
+				$(".briefintro .title li").removeClass("active");
+				$(".briefintro .intro li").hide();
+				$(this).addClass("active");
+				$(".briefintro .intro li:nth-child(2)").show();
+			})
+			$(".briefintro .title li:nth-child(3)").click(function(){
+				$(".briefintro .title li").removeClass("active");
+				$(".briefintro .intro li").hide();
+				$(this).addClass("active");
+				$(".briefintro .intro li:nth-child(3)").show();
+			})
+			$(".briefintro .title li:nth-child(4)").click(function(){
+				$(".briefintro .title li").removeClass("active");
+				$(".briefintro .intro li").hide();
+				$(this).addClass("active");
+				$(".briefintro .intro li:nth-child(4)").show();
+			})
+
+			$(".sort a").click(function(){
+				$(".sort a").removeClass("sorted");
+				$(this).addClass("sorted");
+			})
+
+		})
+
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html">首页</a></li><li>
+			<a href="../invest_product/investindex.html" class="active">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	<div class="banner">
+		<div class="flexslider">
+			<ul class="slides">
+				<li><img src="../images/investbanner1.jpg" alt=""></li><li><img src="../images/banner1_loanindex.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="left">
+			<div class="briefintro">
+				<ul class="title"><li class="active">银行产品</li><li>基金产品</li><li>P2P产品</li><li>企业产品</li></ul>
+				<ul class="intro">
+					<li>
+						<label>产品特点：</label>
+						<div>
+							<p><strong>高收益回报</strong>产品能够换成现金回到自己手中的时间短1。</p>
+							<p><strong>本金放心用</strong>产品能够换成现金回到自己手中的时间短1。</p>
+							<p><strong>资金回流快</strong>产品能够换成现金回到自己手中的时间短1。</p>
+						</div>
+					</li><li>
+						<label>产品特点：</label>
+						<div>
+							<p><strong>高收益回报</strong>产品能够换成现金回到自己手中的时间短2。</p>
+							<p><strong>本金放心用</strong>产品能够换成现金回到自己手中的时间短2。</p>
+							<p><strong>资金回流快</strong>产品能够换成现金回到自己手中的时间短2。</p>
+						</div>
+					</li><li>
+						<label>产品特点：</label>
+						<div>
+							<p><strong>高收益回报</strong>产品能够换成现金回到自己手中的时间短3。</p>
+							<p><strong>本金放心用</strong>产品能够换成现金回到自己手中的时间短3。</p>
+							<p><strong>资金回流快</strong>产品能够换成现金回到自己手中的时间短3。</p>
+						</div>
+					</li><li>
+						<label>产品特点：</label>
+						<div>
+							<p><strong>高收益回报</strong>产品能够换成现金回到自己手中的时间短4。</p>
+							<p><strong>本金放心用</strong>产品能够换成现金回到自己手中的时间短4。</p>
+							<p><strong>资金回流快</strong>产品能够换成现金回到自己手中的时间短4。</p>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="investprducts">
+				<ul class="condition">     
+					<li><label>产品分类：</label><a href="" class="choose">不限</a><a href="">个人信用贷款</a><a href="">个人房产抵押贷款</a><a href="">个人车辆抵押贷款</a><a href="">企业信用贷款</a></li>
+					<li><label>产品类型：</label><a href="" class="choose">不限</a><a href="">信用贷款</a><a href="">房产抵押贷款</a><a href="">车辆抵押贷款</a><a href="">实物抵押贷款</a></li>
+					<li><label>针对人群：</label><a href="" class="choose">不限</a><a href="">个人</a><a href="">企业</a></li>
+					<li><label>产品用途：</label><a href="" class="choose">不限</a><a href="">创业</a><a href="">购房</a><a href="">买车</a><a href="">经营</a><a href="">装修</a><a href="">结婚</a><a href="">旅游</a><a href="">求学</a><a href="">购物</a></li>
+					<li><label>还款期限：</label><a href="">不限</a><a href="">随机随还</a><a href="">1个月</a><a href="">3个月</a><a href="">6个月</a><a href="">12个月</a><a href="">2年</a><a href="">3年</a><a href="">5年</a><a href="">10年</a></li>                                 
+				</ul>
+				<div class="prducts">
+					<div class="sort">
+						<label>排序：</label><a href="" class="sorted">发布时间<span>&darr;</span></a><a href="">信用等级<span>&darr;</span></a><a href="">产品利率<span>&darr;</span></a>
+					</div>
+					<ul class="sortprducts">
+						<li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li><li>
+							<img src="../images/investproduct.jpg" alt="">
+							<ul class="introduce">
+								<h1>“安家世行”房屋抵押贷款：额度高，利息低，放阿股份个电饭锅</h1>
+								<li><label>贷款类型：</label>房屋抵押贷款</li>
+								<li><label>信用等级：</label><span>3</span> 星</li>
+								<li><label>放款额度：</label><span>100~1000</span> 万元</li>
+								<li><label>针对人群：</label>个人</li>
+								<li><label>产品利率：</label><span>0.6%~0.72%</span> /月</li>
+								<li><label>申请条件：</label>1、在当地有房产且有产权证；2、有合法的身份；3、有稳定的经济收入，有</li>
+							</ul>
+							<div class="contect">
+								<strong>陈经理</strong>
+								<strong>13559984582</strong>
+								<a href="">查看详情</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="right">
+			<div class="applyLoan">
+				<h2><span>申请贷款</span></h2>
+				<form action="" method="post" class="banner_form">
+					<ul>
+						<li>
+							<label for="name">您的姓名：</label>
+							<input type="text" id="name" placeholder="请输入真实姓名" datatype="s">
+						</li>
+						<li>
+							<label for="sex">您的性别：</label>
+							<div class="sex">
+								<input type="radio" name="sex" checked="checked">男&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="sex">女
+							</div>
+							
+						</li>
+						<li>
+							<label for="city">所在城市：</label>
+							<input type="hidden" value="" id="arrcity_3word1" name="arrcity_3word1" />
+							<input type="text" id="arrcity1" name="arrcity1" placeholder="您现在所在的城市" datatype="*" nullmsg="请填写您所在的城市"/>
+							<div class="ac_results" id="suggest1">&nbsp;</div>
+							
+						</li>
+						<li>
+							<label for="tel">手机号码：</label>
+							<input type="text" id="tel" placeholder="请填写手机号码" datatype="m">
+						</li>
+						<li>
+							<input type="submit" value="下一步">
+						</li>
+						<li class=tip><span>30秒快速注册帮您解决资金烦恼！</span></li>
+					</ul>
+				</form>
+			</div>
+
+			<div class="aboutproduct">
+				<h2><span>相关产品</span></h2>
+				<ul class="aboutpro">
+					<li>
+						<ul>
+							<li><img src="../images/aboutinvest1.jpg" alt=""><h5>招行银行-房产抵押贷<span>*贷款金额大，适合大笔用钱</span></h5></li>
+							<li>放款时间：3天</li>
+							<li>贷款金额：1000万内</li>
+							<li>特点：金额足、利率低</li>
+							<a href="">详情</a>
+						</ul>
+					</li><li>
+						<ul>
+							<li><img src="../images/aboutinvest1.jpg" alt=""><h5>招行银行-房产抵押贷<span>*贷款金额大，适合大笔用钱</span></h5></li>
+							<li>放款时间：3天</li>
+							<li>贷款金额：1000万内</li>
+							<li>特点：金额足、利率低</li>
+							<a href="">详情</a>
+						</ul>
+					</li><li>
+						<ul>
+							<li><img src="../images/aboutinvest1.jpg" alt=""><h5>招行银行-房产抵押贷<span>*贷款金额大，适合大笔用钱</span></h5></li>
+							<li>放款时间：3天</li>
+							<li>贷款金额：1000万内</li>
+							<li>特点：金额足、利率低</li>
+							<a href="">详情</a>
+						</ul>
+					</li><li>
+						<ul>
+							<li><img src="../images/aboutinvest1.jpg" alt=""><h5>招行银行-房产抵押贷<span>*贷款金额大，适合大笔用钱</span></h5></li>
+							<li>放款时间：3天</li>
+							<li>贷款金额：1000万内</li>
+							<li>特点：金额足、利率低</li>
+							<a href="">详情</a>
+						</ul>
+					</li><li>
+						<ul>
+							<li><img src="../images/aboutinvest1.jpg" alt=""><h5>招行银行-房产抵押贷<span>*贷款金额大，适合大笔用钱</span></h5></li>
+							<li>放款时间：3天</li>
+							<li>贷款金额：1000万内</li>
+							<li>特点：金额足、利率低</li>
+							<a href="">详情</a>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer">
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">网站协议</a></li>
+				<li><a href="">意见反馈</a></li>
+				<li><a href="">友情链接</a></li>
+			</ul>
+			<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+		</div>
+
+	</div>
+		
+</body>
+</html>

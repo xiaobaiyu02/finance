@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../js/suggest.js"></script>
+	<script type="text/javascript" src="../js/aircity.js"></script>
+	<script type="text/javascript" src="../kindeditor/kindeditor-min.js"></script>
+	<script type="text/javascript" src="../kindeditor/lang/zh_CN.js"></script>
+	<script type="text/javascript" src="../js/datePicker-min.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="../kindeditor/themes/default/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/infor.css" />
+	<link rel="stylesheet" type="text/css" href="../css/member_left.css" />
+	<link rel="stylesheet" type="text/css" href="../css/city.css" />
+	<link rel="stylesheet" type="text/css" href="../css/datePicker.css" />
+	<style>
+		#suggest1 {top: 309px !important;}#suggest2 {top: -1px !important;left:110px !important;}
+		.member .left ul li ul{display: none;}
+	</style>
+	<script type="text/javascript">
+		KindEditor.ready(function(K) {
+			var uploadbutton1 = K.uploadbutton({
+				button : K('#carprove')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_carprove').html('');
+					if (data.error === 0) {
+						K('input[name="carprove"]').val(data.url);
+						K('#upload_carprove').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton1.fileBox.change(function(e) {
+				uploadbutton1.submit();
+			});
+		});
+		KindEditor.ready(function(K) {
+			var uploadbutton1 = K.uploadbutton({
+				button : K('#houseprove')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_houseprove').html('');
+					if (data.error === 0) {
+						K('input[name="houseprove"]').val(data.url);
+						K('#upload_houseprove').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton1.fileBox.change(function(e) {
+				uploadbutton1.submit();
+			});
+		});
+		KindEditor.ready(function(K) {
+			var uploadbutton1 = K.uploadbutton({
+				button : K('#thingprove')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_thingprove').html('');
+					if (data.error === 0) {
+						K('input[name="thingprove"]').val(data.url);
+						K('#upload_thingprove').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton1.fileBox.change(function(e) {
+				uploadbutton1.submit();
+			});
+		});
+
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			$(".member .left ul li a").click(function(){
+				if($(this).siblings("ul").css("display")=="block")
+					$(this).siblings("ul").slideUp();
+				else
+					$(this).siblings("ul").slideDown();
+			})
+
+			$(".form_person").Validform({
+				tiptype:3
+			});
+
+			$("#arrcity1").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcity_3word1',attachObject:'#suggest1'});
+			$("#arrcity2").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcity_3word2',attachObject:'#suggest2'});
+
+			$(".dp-choose-date").text("").append("<img src='../images/calendar.png' alt='选择日期'>");
+
+			$(".loantypelist").find("*[datatype='*']").removeAttr("datatype");
+
+			if($(".credit:checked").length>0){
+				$(".credit").parent().addClass("selected").find(".Validform_checktip").addClass("Validform_right").text("通过信息验证！");
+				$("label[for='credit']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');				
+			}
+			$(".credit").click(function(){
+				if($(".credit:checked").length>0){
+					$(this).parent().addClass("selected");
+					$("label[for='credit']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');		
+				}
+				else{
+					$(this).parent().removeClass("selected");
+					$("label[for='credit']").parent().slideUp().find("*[nullmsg*='请']").removeAttr("datatype");
+				}
+			})
+			if($(".car:checked").length>0){
+				$(".car").parent().addClass("selected")
+				$(".loantype").find(".Validform_checktip").addClass("Validform_right").text("通过信息验证！");
+				$("label[for='car']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');				
+			}
+			$(".car").click(function(){
+				if($(".car:checked").length>0){
+					$(this).parent().addClass("selected");
+					$("label[for='car']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');
+				}
+				else{
+					$(this).parent().removeClass("selected");
+					$("label[for='car']").parent().slideUp().find("*[nullmsg*='请']").removeAttr("datatype");
+				}
+			})
+			if($(".house:checked").length>0){
+				$(".house").parent().addClass("selected")
+				$(".loantype").find(".Validform_checktip").addClass("Validform_right").text("通过信息验证！");
+				$("label[for='house']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');				
+			}
+			$(".house").click(function(){
+				if($(".house:checked").length>0){
+					$(this).parent().addClass("selected");
+					$("label[for='house']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');
+				}
+				else{
+					$(this).parent().removeClass("selected");
+					$("label[for='house']").parent().slideUp().find("*[nullmsg*='请']").removeAttr("datatype");
+				}
+			})
+			if($(".thing:checked").length>0){
+				$(".thing").parent().addClass("selected")
+				$(".loantype").find(".Validform_checktip").addClass("Validform_right").text("通过信息验证！");
+				$("label[for='thing']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');				
+			}
+			$(".thing").click(function(){
+				if($(".thing:checked").length>0){
+					$(this).parent().addClass("selected");
+					$("label[for='thing']").parent().slideDown().find("*[nullmsg*='请']").attr("datatype",'*');
+				}
+				else{
+					$(this).parent().removeClass("selected");
+					$("label[for='thing']").parent().slideUp().find("*[nullmsg*='请']").removeAttr("datatype");
+				}
+			})
+
+			$(".tabs a:nth-child(1)").mouseenter(function(){
+				$(".tabs a").removeClass("active");
+				$(this).addClass("active");
+				$(".tabcontnet>div").hide();
+				$(".recopro").show();
+			})
+			$(".tabs a:nth-child(2)").mouseenter(function(){
+				$(".tabs a").removeClass("active");
+				$(this).addClass("active");
+				$(".tabcontnet>div").hide();
+				$(".visitor").show();
+			})
+		});
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" class="active">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	
+	<div class="member">
+		<div class="all">
+			<div class="left">
+				<ul>
+					<li>
+						<a href="member.html">会员中心</a>
+					</li>
+					<li>
+						<a href="business.html">推荐查看</a>
+					</li>
+					<li>
+						<a href="mypublish.html">我发布的项目</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">我的账户</a>
+						<ul>
+							<li><a href="person.html">基本资料</a></li><li><a href="company.html">企业资料</a></li>
+							<!--如果注册时是 我要借款——>个人,则只要<li><a href="person.html">基本资料</a></li>-->
+							<!--如果注册时是 我要借款——>企业,则只要<li><a href="company.html">企业资料</a></li>-->
+							<li><a href="security.html">安全认证</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:void(0)">增值服务</a>
+						<ul>
+							<li><a href="">产品推广</a></li>
+							<li><a href="">财富管理</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">帮助中心</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="recommend">
+				<div class="tabs">
+					<a href="javascript:void(0)" class="active">推荐产品</a><a href="javascript:void(0)">最近访客</a>
+				</div>
+				<div class="tabcontnet">
+					<div class="recopro">
+						<a href=""><img src="../images/recommend1.jpg" alt=""><span>抵押消费贷款</span><span>5星级企业</span></a>
+						<a href=""><img src="../images/recommend1.jpg" alt=""><span>抵押消费贷款</span><span>5星级企业</span></a>
+						<a href=""><img src="../images/recommend1.jpg" alt=""><span>抵押消费贷款</span><span>5星级企业</span></a>
+						<a href=""><img src="../images/recommend1.jpg" alt=""><span>抵押消费贷款</span><span>5星级企业</span></a>
+						<a href=""><img src="../images/recommend1.jpg" alt=""><span>抵押消费贷款</span><span>5星级企业</span></a>
+						<a href="" class="more">更多产品</a>
+					</div>
+					<div class="visitor">
+						<a href=""><img src="../images/visitor1.jpg" alt=""><span>信誉等级：5星</span><span>2014-10-10<br>15:15</span></a>
+						<a href=""><img src="../images/visitor1.jpg" alt=""><span>信誉等级：5星</span><span>2014-10-10<br>15:15</span></a>
+						<a href=""><img src="../images/visitor1.jpg" alt=""><span>信誉等级：5星</span><span>2014-10-10<br>15:15</span></a>
+						<a href=""><img src="../images/visitor1.jpg" alt=""><span>信誉等级：5星</span><span>2014-10-10<br>15:15</span></a>
+						<a href=""><img src="../images/visitor1.jpg" alt=""><span>信誉等级：5星</span><span>2014-10-10<br>15:15</span></a>
+						<a href=""><img src="../images/visitor1.jpg" alt=""><span>信誉等级：5星</span><span>2014-10-10<br>15:15</span></a>
+					</div>					
+				</div>
+
+			</div>
+		</div><div class="right">
+			<div class="right_header">
+				<h1>发布贷款项目</h1><span>&nbsp;&nbsp;&nbsp;&nbsp;/ Published loan project</span>
+			</div>
+			<div class="infor_person asd">
+				<form action="" method="post" class="form_person">
+					<ul>
+						<li>
+							<label for="name" class="red">您的称呼：</label>
+							<input type="text" id="name" value="张女士">
+						</li>
+						<li>
+							<label for="arrcity" class="red">所在城市：</label>
+							<input type="hidden" value="" id="arrcity_3word1" name="arrcity_3word1" />
+							<input type="text" id="arrcity1" name="arrcity1" placeholder="中文/拼音" datatype="*" value="武汉" nullmsg="请填写您所在的城市"/>
+							<div class="ac_results" id="suggest1">&nbsp;</div>
+						</li>
+						<li>
+							<label for="tel">手机号码：</label>
+							<input type="text" id="tel" value="15923432239" readonly="readonly">
+						</li>
+						<li>
+							<label for="usertype">用户类型：</label>
+							<input type="text" id="usertype" value="个人" readonly="readonly">
+						</li>
+						<li>
+							<label for="loantype" class="red">贷款类型：</label>
+							<div class="pl loantype">
+								<span><input type="checkbox" name="loanType" class="credit" value="1" datatype="*" nullmsg="请选择贷款类型" checked="checked">信用贷款&nbsp;&nbsp;</span>
+								<span><input type="checkbox" name="loanType" class="car" value="2" checked="checked">车辆抵押贷款&nbsp;&nbsp;</span>
+								<span><input type="checkbox" name="loanType" class="house" value="3">房屋抵押贷款&nbsp;&nbsp;
+								</span><span><input type="checkbox" name="loanType" class="thing" value="4">实物抵押贷款&nbsp;&nbsp;</span>
+							</div>
+							<ul class="loantypelist">
+								<li>
+									<label for="credit">信用贷款：</label>
+									<div class="pl">
+										<select name="carrera" id="carrera"> <!-- datatype="*" nullmsg="请选择您的职业" -->
+											<option value="">您的职业 </option>
+											<option value="1">企业职员 </option>
+											<option value="2">公务员/教师 </option>
+											<option value="4">律师/医生 </option>
+											<option value="5">自由职业 </option>
+											<option value="6">农民/务工 </option>
+											<option value="7">学生 </option>
+										</select>
+									</div><div class="pl">
+										<select name="wage" id="wage"><!--  datatype="*" nullmsg="请选择您的月收入" -->
+											<option value="">您的月收入 </option>
+											<option value="1">2000元以下 </option>
+											<option value="2">2000-3000元 </option>
+											<option value="4">3000-4000元 </option>
+											<option value="5">4000-5000元 </option>
+											<option value="6">5000-1万元 </option>
+											<option value="7">1万元以上 </option>
+										</select>	
+									</div><div class="pl">
+										<select name="age" id="age"><!--  datatype="*" nullmsg="请选择您的年龄" -->
+											<option value="">您的年龄 </option>
+											<option value="1">21岁以下 </option>
+											<option value="2">22-30岁 </option>
+											<option value="4">31-40岁 </option>
+											<option value="5">41-50岁 </option>
+											<option value="6">51岁以上 </option>
+										</select>	
+									</div><div class="pl">
+										<select name="wagetype" id="wagetype"><!--  datatype="*" nullmsg="请选择您的工资发放形式" -->
+											<option value="">工资发放形式 </option>
+											<option value="1">银行打卡 </option>
+											<option value="2">现金发放 </option>
+											<option value="4">打卡加现金 </option>
+											<option value="5">其他 </option>
+										</select>	
+									</div>
+								</li>
+								<li>
+									<label for="car">车辆抵押贷款：</label>
+									<div class="pl">
+										<input type="hidden" value="" id="arrcity_3word2" name="arrcity_3word2" /> 							
+										<input type="text" id="arrcity2" name="arrcity2" placeholder="车辆所在地"/><!--  datatype="*" nullmsg="请填写车辆所在地"  -->
+										<div class="ac_results" id="suggest2">&nbsp;</div>	
+									</div><div class="pl">
+										<input type="text" name="carcity" placeholder="车辆品牌"/><!--  datatype="*" nullmsg="请填写车辆品牌"  -->		
+									</div><div class="pl">
+										<input type="text" id="carmoney" placeholder="购买价格"><!--  datatype="*" nullmsg="请填写购买价格" --><span class="danwei">万元</span>
+									</div><div class="pl">
+										<input type="text" id="cartime" name="birthday" placeholder="购买时间" plugin="datepicker"><!--  datatype="*" nullmsg="请填写购买时间" -->
+									</div><div class="pl widthauto">
+										<input type="button" value="上传图像" id="carprove"/> 
+										<input type="hidden" name="carprove"  value="" readonly="readonly"/>
+										<div class="imgholder" id="upload_carprove"><img src=""><div>请上传您的车辆购买发票</div></div>
+									</div>
+								</li>
+								<li>
+									<label for="house">房屋抵押贷款：</label>
+									<div class="pl">
+										<input type="text" id="carmoney" placeholder="购买价格"><!--  datatype="*" nullmsg="请填写购买价格" --><span class="danwei">万元</span>
+									</div><div class="pl">
+										<input type="text" id="cartime" name="birthday" placeholder="购买时间" plugin="datepicker"><!--  datatype="*" nullmsg="请填写购买时间" -->
+									</div><div class="pl">
+										<select name="propertyrights" id="propertyrights"><!--  datatype="*" nullmsg="请选择产权" -->
+											<option value="">请选择产权 </option>
+											<option value="1">大产权 </option>
+											<option value="2">小产权 </option>
+										</select>
+									</div><div class="pl widthauto">
+										<input type="button" value="上传图像" id="houseprove"/> 
+										<input type="hidden" name="houseprove"  value="" readonly="readonly"/>
+										<div class="imgholder" id="upload_houseprove"><img src=""><div>请上传您的房产证明</div></div>
+									</div>
+								</li>
+								<li>
+									<label for="thing">实物抵押贷款：</label>
+									<div class="pl">
+										<input type="text" name="thing" placeholder="抵押物品"/><!--  datatype="*" nullmsg="请填写抵押物品"  -->
+									</div><div class="pl">
+										<input type="text" id="carmoney" placeholder="购买价格"><!--  datatype="*" nullmsg="请填写购买价格" --><span class="danwei">万元</span>
+									</div><div class="pl">
+										<input type="text" id="cartime" name="birthday" placeholder="购买时间" plugin="datepicker"><!--  datatype="*" nullmsg="请填写购买时间" -->
+									</div><div class="pl widthauto">
+										<input type="button" value="上传图像" id="thingprove"/> 
+										<input type="hidden" name="thingprove"  value="" readonly="readonly"/>
+										<div class="imgholder" id="upload_thingprove"><img src=""><div>请上传您的实物购买证明</div></div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="loanmoney">
+							<label for="money" class="red">贷款金额：</label>
+							<div class="pl"><input type="text" id="money" value="12" datatype="*" nullmsg="请填写贷款金额"><span class="danwei">万元</span></div>
+						</li>
+						<li class="loantime">
+							<label for="time">贷款期限：</label>
+							<div class="pl"><input type="text" id="time"><!--  datatype="n" nullmsg="请填写贷款期限" --><span class="danwei">个月</span></div>
+						</li>
+						<li>
+							<label for="use">个人贷款用途：</label>
+							<select name="type" id="use">
+								<option value="1" selected="selected">创业贷款 </option>
+								<option value="2">购房贷款 </option>
+								<option value="3">买车贷款 </option>
+								<option value="4">经营贷款 </option>
+								<option value="5">装修贷款 </option>
+								<option value="6">结婚贷款 </option>
+								<option value="7">旅游贷款 </option>
+								<option value="8">求学贷款 </option>
+								<option value="9">购物贷款 </option>
+								<option value="10">其他贷款 </option>
+							</select>
+						</li>
+						<li>
+							<label for="useinfor">贷款用途说明：</label>
+							<textarea name="useinfor" id="useinfor" cols="30" rows="10"></textarea>
+						</li>
+						<li>
+							<label></label>
+							<input type="submit" value="提 交">
+						</li>
+					</ul>
+				</form>
+			</div>
+
+	</div>
+
+
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+
+</body>
+</html>

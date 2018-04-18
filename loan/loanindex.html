@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../js/suggest.js"></script>
+	<script type="text/javascript" src="../js/aircity.js"></script>
+
+	<script type="text/javascript" src="../js/jquery.flexslider-min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/flexslider.css" />
+	<link rel="stylesheet" type="text/css" href="../css/city.css" />
+	<link rel="stylesheet" type="text/css" href="../css/loanindex.css" />
+	<style>
+		#suggest1 {top: 30px !important;left: 90px !important;}
+	</style>
+	<script>
+		$(function(){
+			$(".banner_form").Validform({
+				tiptype:3
+			});
+			$('.flexslider').flexslider();
+			$("#arrcity1").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcity_3word1',attachObject:'#suggest1'});
+
+			var navH=$(".loantype").offset().top+$(".loantype").height()+1;
+			$(window).scroll(function(){
+				var scroH = $(this).scrollTop();
+				if (scroH > navH) {
+					$(".loantype").addClass("fixed").show();
+				} 
+				else if (scroH < navH){
+					$(".loantype").removeClass("fixed");
+				}
+			})
+
+			$(".nav_loantype>a").click(function(){
+				$(".nav_loantype>a").removeClass("active");
+				$(this).addClass("active");
+			})
+
+		})
+
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" >首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html" class="active">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	<div class="banner">
+		<div class="flexslider">
+			<ul class="slides">
+				<li><img src="../images/banner1_loanindex.jpg" alt=""></li><li><img src="../images/investbanner1.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="left">
+			<div class="loantype">
+				<div class="nav_loantype">
+					<a href="#credit" class="active">信用贷款</a><a href="#car">车辆抵押贷款</a><a href="#house">房屋抵押贷款</a><a href="#thing">实物抵押贷款</a><a href="#others">其他抵押贷款</a><span><a href="#applyloan" class="apply">申请贷款</a></span>
+				</div>				
+			</div>
+
+			<ul class="mainconten">
+				<li id="credit">
+					<h1><span>信</span>用贷款<a href="loanlist.html">查看项目</a></h1>
+					<p>信用贷款是指以借款人的信誉发放的贷款，借款人不需要提供担保。其特征就是债务人无需提供 抵押品或第三方担保仅凭自己的信誉就能取得货款，并以借款人信用程度作为还款保证的。</p>
+					<ul class="products">
+						<li><img src="../images/pic4.jpg" alt=""><a href=""><span>大学生创业贷款</span></a></li><li>
+							<img src="../images/pic5.jpg" alt=""><a href=""><span>大学生创业贷款</span></a></li><li>
+							<img src="../images/pic2.jpg" alt=""><a href=""><span>澡堂老板向先生申请个人信用贷款20万元购买设备<br>支付利息 15%</span></a></li><li>
+							<img src="../images/pic3.jpg" alt=""><a href=""><span>大学生创业贷款</span></a></li><li>
+							<img src="../images/pic1.jpg" alt=""><a href=""><span>陈先生申请无抵押信用贷款 5万元</span></a>
+						</li>
+					</ul>
+				</li>
+				<li id="car">
+					<h1><span>车</span>辆抵押贷款<a href="loanlist.html">查看项目</a></h1>
+					<p>车辆抵押贷款是以借款人或第三人的汽车或自购车作为抵押物向金融机构或汽车消费贷款公司取 得的贷款。</p>
+					<ul class="products">
+						<li><img src="../images/pic12.jpg" alt=""><a href=""><span>车主王先生申请个人汽车抵押贷款20万元</span></a></li><li>
+							<img src="../images/pic6.jpg" alt=""><a href=""><span>车主王先生申请个人汽车抵押贷款20万元</span></a></li><li>
+							<img src="../images/pic7.jpg" alt=""><a href=""><span>车主王先生申请个人汽车抵押贷款20万元</span></a>
+						</li>
+					</ul>
+				</li>
+				<li id="house">
+					<h1><span>房</span>屋抵押贷款<a href="loanlist.html">查看项目</a></h1>
+					<p>房屋抵押贷款，是指投资人向借款人提供大部分款项，借款人以稳定的收入分期向投资人还本付 息，而在未还清本息之前，用其房屋契约向投资人坐抵押，若借款人不能按照期限还本付息，投资人可将房屋出售，已抵押销欠款。</p>
+					<ul class="products">
+						<li><img src="../images/pic8.jpg" alt=""><a href=""><span>习女士申请个人房屋抵押贷款600万元</span></a></li><li>
+							<img src="../images/pic9.jpg" alt=""><a href=""><span>兰经理申请 房屋抵押贷 款300万元 (手续齐全、 当天放款)</span></a></li><li>
+							<img src="../images/pic10.jpg" alt=""><a href=""><span>习女士申请个人房屋抵押贷款600万元</span></a></li><li>
+							<img src="../images/pic11.jpg" alt=""><a href=""><span>兰经理申请 房屋抵押贷 款300万元 (手续齐全、 当天放款)</span></a>
+						</li>
+					</ul>
+				</li>
+				<li id="thing">
+					<h1><span>实</span>物抵押贷款<a href="loanlist.html">查看项目</a></h1>
+					<p>实物抵押贷款，是指投资方向借款人提供大部分款项，以稳定的收入分期向投资方还本付息，而在未还清本息之前，用其抵押物向投资者作抵押，若借款人不能按照期限hi按本付息，投资方向=可将抵押物出售，已抵消欠款。</p>
+					<ul class="products">
+						<li><img src="../images/pic13.jpg" alt=""><a href="" class="thingpic"><span>汉代梳妆盒</span></a><p>成都做生意的王先生因周转不足现拿出传家之宝做抵，欲贷80万周转，对此物件有意向的老板可私下联系。</p><a href="" class="detail">点我查看详情 ：）</a></li><li>
+							<img src="../images/pic13.jpg" alt=""><a href="" class="thingpic"><span>汉代梳妆盒</span></a><p>成都做生意的王先生因周转不足现拿出传家之宝做抵，欲贷80万周转，对此物件有意向的老板可私下联系。</p><a href="" class="detail">点我查看详情 ：）</a></li><li>
+							<img src="../images/pic13.jpg" alt=""><a href="" class="thingpic"><span>汉代梳妆盒</span></a><p>成都做生意的王先生因周转不足现拿出传家之宝做抵，欲贷80万周转，对此物件有意向的老板可私下联系。</p><a href="" class="detail">点我查看详情 ：）</a></a>
+						</li>
+					</ul>
+				</li>
+				<li id="others">
+					<h1><span>其</span>它抵押贷款<a href="loanlist.html">查看项目</a></h1>
+					<p>实物抵押贷款，是指投资方向借款人提供大部分款项，以稳定的收入分期向投资方还本付息，而在未还清本息之前，用其抵押物向投资者作抵押，若借款人不能按照期限hi按本付息，投资方向=可将抵押物出售，已抵消欠款。</p>
+					<ul class="products">
+						<li><img src="../images/pic13.jpg" alt=""><a href="" class="thingpic"><span>汉代梳妆盒</span></a><p>成都做生意的王先生因周转不足现拿出传家之宝做抵，欲贷80万 周转，对此物件有意向的老板可私下联系。</p><a href="" class="detail">点我查看详情 ：）</a></li><li>
+							<img src="../images/pic13.jpg" alt=""><a href="" class="thingpic"><span>汉代梳妆盒</span></a><p>成都做生意的王先生因周转不足现拿出传家之宝做抵，欲贷80万周转，对此物件有意向的老板可私下联系。</p><a href="" class="detail">点我查看详情 ：）</a></li><li>
+							<img src="../images/pic13.jpg" alt=""><a href="" class="thingpic"><span>汉代梳妆盒</span></a><p>成都做生意的王先生因周转不足现拿出传家之宝做抵，欲贷80万周转，对此物件有意向的老板可私下联系。</p><a href="" class="detail">点我查看详情 ：）</a></a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+		</div>
+		<div class="right">
+			<div class="applyLoan" id="applyloan">
+				<h2><span>申请贷款</span></h2>
+				<form action="" method="post" class="banner_form">
+					<ul>
+						<li>
+							<label for="name">您的姓名：</label>
+							<input type="text" id="name" placeholder="请输入真实姓名" datatype="s">
+						</li>
+						<li>
+							<label for="sex">您的性别：</label>
+							<div class="sex">
+								<input type="radio" name="sex" checked="checked">男&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="sex">女
+							</div>
+							
+						</li>
+						<li>
+							<label for="city">所在城市：</label>
+							<input type="hidden" value="" id="arrcity_3word1" name="arrcity_3word1" />
+							<input type="text" id="arrcity1" name="arrcity1" placeholder="您现在所在的城市" datatype="*" nullmsg="请填写您所在的城市"/>
+							<div class="ac_results" id="suggest1">&nbsp;</div>
+							
+						</li>
+						<li>
+							<label for="tel">手机号码：</label>
+							<input type="text" id="tel" placeholder="请填写手机号码" datatype="m">
+						</li>
+						<li>
+							<input type="submit" value="下一步">
+						</li>
+						<li class=tip><span>30秒快速注册帮您解决资金烦恼！</span></li>
+					</ul>
+				</form>
+			</div>
+
+
+
+			<ul class="case">
+				<h2><span>成功案例</span><a href="">换一批</a></h2>
+				<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+				<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+				<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+				<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+			</ul>
+
+			<ul class="same">
+				<h2><span>相关贷款</span></h2>
+				<li>
+					<div class="loanpic">
+						<img src="../images/loanproduct.jpg">
+						<h5>房屋抵押贷款</h5>
+					</div>
+					<ul class="loanintro">
+						<li><strong>武汉王先生</strong><span>5星</span>用户</li>
+						<li><label>贷款金额：</label>200万元</li>
+						<li><label>年化利率：</label>15%</li>
+						<li><a href="">立即洽谈</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="loanpic">
+						<img src="../images/loanproduct.jpg">
+						<h5>房屋抵押贷款</h5>
+					</div>
+					<ul class="loanintro">
+						<li><strong>武汉王先生</strong><span>5星</span>用户</li>
+						<li><label>贷款金额：</label>200万元</li>
+						<li><label>年化利率：</label>15%</li>
+						<li><a href="">立即洽谈</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="loanpic">
+						<img src="../images/loanproduct.jpg">
+						<h5>房屋抵押贷款</h5>
+					</div>
+					<ul class="loanintro">
+						<li><strong>武汉王先生</strong><span>5星</span>用户</li>
+						<li><label>贷款金额：</label>200万元</li>
+						<li><label>年化利率：</label>15%</li>
+						<li><a href="">立即洽谈</a></li>
+					</ul>
+				</li>
+			</ul>
+
+			<div class="loaninfor">
+				<h2><span>贷款资讯</span><a href="">更多 >></a></h2>
+				<ul>
+					<li>
+						<h5><a href="">农行否认首家取消限贷</a></h5>
+						<p>继全国部分地区叫停限购政策之后，昨日，无锡某网站发布了一篇名为《重磅消息...</p>
+					</li>
+					<li>
+						<h5><a href="">9月新增信贷或达7000亿 全面降息..</a></h5>
+						<p>继全国部分地区叫停限购政策之后，昨日，无锡某网站发布了一篇名为《重磅消息...</p>
+					</li>
+					<li>
+						<h5><a href="">中国经济告别最坏时刻 资金宽松趋..</a></h5>
+						<p>继全国部分地区叫停限购政策之后，昨日，无锡某网站发布了一篇名为《重磅消息...</p>
+					</li>
+					<li>
+						<h5><a href="">中国经济告别最坏时刻 资金宽松趋..</a></h5>
+						<p>继全国部分地区叫停限购政策之后，昨日，无锡某网站发布了一篇名为《重磅消息...</p>
+					</li>
+					<li>
+						<h5><a href="">中国经济告别最坏时刻 资金宽松趋..</a></h5>
+						<p>继全国部分地区叫停限购政策之后，昨日，无锡某网站发布了一篇名为《重磅消息...</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer">
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">网站协议</a></li>
+				<li><a href="">意见反馈</a></li>
+				<li><a href="">友情链接</a></li>
+			</ul>
+			<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+		</div>
+
+	</div>
+</body>
+</html>

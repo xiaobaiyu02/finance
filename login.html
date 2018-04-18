@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="css/general.css" />
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/login.css" />
+	<script type="text/javascript">
+		$(function(){
+			$(".form_login").Validform({
+				tiptype:3
+			});
+
+			var marginTop=$(window).height()-$(".top").height()-$(".header").height()-$(".login").height()-30-$(".footer").height()-30;
+			if(marginTop>0)
+			$(".footer").css("margin-top",marginTop);
+		})
+	</script>
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="login.html">登录</a><a href="registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="index.html" class="active">首页</a></li><li>
+			<a href="invest_product/investindex.html">投资产品</a></li><li>
+			<a href="loan/loanindex.html">贷款项目</a></li><li>
+			<a href="invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	
+	<div class="login">
+		<form action="Member_borrow/member.html" method="post" class="form_login">
+			<h1>金融平台登录</h1>
+			<ul>
+				<li>
+					<label for="name" class="red">用户名：</label>
+					<input type="text" name="name" id="name" placeholder="请输入用户名" datatype="*" nullmsg="请填写用户名">
+				</li>
+				<li>
+					<label for="password" class="red">密码：</label>
+					<input type="password" name="password" id="password" placeholder="请输入密码" datatype="*6-15" nullmsg="请填写密码" errormsg="密码范围在6~15位之间">
+				</li>
+				<li>	
+					<input type="checkbox" id="rememberName">
+					<label for="rememberName">记住用户名</label>
+					<a href="" class="forget">忘记密码？</a>
+					<a href="registered.html" class="registerd">免费注册</a>
+				</li>
+				<input type="submit" value="登 录">
+			</ul>
+		</form>
+	</div>
+
+
+	<div class="footer">  
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../kindeditor/kindeditor-min.js"></script>
+	<script type="text/javascript" src="../kindeditor/lang/zh_CN.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="../kindeditor/themes/default/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/member.css" />
+	<link rel="stylesheet" type="text/css" href="../css/member_left.css" />
+	<script type="text/javascript">
+		KindEditor.ready(function(K) {
+			var uploadbutton1 = K.uploadbutton({
+				button : K('#upload_button')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#img').html('');
+					if (data.error === 0) {
+						K('input[name="pic"]').val(data.url);
+						K('#img').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('文件过大');
+				}
+			});
+			uploadbutton1.fileBox.change(function(e) {
+				uploadbutton1.submit();
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			var text=$("#tel").text().substr(3,4);
+			console.log(text);
+			console.log($("#tel").text());
+			var a="413134999"
+			$("#tel").text().replace("3","*");
+
+			var marginTop=$(window).height()-$(".top").height()-$(".header").height()-$(".nav").height()-$(".member").height()-$(".footer").height()-60;
+			if(marginTop>0)
+			$(".footer").css("margin-top",marginTop);
+
+			$(".member .left ul li a").click(function(){
+				if($(this).siblings("ul").css("display")=="block")
+					$(this).siblings("ul").slideUp();
+				else
+					$(this).siblings("ul").slideDown();
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" class="active">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	
+	<div class="member">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="member.html" class="active">会员中心</a>
+				</li>
+				<li>
+					<a href="business.html">推荐查看</a>
+				</li>
+				<li>
+					<a href="mypublish.html">我发布的项目</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">我的账户</a>
+					<ul>
+						<li><a href="person.html">基本资料</a></li><li><a href="company.html">企业资料</a></li>
+						<!--如果注册时是 我要借款——>个人,则只要<li><a href="person.html" class="underline">基本资料</a></li>-->
+						<!--如果注册时是 我要借款——>企业,则只要<li><a href="company.html" class="underline">企业资料</a></li>-->
+						<li><a href="security.html">安全认证</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0)">增值服务</a>
+					<ul>
+						<li><a href="">产品推广</a></li>
+						<li><a href="">财富管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">帮助中心</a>
+				</li>
+			</ul>
+		</div><div class="right">
+			<div class="right_header">
+				<h1>会员中心</h1><span>&nbsp;&nbsp;&nbsp;&nbsp;/ Member Center</span>
+				<a href="publishProject.html">发布项目</a>
+			</div>
+			<div class="user">
+				<div class="image">
+					<div class="imgholder" id="img"><img src="" alt=""></div>
+					<div>
+						<input type="button" value="上传图像" id="upload_button"/>
+						<input type="hidden" name="pic"  value="" readonly="readonly"/>
+					</div>
+				</div>
+				<ul>
+					<li>
+						<label>注册账户：&nbsp;&nbsp;</label><span>13812348888</span>
+					</li>
+					<li>
+						<label>昵称：&nbsp;&nbsp;</label><span>神马都是否晕</span><a href="">修改</a>
+					</li>
+					<li>
+						<label>注册时间：&nbsp;&nbsp;</label><span>2014-09-29  15:59:06</span>
+					</li>
+					<li>
+						<label>绑定手机：&nbsp;&nbsp;</label><span id="tel">13812348888</span>
+					</li>
+					<li>
+						<label>财富点：&nbsp;&nbsp;</label><span>0点</span><a href="">什么是财富点？</a>
+					</li>
+				</ul>
+			</div>
+			<div class="complate">
+				<p>您还未完善账户资料，还不能发布贷款项目<br>您可以</p>
+				<a href="person.html">基本资料</a><a href="company.html">企业资料</a><!--如果注册时是 我要借款——>个人,则只要<a href="person.html">基本资料</a>；如果注册时是 我要借款——>企业,则只要<a href="company.html">企业资料</a>-->
+			</div>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+
+</body>
+</html>

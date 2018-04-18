@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="css/general.css" />
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/registered.css" />
+	<script type="text/javascript">
+		$(function(){
+			$(".form_registered").Validform({
+				tiptype:3
+			});
+			$("#validecode").attr("disabled",true);
+			$("#btnSendCode").attr("disabled",true);
+			$("#tel").blur(function(){
+				if(!$(this).siblings(".Validform_checktip").hasClass("Validform_right")){
+					$("#btnSendCode").attr("disabled",true).removeClass("red");
+				}
+				else{
+					$("#btnSendCode").attr("disabled",false).addClass("red");
+				}
+			});
+			$("#btnSendCode").click(function(){
+				$("#validecode").attr("disabled",false);
+			})
+
+			$(".form_registered input[type='radio']").click(function(){
+				$(".form_registered input[type='radio']").parent().removeClass("selected");
+				$(this).parent().addClass("selected");
+			})
+
+			$("#borrow").click(function(){
+				$(".role_borrow").slideDown();
+				$(".role_invest").hide();
+			})
+			$("#invest").click(function(){
+				$(".role_invest").slideDown();
+				$(".role_borrow").hide();
+
+			})
+
+			$(".role_borrow input").click(function(){
+				$("#borrow").parent().addClass("selected");
+			})
+			$(".role_invest input").click(function(){
+				$("#invest").parent().addClass("selected");
+			})
+
+			var marginTop=$(window).height()-$(".top").height()-$(".header").height()-$(".registered").height()-102-$(".footer").height()-30;
+			if(marginTop>0)
+			$(".footer").css("margin-top",marginTop);
+		})
+
+		verifyURL = '';
+		//定义验证码路径
+		function change_code(obj){
+			$("#code").attr("src",verifyURL+'/'+Math.random());
+			$("#verify").val('');
+			return false;
+		}
+	</script>
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="login.html">登录</a><a href="registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="index.html" class="active">首页</a></li><li>
+			<a href="invest_product/investindex.html">投资产品</a></li><li>
+			<a href="loan/loanindex.html">贷款项目</a></li><li>
+			<a href="invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+
+	<div class="registered">
+		<div class="top_registered">
+			<span>已有账号？</span> <a href="login.html">立即登录</a>
+		</div>
+		<div class="tip">
+			<span>填写注册信息</span>
+			<span>完善用户信息</span>
+			<span>注册成功</span>
+		</div>
+
+		<form action="" method="post" class="form_registered">
+			<ul>
+				<li>
+					<label for="role" class="red">用户身份：</label>
+					<div>
+						<span><input type="radio" name="role" id="borrow">我要借款</span>
+						<span><input type="radio" name="role" id="invest">我要投资</span>
+					</div>
+				</li>
+				<li class="role role_borrow">
+					<label></label>
+					<span><input type="radio" name="role_borrow">企业</span>
+					<span><input type="radio" name="role_borrow">个人</span>
+				</li>
+				 <li class="role role_invest">
+					<label></label>
+					<span><input type="radio" name="role_borrow" rel="3">企业</span>
+					<span><input type="radio" name="role_borrow" rel="4">P2P</span>
+					<span><input type="radio" name="role_borrow" rel="5">银行</span>
+					<span><input type="radio" name="role_borrow" rel="6">基金</span>
+				</li>
+
+				<li>
+					<label for="tel" class="red">手机号码：</label>
+					<input type="text" name="tel" id="tel" datatype="m" nullmsg="请填写手机号码" errormsg="请填写正确的手机号码">
+				</li>
+				<li>
+					<label for="validecode" class="red">短信验证码：</label>
+					<input type="text" name="validecode" id="validecode"  datatype="n" nullmsg="请填写短信验证码" errormsg="请填写正确的短信验证码" placeholder="填写六位数字">
+					<input id="btnSendCode" type="button" value="免费获取验证码" onclick="sendMessage()" />
+			    </li>
+				<li>
+					<label for="name" class="red">昵称：</label>
+					<input type="text" name="name" id="name" datatype="*" nullmsg="请填写昵称">
+				</li>
+				<li>
+					<label for="password" class="red">密码：</label>
+					<input type="password" name="password" id="password" datatype="*6-15" placeholder="6-15位任意字符" nullmsg="请填写密码" errormsg="密码范围在6~15位之间">
+				</li>
+				<li>
+					<label for="password_conform" class="red">密码确认：</label>
+					<input type="password" name="password_conform" id="password_conform" datatype="*" recheck="password" nullmsg="请再次输入密码" errormsg="您两次输入的密码不一致">
+				</li>
+				<li>
+					<label for="verify" class="red">验证码：</label>
+					<div class="validation">
+						<input type="text" name="verify" placeholder="验证码" id="verify" datatype="*" nullmsg="请填写验证码" ajaxurl=""/>
+						<img src="images/code.jpg" id="code"/>
+						<a href="javascript:void(change_code(this));">换一张</a>
+					</div>
+				</li>
+				<li>
+					<label></label>
+					<input type="submit" value="注 册">
+				</li>
+			</ul>
+		</form>
+	</div>
+
+	<div class="footer">  
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">网站协议</a></li>
+				<li><a href="">意见反馈</a></li>
+				<li><a href="">友情链接</a></li>
+			</ul>
+			<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+	<script type="text/javascript">
+
+        /*-------------------------------------------*/
+        /* timer变量，控制时间*/
+        var InterValObj;
+      	/* 间隔函数，1秒执行*/
+		var count = 60; 
+		/* 当前剩余秒数*/
+		var curCount;
+		/*验证码*/
+		var code = ""; 
+		/*验证码长度*/
+		var codeLength = 6;
+		
+		function sendMessage() {
+            curCount = count;
+			var dealType; 
+			var email = $("#e-mail").val();
+			var username = $("#num").val();
+			
+			if ($("#phone").attr("checked") == true) {
+                dealType = "phone";
+            }
+            else {
+                dealType = "email";
+            }
+            //产生验证码
+		
+			for (var i = 0; i < codeLength; i++) {
+                code += parseInt(Math.random() * 9).toString();
+            } 
+           
+        		// 设置button效果，开始计时
+                $("#btnSendCode").attr("disabled", "true");
+                $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+                InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+				// 向后台发送处理数据
+                $.ajax({
+                    type: "POST", //用POST方式传输
+                    dataType: "JSON", //数据格式:JSON
+                    url: '/index.php/Login/ajaxGetVerify/', //目标地址
+                    data: "email=" + email +"&username="+ username,
+                    error: function (XMLHttpRequest, textStatus, errorThrown) { console.log(errorThrown)},
+                    success: function (msg){console.log(msg) }
+                });
+            }
+            
+        // timer处理函数
+		function SetRemainTime() {
+            if (curCount == 0) {                
+                window.clearInterval(InterValObj);//停止计时器
+                $("#btnSendCode").removeAttr("disabled");//启用按钮
+                $("#btnSendCode").val("重新发送验证码");
+                code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效    
+            }
+            else {
+                curCount--;
+                $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+            }
+        }
+        
+		function findpassword ()
+		{
+			$("#findpassword_form").submit();
+		}
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+.content{
+	width: 1024px;
+	margin: 0 auto;
+}
+.content>div>*{
+	display: inline-block;
+	width: 34%;
+	vertical-align: top;
+}
+.content>img{
+	display: block;
+	width: 1024px;
+	margin: 20px 0 30px;
+}
+.content>div>.ads{
+	width: 26%;
+}
+.content>div>*~*{
+	margin-left: 20px;
+}
+.content>div h2{
+	background-color: #f8f8f8;
+	border: 1px solid #d0d0d0;
+	height: 41px;
+	margin-bottom: 20px;
+}
+.content>div h2 span{
+	display: inline-block;
+	height: 40px;
+	line-height: 38px;
+	color: #494949;
+	font-size: 17px;
+	padding: 0 20px;
+	font-weight: normal;
+	margin-left: -1px;
+}
+.content>div h2 span.active{
+	color: #ee5151;
+	border-top: 2px solid #ee5151;
+	background-color: #fff;
+}
+.content>div h2 span:hover{
+	cursor: pointer;
+}
+.content>div h2 span~span{
+	border-left: 1px solid #d0d0d0;
+}
+.content>div h2 a{
+	color: #8f8f8f;
+	font-size: 13px;
+	font-weight: normal;
+	float: right;
+	margin: 14px 10px 0 0;
+}
+.content>div h2 a:hover{
+	text-decoration: underline;
+}
+
+.ads img,.ads a{
+	display: block;
+	width: 264px;
+	height: 233px;
+}
+.ads a~a,.example_pic a~a{
+	margin-top: 16px;
+}
+.example_pic img,.example_pic a{
+	display: block;
+	width: 110px;
+	height: 90px;
+}
+.content ul>*:nth-child(1){
+	float: left;
+	margin: 0 10px 10px 0;
+}
+.content>div ul li a{
+	color: #122e67;
+	font-size: 15px;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	margin-bottom: 16px;
+}
+.content>div ul li a:before{
+	content: "";
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	background-color: #f16e6e;
+	border-radius: 100%;
+	margin-right: 6px;
+	vertical-align: 2px;
+}
+.content>div ul li a:hover{
+	color: #f16e6e;
+	text-decoration: underline;
+}
+
+.content>div>div ul{
+	display: none;
+}
+.content>div>div ul:nth-of-type(1){
+	display: block;
+}
+
+.content ul table td{
+	border: 1px solid #d0d0d0;
+}
+.content ul table thead td{
+	color: #122e67;
+	font-size: 13px;
+}
+.content ul table{
+	width: 110px;
+}
+.content ul table tbody td{
+	color: #9c9c9c;
+	font-size: 12px;
+}
+.content ul table td{
+	line-height: 24px;
+	text-align: center;
+}
+table .down{
+	color: #008f0a;
+}
+table .up{
+	color: #ce2727;
+}

@@ -1,0 +1,383 @@
+label.red{
+	position: relative;
+}
+label.red:before{
+	content: "*";
+	position: absolute;
+	top: 2px;
+	left: -8px;
+	color: #ff0000;
+}
+.ke-upload-area{
+	width: 90px !important;
+}
+input[readonly="readonly"]{
+	cursor: not-allowed;
+	background-color: #eee;
+	opacity: 1;
+}
+label[for="certify"],label[for="headimg"]{
+	vertical-align: top;
+	margin-top: 4px;
+}
+.infor_person label[for='boy'],.infor_person label[for='girl']{
+	width: auto;
+	margin-right: 20px;
+	font-size: 14px;
+}
+input[type="radio"]{
+	vertical-align: -2px;
+}
+input[type="checkbox"]{
+	vertical-align: -1px;
+}
+.asd input[type="button"]{
+	opacity: 0;
+	width: 228px;
+	height: 100px;
+}
+.asd .ke-inline-block{
+	position: absolute;
+	z-index: 99999;
+}
+.asd .ke-button-common{
+	background: none;
+	width: auto;
+	height: auto;
+}
+.asd .ke-upload-area {
+	width: 228px !important;
+}
+.danweiwei{
+	position: absolute;
+	z-index: 9;
+	top: 9px;
+	left: 164px;
+	font-size: 14px;
+	color: #666;
+}
+.danweiwei1{
+	left: 76px;
+}
+.uploadtip{
+	font-size: 12px;
+	color: #0041e5;
+}
+.upload .Validform_checktip{
+	display: inline-block;
+}
+.infor_person{
+	border: 1px solid #d0d0d0;
+	margin-top: 15px;
+	margin-bottom: 40px;
+	padding: 30px 30px 20px 100px;
+	font-size: 15px;
+}
+.infor_person form>ul>li{
+	margin-bottom: 16px;
+}
+.infor_person label{
+	display: inline-block;
+	width: 120px;
+}
+.infor_person input[type="text"]{
+	border: 1px solid #d0d0d0;
+	padding: 2px 4px;
+	height: 24px;
+	width: 190px;
+	font-size: 14px;
+}
+.infor_person .pl{
+	display: inline-block;
+	position: relative;
+}
+.infor_person .pl.loantype{
+	line-height: 22px;
+}
+.imgholder{
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-right: 20px;
+	position: relative;
+}
+.imgholder div{
+	font-size: 12px;
+	color: #6c6c6c;
+	height: 13px;
+	position: absolute;
+	z-index: -9;
+	top: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+
+}
+.imgholder img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.tips{
+	font-size: 12px;
+	color: #6c6c6c;
+	line-height: 18px;
+	white-space: nowrap;
+	margin-top: 10px;
+}
+#upload_front,#upload_reverse{
+	width: 199px;
+	height: 125px;
+	margin: 10px 0 20px;
+}
+input[type="submit"]{
+	color: #fff;
+	padding: 8px 30px;
+	background-color: #ba1c21;
+	border: 0;
+	font-size: 20px;
+	margin-top: 20px;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background-color: #b72f33;
+}
+
+#upload_companylogo{
+	width: 120px;
+	height: 75px;
+}
+.infor_person select{
+	font-size: 14px;
+	padding: 3px 0;
+	width: 120px;
+}
+#address{
+	width: 300px;
+}
+textarea[name='intro'],textarea[name='useinfor']{
+	width: 300px;
+	height: 120px;
+	border: 1px solid #d0d0d0;
+	resize: none;
+}
+label[for="intro"],label[for="useinfor"],label[for="loantype"]{
+	vertical-align: top;
+	margin-top: 4px;
+}
+#upload_license{
+	width: 310px;
+	height: 210px;
+	margin-top: 10px;
+}
+
+.loantypelist{
+	font-size: 13px;
+	padding-left: 20px;
+	margin-top: 20px;
+}
+.loantypelist>li{
+	margin-bottom: 10px;
+	display:none;
+}
+.loantypelist input[type='text']{
+	width: 100px;
+	font-size: 13px;
+}
+.loantypelist select{
+	width: 110px;
+	font-size: 13px;
+}
+.loantypelist .danwei{
+	left: 76px;
+	font-size: 12px;
+}
+.dp-choose-date{
+	position: absolute;
+	left: 88px;
+	top: 7px;
+}
+.loantypelist .Validform_checktip{
+	position: relative;
+	right: 8px;
+}
+.loantypelist .pl{
+	width: 120px;
+}
+.loantypelist .pl.widthauto{
+	display: block;
+	width: auto;
+	padding-left: 105px;
+	margin-top: 10px;
+	position: relative;
+}
+#carprove{
+	float: left;
+}
+.loantypelist .widthauto .imgholder{
+	width: 228px;
+	margin-right: 11px;
+	float: none;
+	margin-top: 4px;
+}
+textarea#otherintro{
+	width: 226px;
+	height: 90px;
+	resize:none;
+}
+.loantypelist label{
+	width: 100px;
+	vertical-align: top;
+	margin-top: 7px;
+}
+.loantype>span.selected{
+	color:#b72f33;
+}
+.loantype{
+	position: relative;
+}
+.loantype .Validform_checktip{
+	position: absolute;
+	right: -100px;
+}
+
+/*edite_mypublic.html*/
+.recommend{
+	border: 1px solid #d0d0d0;
+	margin-top: 20px;
+}
+.member .all .left{
+	width: 100%;
+}
+.all{
+	width: 18%;
+	display: inline-block;
+}
+.tabs a{
+	display: inline-block;
+	font-size: 14px;
+	color: #606060;
+	width: 50%;
+	text-align: center;
+	height: 34px;
+	line-height: 34px;
+	border-top: 2px solid #e6e6e6;
+	border-bottom: 1px solid #d0d0d0;
+	background-color: #e6e6e6;
+}
+.tabs a.active{
+	background-color: #fff;
+	border-top: 2px solid #ba1c21;
+	border-bottom: 1px solid transparent;
+}
+.tabcontnet>div{
+	display: none;
+	font-size: 13px;
+}
+.tabcontnet>div>a{
+	display: block;
+	border-bottom: 1px dotted #d0d0d0;
+	padding: 10px 8px;
+}
+.tabcontnet>div>a:hover span:nth-of-type(1){
+	text-decoration: underline;
+}
+.tabcontnet a img{
+	width: 63px;
+	height: 43px;
+	float: left;
+	margin-right: 10px;
+}
+.tabcontnet a span{
+	display: block;
+	margin-bottom: 6px;
+}
+.tabcontnet .recopro{
+	display: block;
+}
+.recopro a span:nth-of-type(1){
+	color: #3b70d1
+}
+.recopro a span:nth-of-type(2){
+	color: #3d3d3d
+}
+.visitor a{
+	color: #9b9b9b;
+}
+.recopro .more{
+	color: #606060;
+	width: 102px;
+	text-align: center;
+	border: 1px solid #d0d0d0;
+	height: 30px;
+	line-height: 30px;
+	margin: 20px auto;
+	padding: 0;
+}
+.recopro .more:hover{
+	background-color: #e6e6e6;
+}
+
+.publishProduct{
+	padding-left: 80px;
+}
+.publishProduct em{
+	color: #ba1b20;
+	font-style: normal;
+}
+.publishProduct .imgholder{
+	width: 170px;
+}
+.publishProduct .lendquotas span,.lendTime span{
+	font-size: 13px;
+}
+.publishProduct #title{
+	width: 388px;
+}
+.publishProduct .lendquotas input,.publishProduct .prorate input,#lendtime{
+	width: 110px;
+}
+.publishProduct .place label,.publishProduct .loanuse label,
+label[for="prointro"],label[for="applycondition"],label[for="data"]{
+	vertical-align: top;
+	margin-top: 2px;
+}
+.publishProduct .pl{
+	width: 550px;
+	position: relative;
+}
+.publishProduct .pl ul .Validform_checktip{
+	position: absolute;
+	top: 0;
+	left: 52px;
+}
+.publishProduct .pl>div{
+	margin-bottom: 6px;
+}
+.publishProduct .place .pl span{
+	white-space: nowrap;
+}
+.publishProduct .pl ul li {
+	display: inline-block;
+	margin-right: 20px;
+	margin-bottom: 6px;
+}
+.publishProduct .loanuse .pl ul{
+	display: none;
+}
+.publishProduct .loanuse .pl .person{
+	display: block;
+}
+.publishProduct textarea{
+	width: 388px;
+	height: 150px;
+	padding: 2px 4px;
+	resize: none;
+}
+.ac_results.per_results {
+	top: initial !important;
+	bottom: -58px !important;
+}

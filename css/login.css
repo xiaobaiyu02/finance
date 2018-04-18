@@ -1,0 +1,99 @@
+label.red{
+	position: relative;
+}
+label.red:before{
+	content: "*";
+	position: absolute;
+	top: 2px;
+	left: -8px;
+	color: #ff0000;
+}
+body{
+	background-color: #f5f5f5;
+}
+.hea{
+	background-color: #fff;
+}
+.login{
+	width: 980px;
+	height: 471px;
+	background: url(../images/login_bg.png) 0 bottom no-repeat;
+	margin: 30px auto;
+	text-align: right;
+	position: relative;
+}
+.form_login:before{
+	content: url(../images/money.png);
+	position: absolute;
+	z-index: 99;
+	top: -95px;
+	left: -27px;
+}
+.form_login{
+	position: absolute;
+	bottom: 30px;
+	right: 12px;
+	padding: 30px 40px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background-color: #fff;
+}
+.form_login h1{
+	text-align: center;
+	font-size: 20px;
+	font-weight: normal;
+	margin-bottom: 24px;
+}
+.form_login label{
+	display: inline-block;
+	width: 72px;
+	font-size: 16px;
+	color: #333;
+	text-align: left;
+}
+.form_login input[type="text"],.form_login input[type="password"]{
+	display: inline-block;
+	width: 255px;
+	height: 26px;
+	padding: 2px 4px;
+	border: 1px solid #77a4e2;
+	font-size: 14px;
+}
+.form_login .Validform_checktip{
+	display: block;
+	text-align: left;
+	margin-left: 75px;
+}
+.form_login li{
+	margin-bottom: 8px;
+	text-align: left;
+}
+.form_login label[for="rememberName"]{
+	width: auto;
+	font-size: 14px;
+}
+.form_login .registerd{
+	margin-right: 10px;
+}
+.form_login .registerd,.form_login .forget{
+	float: right;
+	font-size: 14px;
+}
+.form_login .registerd:hover,.form_login .forget:hover{
+	text-decoration: underline;
+}
+.form_login input[type="submit"]{
+	font-size: 18px;
+	color: #fff;
+	background-color: #ba1b20;
+	border-radius: 4px;
+	font-family: "微软雅黑";
+	padding: 10px 0;
+	border: 0;
+	margin: 20px 0;
+	width: 99%;
+}
+.form_login input[type="submit"]:hover{
+	cursor: pointer;
+	background-color: #b73337;
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../kindeditor/kindeditor-min.js"></script>
+	<script type="text/javascript" src="../kindeditor/lang/zh_CN.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="../kindeditor/themes/default/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/infor.css" />
+	<link rel="stylesheet" type="text/css" href="../css/member_left.css" />
+	<script type="text/javascript">
+		KindEditor.ready(function(K) {
+			var uploadbutton1 = K.uploadbutton({
+				button : K('#companylogo')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_companylogo').html('');
+					if (data.error === 0) {
+						K('input[name="companylogo"]').val(data.url);
+						K('#upload_companylogo').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton1.fileBox.change(function(e) {
+				uploadbutton1.submit();
+			});
+		});
+		KindEditor.ready(function(K) {
+			var uploadbutton2 = K.uploadbutton({
+				button : K('#front')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_front').html('');
+					if (data.error === 0) {
+						K('input[name="front"]').val(data.url);
+						K('#upload_front').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton2.fileBox.change(function(e) {
+				uploadbutton2.submit();
+			});
+		});
+		KindEditor.ready(function(K) {
+			var uploadbutton3 = K.uploadbutton({
+				button : K('#reverse')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_reverse').html('');
+					if (data.error === 0) {
+						K('input[name="reverse"]').val(data.url);
+						K('#upload_reverse').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton3.fileBox.change(function(e) {
+				uploadbutton3.submit();
+			});
+		});
+		KindEditor.ready(function(K) {
+			var uploadbutton3 = K.uploadbutton({
+				button : K('#license')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_license').html('');
+					if (data.error === 0) {
+						K('input[name="license"]').val(data.url);
+						K('#upload_license').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton3.fileBox.change(function(e) {
+				uploadbutton3.submit();
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			$(".member .left ul li a").click(function(){
+				if($(this).siblings("ul").css("display")=="block")
+					$(this).siblings("ul").slideUp();
+				else
+					$(this).siblings("ul").slideDown();
+			})
+			$(".form_person").Validform({
+				tiptype:3,
+				datatype:{
+					"idcard":function(gets,obj,curform,datatype){
+					
+						var Wi = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 ];// 加权因子;
+						var ValideCode = [ 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];// 身份证验证位值，10代表X;
+					
+						if (gets.length == 15) {   
+							return isValidityBrithBy15IdCard(gets);   
+						}else if (gets.length == 18){   
+							var a_idCard = gets.split("");// 得到身份证数组   
+							if (isValidityBrithBy18IdCard(gets)&&isTrueValidateCodeBy18IdCard(a_idCard)) {   
+								return true;   
+							}   
+							return false;
+						}
+						return false;
+						
+						function isTrueValidateCodeBy18IdCard(a_idCard) {   
+							var sum = 0; // 声明加权求和变量   
+							if (a_idCard[17].toLowerCase() == 'x') {   
+								a_idCard[17] = 10;// 将最后位为x的验证码替换为10方便后续操作   
+							}   
+							for ( var i = 0; i < 17; i++) {   
+								sum += Wi[i] * a_idCard[i];// 加权求和   
+							}   
+							valCodePosition = sum % 11;// 得到验证码所位置   
+							if (a_idCard[17] == ValideCode[valCodePosition]) {   
+								return true;   
+							}
+							return false;   
+						}
+						
+						function isValidityBrithBy18IdCard(idCard18){   
+							var year = idCard18.substring(6,10);   
+							var month = idCard18.substring(10,12);   
+							var day = idCard18.substring(12,14);   
+							var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));   
+							if(temp_date.getFullYear()!=parseFloat(year) || temp_date.getMonth()!=parseFloat(month)-1 || temp_date.getDate()!=parseFloat(day)){   
+								return false;   
+							}
+							return true;   
+						}
+						
+						function isValidityBrithBy15IdCard(idCard15){   
+							var year =  idCard15.substring(6,8);   
+							var month = idCard15.substring(8,10);   
+							var day = idCard15.substring(10,12);
+							var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));    
+							if(temp_date.getYear()!=parseFloat(year) || temp_date.getMonth()!=parseFloat(month)-1 || temp_date.getDate()!=parseFloat(day)){   
+								return false;   
+							}
+							return true;
+						}	
+					}
+				}
+			});
+
+		});
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" class="active">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	
+	<div class="member">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="member.html">会员中心</a>
+				</li>
+				<li>
+					<a href="business.html">推荐查看</a>
+				</li>
+				<li>
+					<a href="mypublish.html">我发布的项目</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="active">我的账户</a>
+					<ul>
+						<li><a href="person.html">基本资料</a></li><li><a href="company.html" class="underline">企业资料</a></li>
+						<!--如果注册时是 我要借款——>个人,则只要<li><a href="person.html" class="underline">基本资料</a></li>-->
+						<!--如果注册时是 我要借款——>企业,则只要<li><a href="company.html" class="underline">企业资料</a></li>-->
+						<li><a href="security.html">安全认证</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0)">增值服务</a>
+					<ul>
+						<li><a href="">产品推广</a></li>
+						<li><a href="">财富管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">帮助中心</a>
+				</li>
+			</ul>
+		</div><div class="right">
+			<div class="right_header">
+				<h1>企业资料</h1><span>&nbsp;&nbsp;&nbsp;&nbsp;/ Corporate Information</span>
+				<a href="publishProject.html">发布项目</a>
+			</div>
+			<div class="infor_person">
+				<form action="" method="post" class="form_person">
+					<ul>
+						<li>
+							<div class="pl">
+								<div class="imgholder" id="upload_companylogo"><img src="../images/companylogo.jpg" alt=""></div>
+								<div class="tip">
+									<input type="button" value="上传图像" id="companylogo"/>
+									<input type="hidden" name="companylogo"  value="" readonly="readonly"/>
+									<p class="tips">支持的图片格式：GIF、JPG、JPEG、PNG，为了最佳显示效果，<br>建议您选择120*75像素 </p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<label class="red">法人真实姓名：</label>
+							<input type="text" value="张小三" datatype="s" nullmsg="请填写法人真实姓名">
+						</li>
+						<li>
+							<label for="idnumber" class="red">法人身份证号：</label>
+							<input type="text" id="idnumber" value="420529197606282904" datatype="idcard" nullmsg="请填写身份证号">
+						</li>
+						<li>
+							<label for="certify" class="red">法人证件上传：</label>
+							<div  class="pl">
+								<div>
+									<input type="button" value="上传图像" id="front"/> 
+                    				<input type="hidden" name="front"  value="" readonly="readonly"  datatype="*" nullmsg="请上传法人身份证正面照"/>
+								</div>
+								<div class="imgholder" id="upload_front"><img src=""><div>请上传法人身份证正面照</div></div>
+								<div>
+									<input type="button" value="上传图像" id="reverse"/> 
+                    				<input type="hidden" name="reverse"  value="" readonly="readonly"  datatype="*" nullmsg="请上传法人身份证反面照"/>
+								</div>
+								<div class="imgholder" id="upload_reverse"><img src=""><div>请上传法人身份证反面照</div></div>
+							</div>
+						</li>
+						<li>
+							<label for="type" class="red">企业类型：</label>
+							<select name="type" id="type" datatype="*" nullmsg="请选择企业类型">
+								<option value="">请选择...</option>
+								<option value="1">个人独资企业</option>
+								<option value="2">合伙企业</option>
+								<option value="3">公司企业</option>
+							</select>
+						</li>
+						<li>
+							<label for="email">电子邮箱：</label>
+							<input type="text" id="email" value="wuhan001@163.com" datatype="e" nullmsg="请填写电子邮箱" errormsg="请填写正确的邮箱格式">
+						</li>
+						<li>
+							<label for="companyname" class="red">企业名称：</label>
+							<input type="text" id="companyname" value="神马都是否晕" datatype="*" nullmsg="请填写企业名称">
+						</li>
+						<li>
+							<label for="num" class="red">企业注册号：</label>
+							<input type="text" id="num" value="12345678" datatype="*" nullmsg="请填写企业注册号">
+						</li>
+						<li>
+							<label for="license" class="red">营业执照上传：</label>
+							<div  class="pl">
+								<div>
+									<input type="button" value="上传图像" id="license"/> 
+                    				<input type="hidden" name="front"  value="" readonly="readonly"  datatype="*" nullmsg="请上传营业执照"/>
+								</div>
+								<div class="imgholder" id="upload_license"><img src="../images/license.jpg"><div>企业法人营业执照</div></div>
+							</div>							
+						</li>
+						<li>
+							<label for="address" class="red">企业地址：</label>
+							<input type="text" id="address" value="湖北省武汉市江夏区脂肪路101号" datatype="*" nullmsg="请填写营业地址">
+						</li>
+						<li class="intro">
+							<label for="intro">企业介绍：</label>
+							<textarea name="intro" id="intro">我公司是上市公司，先资金短缺</textarea>
+						</li>
+						<li>
+							<label></label>
+							<input type="submit" value="提 交">
+						</li>
+					</ul>
+				</form>
+			</div>
+
+	</div>
+
+
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+
+</body>
+</html>

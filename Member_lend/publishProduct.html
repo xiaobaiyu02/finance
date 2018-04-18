@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../kindeditor/kindeditor-min.js"></script>
+	<script type="text/javascript" src="../kindeditor/lang/zh_CN.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="../kindeditor/themes/default/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/infor.css" />
+	<link rel="stylesheet" type="text/css" href="../css/member_left.css" />
+	<script type="text/javascript">
+		KindEditor.ready(function(K) {
+			var uploadbutton1 = K.uploadbutton({
+				button : K('#productlogo')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_productlogo').html('');
+					if (data.error === 0) {
+						K('input[name="productlogo"]').val(data.url);
+						K('#upload_productlogo').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton1.fileBox.change(function(e) {
+				uploadbutton1.submit();
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			$(".member .left ul li a").click(function(){
+				if($(this).siblings("ul").css("display")=="block")
+					$(this).siblings("ul").slideUp();
+				else
+					$(this).siblings("ul").slideDown();
+			})
+			
+			$(".publishProduct").Validform({
+				tiptype:3
+			});
+
+			$(".quotasto,.quotasfrom").blur(function(){
+				if(parseFloat($(".quotasfrom").val())>parseFloat($(".quotasto").val()))
+					$(".lendquotas .Validform_checktip").addClass("Validform_wrong").text("最低额度应小于最高额度");
+			})
+			$(".rateto,.ratefrom").blur(function(){
+				if(parseFloat($(".ratefrom").val())>parseFloat($(".rateto").val()))
+					$(".prorate .Validform_checktip").addClass("Validform_wrong").text("最小利率应小于最大利率");
+			})
+			$("select[name='rate']").click(function(){
+				if($("#rate option[value='1']:selected").length>0||$("#rate option[value='2']:selected").length>0)
+				{
+					$(".prorate input").attr("datatype","/^\\d+\\.\\d{2}$/");
+					$(".prorate input").removeAttr("readonly");
+				}
+				else if($("#rate option[value='3']:selected").length>0){
+					$(".prorate input").removeAttr("datatype");
+					$(".prorate input").attr("readonly","readonly");
+					$(".prorate input[type='text']").val("");
+				}
+			})
+			$(".from").click(function(){
+				if($(".from option[value='1']:selected").length>0)
+				{
+					$(".to option").css("display",'none');
+					$(".to option[value='1']").css("display",'block');
+				}
+				if($(".from option[value='2']:selected").length>0)
+				{
+					$(".to option").css("display",'block');
+					$(".to option[value='1']").css("display",'none');
+				}
+				if($(".from option[value='3']:selected").length>0)
+				{
+					$(".to option").css("display",'block');
+					$(".to option[value='1'],.to option[value='2']").css("display",'none');
+				}
+				if($(".from option[value='4']:selected").length>0)
+				{
+					$(".to option").css("display",'block');
+					$(".to option[value='1'],.to option[value='2'],.to option[value='3']").css("display",'none');
+				}
+				if($(".from option[value='5']:selected").length>0)
+				{
+					$(".to option").css("display",'block');
+					$(".to option[value='1'],.to option[value='2'],.to option[value='3'],.to option[value='4']").css("display",'none');
+				}
+				if($(".from option[value='6']:selected").length>0)
+				{
+					$(".to option").css("display",'none');
+					$(".to option[value='6'],.to option[value='7'],.to option[value='8'],.to option[value='9']").css("display",'block');
+				}
+				if($(".from option[value='7']:selected").length>0)
+				{
+					$(".to option").css("display",'none');
+					$(".to option[value='7'],.to option[value='8'],.to option[value='9']").css("display",'block');
+				}
+				if($(".from option[value='8']:selected").length>0)
+				{
+					$(".to option").css("display",'none');
+					$(".to option[value='8'],.to option[value='9']").css("display",'block');
+				}
+				if($(".from option[value='9']:selected").length>0)
+				{
+					$(".to option").css("display",'none');
+					$(".to option[value='9']").css("display",'block');
+				}
+				
+			})
+			
+			$(".checkall input").click(function(){
+				if($(".checkall input:checked").length>0)
+					$(".place .pl ul input").attr("checked","checked");
+				else
+					$(".place .pl ul input").removeAttr("checked");
+			})
+
+			$(".place .pl ul input").click(function(){
+				if($(".place .pl ul input:checked").length!=$(".place .pl ul input").length)
+					$(".checkall input").removeAttr("checked");
+				else
+					$(".checkall input").attr("checked","checked");
+			})
+
+			$("select[name='people']").click(function(){
+				if($("select[name='people'] option[value='1']:selected").length>0){
+					$(".loanuse .pl ul").hide();
+					$(".loanuse .pl .person").show();
+					$(".loanuse .pl .person input").attr("datatype","*");
+					$(".loanuse .pl .company input").removeAttr("checked").removeAttr("datatype");
+					$(".loanuse .pl .company .Validform_checktip").removeAttr("class").addClass("Validform_checktip").text("");
+					$(".checkuse input").removeAttr("checked");
+				}
+			})
+			$("select[name='people']").click(function(){
+				if($("select[name='people'] option[value='2']:selected").length>0){
+					$(".loanuse .pl ul").hide();
+					$(".loanuse .pl .company").show();
+					$(".loanuse .pl .company input").attr("datatype","*");
+					$(".loanuse .pl .person input").removeAttr("checked").removeAttr("datatype");
+					$(".loanuse .pl .person .Validform_checktip").removeAttr("class").addClass("Validform_checktip").text("");
+					$(".checkuse input").removeAttr("checked");
+				}
+			})
+			$(".checkuse input").click(function(){
+				if($(".checkuse input:checked").length>0)
+					$(".loanuse .pl ul input").attr("checked","checked");
+				else
+					$(".loanuse .pl ul input").removeAttr("checked");
+			})
+			$(".loanuse .pl ul input").click(function(){
+				if($(".loanuse .pl ul input:checked").length!=$(".loanuse .pl ul input").length)
+					$(".checkuse input").removeAttr("checked");
+				else
+					$(".checkuse input").attr("checked","checked");
+			})
+
+
+		});
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" class="active">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	
+	<div class="member">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="">会员中心</a>
+				</li>
+				<li>
+					<a href="">推荐查看</a>
+				</li>
+				<li>
+					<a href="">我发布的产品</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">我的账户</a>
+					<ul>
+						<li><a href="">基本资料</a></li><li><a href="company.html">企业资料</a></li>
+						<!--如果注册时是 我要借款——>个人,则只要<li><a href="person.html">基本资料</a></li>-->
+						<!--如果注册时是 我要借款——>企业,则只要<li><a href="company.html">企业资料</a></li>-->
+						<li><a href="">安全认证</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0)">增值服务</a>
+					<ul>
+						<li><a href="">产品推广</a></li>
+						<li><a href="">财富管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">帮助中心</a>
+				</li>
+			</ul>
+		</div><div class="right">
+			<div class="right_header">
+				<h1>发布贷款产品</h1><span>&nbsp;&nbsp;&nbsp;&nbsp;/ Published loan products</span>
+			</div>
+			<div class="infor_person publishProduct">
+				<form action="" method="post">
+					<ul>
+						<li>
+							<label class="red"> 产品LOGO：</label>
+							<div class="pl">
+								<div class="imgholder" id="upload_productlogo"><img src="../images/product_logo.jpg" alt=""></div>
+								<div class="tip">
+									<input type="button" value="上传图像" id="productlogo"/>
+									<input type="hidden" name="productlogo"  value="" readonly="readonly"/>
+									<p class="tips">支持的图片格式：GIF、JPG、JPEG、PNG，为了最佳显示效果，<br>建议您选择<em>160*75</em>像素 </p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<label for="title" class="red">产品标题：</label>
+							<input type="text" id="title" placeholder="6~40字" datatype="s6-40" nullmsg="请填写产品标题">
+						</li>
+						<li class="lendquotas">
+							<label for="much"  class="red">放款额度：</label>
+							<input type="text" class="quotasfrom" datatype="n" nullmsg="请填写放款额度" errormsg="请填写整数" placeholder='只能填写整数'> <span> 万元</span> - <input type="text" class="quotasto" placeholder='只能填写整数' datatype="n" nullmsg="请填写放款额度" errormsg="请填写整数"> <span> 万元</span>
+						</li>
+
+						<li class="prorate">
+							<label for="rate" class="red">产品利率：</label>
+							<select name="rate" id="rate" datatype="*" nullmsg="请选择产品利率">
+								<option value="1">月利率</option>
+								<option value="2">年利率</option>
+								<option value="3">面议</option>
+							</select>
+							<input type="text" class="ratefrom" datatype="/^\d+\.\d{2}$/" nullmsg="请填写利率" errormsg="精确至2位小数,如15.23" placeholder='精确至2位小数'><span> %</span> - <input type="text" class="rateto"  placeholder='精确至2位小数' datatype="/^\d+\.\d{2}$/" nullmsg="请填写放款额度" errormsg="精确至2位小数,如15.23"> <span> %</span>
+
+						</li>
+						<li class="paytime">
+							<label for="paytime" class="red">还款期限：</label>
+							<select name="paytime" class="from" datatype="*" nullmsg="请选择还款期限">
+								<option value="">请选择</option>
+								<option value="1">随借随还</option>
+								<option value="2">1个月</option>
+								<option value="3">3个月</option>
+								<option value="4">6个月</option>
+								<option value="5">12个月</option>
+								<option value="6">2年</option>
+								<option value="7">3年</option>
+								<option value="8">5年</option>
+								<option value="9">10年</option>
+							</select> - 
+							<select name="paytime" class="to" datatype="*" nullmsg="请选择还款期限">
+								<option value="">请选择</option>
+								<option value="1">随借随还</option>
+								<option value="2">1个月</option>
+								<option value="3">3个月</option>
+								<option value="4">6个月</option>
+								<option value="5">12个月</option>
+								<option value="6">2年</option>
+								<option value="7">3年</option>
+								<option value="8">5年</option>
+								<option value="9">10年</option>
+							</select>
+						</li>
+						<li class="lendTime">
+							<label for="lendtime" class="red">放款期限：</label>
+							<input type="text" id="lendtime" datatype="n" nullmsg="请填写放款期限"><span> 个工作日</span>
+						</li>
+						<li>
+							<label class="red">还款方式：</label>
+							<select name="paytype" id="paytype" datatype="*" nullmsg="请选择还款方式">
+								<option value="">请选择</option>
+								<option value="1">分期还款</option>
+								<option value="2">到期还款</option>
+								<option value="3">随借随还</option>
+								<option value="4">等额本息</option>
+								<option value="5">面议</option>
+							</select>
+						</li>
+						<li class="place">
+							<label class="red">针对地区：</label>
+							<div class="pl">
+								<div class="checkall"><input type="checkbox">全选</div>
+								<ul>
+									<li><input type="checkbox" name="place" value="" datatype="*" nullmsg="请选择针对地区">武昌</li><li><input type="checkbox" name="place" value="">洪山</li><li><input type="checkbox" name="place" value="">黄陂</li><li><input type="checkbox" name="place" value="">江岸</li><li><input type="checkbox" name="place" value="">汉阳</li><li><input type="checkbox" name="place" value="">江夏</li><li><input type="checkbox" name="place" value="">硚口</li><li><input type="checkbox" name="place" value="">青山</li><li><input type="checkbox" name="place" value="">东西湖</li><li><input type="checkbox" name="place" value="">武汉周边</li><li><input type="checkbox" name="place" value="">沌口开发区</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<label class="red">贷款类型：</label>
+							<select name="loantype" id="loantype" datatype="*" nullmsg="请选择贷款类型">
+								<option value="">请选择</option>
+								<option value="1">信用贷款</option>
+								<option value="2">车辆抵押贷款</option>
+								<option value="3">房屋抵押贷款</option>
+								<option value="4">实物抵押贷款</option>
+								<option value="5">其他抵押贷款</option>
+							</select>
+						</li>
+						<li>
+							<label class="red">针对人群：</label>
+							<select name="people" id="people" datatype="*" nullmsg="请选择针对人群">
+								<option value="1" selected="selected">个人</option>
+								<option value="2">企业</option>
+							</select>
+						</li>
+						<li class="loanuse">
+							<label class="red">贷款用途：</label>
+							<div class="pl">
+								<div class="checkuse"><input type="checkbox">全选</div>
+								<ul class="person">
+									<li><input type="checkbox" name="person" value=""  datatype="*" nullmsg="请选择个人贷款用途">创业贷款</li><li><input type="checkbox" name="person" value="">购房贷款</li><li><input type="checkbox" name="person" value="">买车贷款</li><li><input type="checkbox" name="person" value="">经营贷款</li><li><input type="checkbox" name="person" value="">装修贷款</li><li><input type="checkbox" name="person" value="">结婚贷款</li><li><input type="checkbox" name="person" value="">旅游贷款</li><li><input type="checkbox" name="person" value="">求学贷款</li><li><input type="checkbox" name="person" value="">购物贷款</li><li><input type="checkbox" name="person" value="">武汉周边</li><li><input type="checkbox" name="person" value="">其他贷款</li>
+								</ul>
+								<ul class="company">
+									<li><input type="checkbox" name="company" value="" datatype="*" nullmsg="请选择企业贷款用途">流动资金贷款</li><li><input type="checkbox" name="company" value="">购买设备贷款</li><li><input type="checkbox" name="company" value="">厂房建设贷款</li><li><input type="checkbox" name="company" value="">竞标投贷款</li><li><input type="checkbox" name="company" value="">其他</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<label for="prointro">产品介绍：</label>
+							<textarea name="prointro" id="prointro" cols="30" rows="10" maxlength="500" placeholder="您最多可输入500字"></textarea>
+						</li>
+						<li>
+							<label for="applycondition">申请条件：</label>
+							<textarea name="applycondition" id="applycondition" cols="30" rows="10" maxlength="500" placeholder="您最多可输入500字"></textarea>
+						</li>
+						<li>
+							<label for="data">所需材料：</label>
+							<textarea name="data" id="data" cols="30" rows="10" maxlength="500" placeholder="您最多可输入500字"></textarea>
+						</li>
+						<li>
+							<label></label>
+							<input type="submit" value="提 交">
+						</li>
+					</ul>
+				</form>
+			</div>
+
+	</div>
+
+
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+
+</body>
+</html>

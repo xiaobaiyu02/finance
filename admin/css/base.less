@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+/* 宽度 */
+@width-left: 240px;
+
+/* 高度 */
+@height-nav: 60px;
+
+/* 填充边距 */
+@px-5: 5px;
+@px-10: 10px;
+@px-20: 20px;
+@px-50: 50px;
+
+/* 字体 */
+@family: "Microsoft YaHei";
+@ft-s-12: 12px;
+@ft-s-14: 14px;
+@ft-s-16: 16px;
+@ft-w-b: bold;
+@ft-w-n: normal;
+@ft-c-fff: #ffffff;
+@ft-c-333: #333333;
+
+
+/* 背景图标 */
+@bg-icon: url(images/icon.png);
+
+/* 颜色 */
+@color-1:#435472;
+@color-2:#3e4c67;
+@color-3:#dbe8f5;
+@color-4:#d4eaff;
+@color-5:#b7c9da;
+@color-6:#a6b4c1;
+@color-7:#eeeeee;
+@color-8:#aaaaaa;
+@color-9:#ffffff;
+@color-10:#284866;
+@color-11:#cccccc;
+@color-12:#537799;
+@color-13:#0b3b6b;
+@color-14:#0d4680;
+@color-15:#fa9233;
+@color-btnBlue-1:#2e8ae5;
+@color-btnBlue-2:#2673bf;
+@color-btnRed-1:#e5635c;
+@color-btnRed-2:#cc5852;
+@color-btnOrange-1:#fa9233;
+@color-btnOrange-2:#e5872e;
+
+/* 浮动 */
+@fl: left;
+@fr: right;
+@fn: none;
+
+/* border-radius */
+.borderRadius(@radius){ 
+ -moz-border-radius: @radius; 
+ -webkit-border-radius: @radius; 
+ border-radius: @radius; 
+ }
+ 
+/* border */
+.borderAll(@width,@color){
+    border: @width @color solid;
+}
+.border(@width,@color,@position){
+    border-@{position}: @width @color solid;
+}
+
+/* position */
+.position(@p-style,@p-x,@p-y,@num-x,@num-y){
+    position: @p-style;
+    @{p-x}: @num-x;
+    @{p-y}: @num-y;
+}
+
+/* base css */
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, iframe { margin: 0; padding: 0; }
+body, input, textarea, select, button, table { font:@ft-s-12/1.25em 'microsoft yahei', Verdana, Arial, Helvetica, sans-serif; }
+body { min-width: 1000px; background: @color-9; color: #333333;}
+
+img, iframe { border: none; display: inline-block; }
+a { text-decoration: none; }
+a, input, button, iframe { outline: none; }
+::-moz-focus-inner { border: 0px; }
+ul, ol { list-style: none; }
+em { font-style: normal; }
+
+.fl { float: @fl;}
+.fr { float: @fr;}
+.fn { float: @fn;}
+
+
+.width_100 { width: 100%; }
+.width_50 { width: 50%; }
+
+/* clear float */
+.clearfix:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+*html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+/* input button */
+input, select, textarea, button { border: none; background: none; padding-left: @px-5; height: 22px; .borderRadius(3px); vertical-align: top; }
+select { height: 24px; padding-left: 0; }
+input[type="submit"],input[type="reset"], input[type="button"], button { cursor: pointer; padding: 0 @px-20; height: 30px; color: @color-9;}
+input[type="checkbox"] { height: 16px; line-height: 16px;}
+input[readonly="readonly"],input[readonly="true"],input[disabled="disabled"],input[disabled="true"]{cursor: not-allowed;background-color: #eee;opacity: 1}
+button { *padding: 0 @px-5 @px-5 @px-5; *margin-right: @px-5;}
+select,textarea,input[type="text"],input[type="password"] { .borderAll(1px,@color-6);}
+select { }
+.resetGray { background: #bbbbbb; &:hover{ background: #999999;}}
+.selectBlue { .borderAll(1px,@color-6); }
+.submitBlue { background: @color-btnBlue-1; &:hover{ background: @color-btnBlue-2;}}
+.buttonBlue { background: @color-btnBlue-1; &:hover{ background: @color-btnBlue-2;}}
+.buttonRed { background: @color-btnRed-1; &:hover{ background: @color-btnRed-2;}}
+.submitGray { background: #999999; &:hover{ background: #777777;}}
+.buttonOrange { background: @color-btnOrange-1; &:hover{ background: @color-btnOrange-2;} }
+.submitOrange { background: @color-btnOrange-1; &:hover{ background: @color-btnOrange-2;} }
+
+/* table */
+table { width: 100%; text-align: left;}
+table th, table td { .borderAll(1px,@color-5); .border(0px,@color-5,top); padding: @px-10; text-align: left; word-wrap: break-word; break-word: break-all; }
+table th { .border(0,@color-5,top);}
+table th:first-child, table td:first-child { width: 30px;}
+
+/* header */
+.header { width: 100%; height: @height-nav; background: @color-1; border-bottom: 3px @color-15 solid; }
+.logo { width: 240px; height: @height-nav; }
+.logo a { display: inline-block; overflow: hidden; .logo; }
+.logo img { width: 160px; margin: 0 40px; color: #ffffff; font-size: @ft-s-16 + 4; text-align: center; line-height: @height-nav; background: @color-1; }
+
+/* nav */
+.header_r a { display: inline-block; line-height: @height-nav; height: @height-nav; font-size: @ft-s-14; color: #ffffff; padding: 0 @px-20; }
+.nav { margin-left: @px-20; height: @height-nav; overflow: hidden; }
+.nav .a_click { color: @color-15; background: @color-2; }
+.nav a:hover { .nav .a_click; background: @color-2; }
+.nav li,.nav a { .position(relative,left,top,0,0);}
+.nav .iconfont { .position(absolute,left,bottom,20px,0px); *bottom:0px; line-height: 6px; color: @color-15; font-size: @ft-s-16 + 2; }
+.nav a .iconfont { .position(absolute,left,bottom,20px,0px); *bottom:0px; }
+.user { margin-right: @px-10; }
+.user a { padding: 0 @px-10; &:hover { color: #8cb1e5; } }
+.user .iconfont { margin-right: @px-10; font-size: @ft-s-16 + 2;}
+
+/* left */
+.left { width: @width-left; height: auto; margin-right: @px-20; border-right: 1px @color-5 solid; border-bottom: 1px @color-5 solid; background: #eeeeee; }
+.menu li { font-size: @ft-s-14; cursor: pointer; height: auto; }
+.menu a { .border(1px,@color-5,bottom); color: #333333; display: block; width: @width-left - @px-20 * 3; padding: 0 @px-20 + 20 0 @px-20; height: 40px; line-height: 40px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menu a:hover { background: #ffffff; color: @color-15;}
+.menu .a_1 { position: relative; }
+.menu .a_1 .arrow { position: absolute; right: @px-5; }
+.menu .iconfont { color: #999999; margin-right: @px-10; font-size: @ft-s-16; text-indent: 0; }
+.menu .iconfont_active { color: @color-15;}
+.submenu { display: none;}
+.submenu li { .border(0px,@color-5,bottom); }
+.submenu a { background: #dbe8f5; width: @width-left - @px-20 * 4; padding-left: @px-20 * 2; }
+.submenu .a_active { background: #ffffff; color: @color-15; border-right: 1px #ffffff solid; }
+
+/* footer */
+.footer { padding: 40px 0;}
+.footer p { font-size: @ft-s-16; text-align: center; line-height: 1.25em; color: #333333;}

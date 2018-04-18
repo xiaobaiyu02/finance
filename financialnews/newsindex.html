@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+
+	<script type="text/javascript" src="../js/jquery.flexslider-min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/flexslider.css" />
+	<link rel="stylesheet" type="text/css" href="../css/newsindex.css" />
+	<script>
+		function changea(id){
+			$(".carloan h2 span").removeClass("active");
+			$(".carloan_nav"+id).addClass("active");
+			$(".carloan ul").hide();
+			$(".carloan_section"+id).show();
+		}
+		function changeb(id){
+			$(".investproduct h2 span").removeClass("active");
+			$(".investproduct_nav"+id).addClass("active");
+			$(".investproduct ul").hide();
+			$(".investproduct_section"+id).show();
+		}
+		function changec(id){
+			$(".bank h2 span").removeClass("active");
+			$(".bank_nav"+id).addClass("active");
+			$(".bank ul").hide();
+			$(".bank_section"+id).show();
+		}
+		function changed(id){
+			$(".houseloan h2 span").removeClass("active");
+			$(".houseloan_nav"+id).addClass("active");
+			$(".houseloan ul").hide();
+			$(".houseloan_section"+id).show();
+		}
+
+		$(function(){
+			$('.flexslider').flexslider();
+		})
+
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" >首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html" class="active">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	<div class="banner">
+		<div class="flexslider">
+			<ul class="slides">
+				<li><img src="../images/banner1_loanindex.jpg" alt=""></li><li><img src="../images/investbanner1.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="content">
+		<div>
+			<div class="ads">
+				<a href=""><img src="../images/ad1.jpg" alt=""></a><a href=""><img src="../images/ad2.jpg" alt=""></a>
+			</div>
+			<div class="carloan">
+				<h2><span class="carloan_nav1 active" onmouseover=changea(1)>汽车</span><span class="carloan_nav2" onmouseover=changea(2)>新车</span><span class="carloan_nav3" onmouseover=changea(3)>购车</span><a href="">汽车贷款</a></h2>
+				<ul class="carloan_section1">
+					<div class="example_pic"><a href=""><img src="../images/picture1.jpg" alt=""></a><a href=""><img src="../images/picture2.jpg" alt=""></a></div>
+					<li><a href="">1别克昂科威售26.99-34.99万/评测</a></li>
+					<li><a href="">比亚迪S7上市 售11.99-13.99万元</a></li>
+					<li><a href="">三国杀 ix25/昂科拉/2008全面PK</a></li>
+					<li><a href="">全新奔驰GLA SUV预售价29-40万元</a></li>
+					<li><a href="">别克昂科威售26.99-34.99万/评测</a></li>
+					<li><a href="">比亚迪S7上市 售11.99-13.99万元</a></li>
+					<li><a href="">三国杀 ix25/昂科拉/2008全面PK</a></li>
+					<li><a href="">全新奔驰GLA SUV预售价29-40万元</a></li>
+					<li><a href="">奔驰S级迈巴赫匹敌宾利价超200万 宾利豪华SUV谍照</a></li>
+					<li><a href="">新帕萨特将推CC与Alltrack版 奇瑞新A0级车11月上市</a></li>
+					<li><a href="">凯美瑞搭载2.0T竞争迈腾 奔驰C级敞篷版尾部类似S级</a></li>
+					<li><a href="">陆风X5死磕哈弗H6 试驾新BMW i8 新宝马X1内饰谍照</a></li>
+					<li><a href="">2万台二手好车随心选 二手奥迪A4最低12.2万</a></li>
+					<li><a href="">二手奔驰C最低12万 二手宝马3最低10万</a></li>
+				</ul>
+				<ul class="carloan_section2">
+					<div class="example_pic"><a href=""><img src="../images/picture1.jpg" alt=""></a><a href=""><img src="../images/picture2.jpg" alt=""></a></div>
+					<li><a href="">2别克昂科威售26.99-34.99万/评测</a></li>
+					<li><a href="">比亚迪S7上市 售11.99-13.99万元</a></li>
+					<li><a href="">三国杀 ix25/昂科拉/2008全面PK</a></li>
+					<li><a href="">全新奔驰GLA SUV预售价29-40万元</a></li>
+					<li><a href="">别克昂科威售26.99-34.99万/评测</a></li>
+					<li><a href="">比亚迪S7上市 售11.99-13.99万元</a></li>
+					<li><a href="">三国杀 ix25/昂科拉/2008全面PK</a></li>
+					<li><a href="">全新奔驰GLA SUV预售价29-40万元</a></li>
+					<li><a href="">奔驰S级迈巴赫匹敌宾利价超200万 宾利豪华SUV谍照</a></li>
+					<li><a href="">新帕萨特将推CC与Alltrack版 奇瑞新A0级车11月上市</a></li>
+					<li><a href="">凯美瑞搭载2.0T竞争迈腾 奔驰C级敞篷版尾部类似S级</a></li>
+					<li><a href="">陆风X5死磕哈弗H6 试驾新BMW i8 新宝马X1内饰谍照</a></li>
+					<li><a href="">2万台二手好车随心选 二手奥迪A4最低12.2万</a></li>
+					<li><a href="">二手奔驰C最低12万 二手宝马3最低10万</a></li>
+				</ul>
+				<ul  class="carloan_section3">
+					<div class="example_pic"><a href=""><img src="../images/picture1.jpg" alt=""></a><a href=""><img src="../images/picture2.jpg" alt=""></a></div>
+					<li><a href="">3别克昂科威售26.99-34.99万/评测</a></li>
+					<li><a href="">比亚迪S7上市 售11.99-13.99万元</a></li>
+					<li><a href="">三国杀 ix25/昂科拉/2008全面PK</a></li>
+					<li><a href="">全新奔驰GLA SUV预售价29-40万元</a></li>
+					<li><a href="">别克昂科威售26.99-34.99万/评测</a></li>
+					<li><a href="">比亚迪S7上市 售11.99-13.99万元</a></li>
+					<li><a href="">三国杀 ix25/昂科拉/2008全面PK</a></li>
+					<li><a href="">全新奔驰GLA SUV预售价29-40万元</a></li>
+					<li><a href="">奔驰S级迈巴赫匹敌宾利价超200万 宾利豪华SUV谍照</a></li>
+					<li><a href="">新帕萨特将推CC与Alltrack版 奇瑞新A0级车11月上市</a></li>
+					<li><a href="">凯美瑞搭载2.0T竞争迈腾 奔驰C级敞篷版尾部类似S级</a></li>
+					<li><a href="">陆风X5死磕哈弗H6 试驾新BMW i8 新宝马X1内饰谍照</a></li>
+					<li><a href="">2万台二手好车随心选 二手奥迪A4最低12.2万</a></li>
+					<li><a href="">二手奔驰C最低12万 二手宝马3最低10万</a></li>
+				</ul>
+			</div>
+			<div class="investproduct">
+				<h2><span class="investproduct_nav1 active" onmouseover=changeb(1)>财经</span><span class="investproduct_nav2" onmouseover=changeb(2)>理财</span><span class="investproduct_nav3" onmouseover=changeb(3)>股票</span><a href="">投资产品</a></h2>
+				<ul class="investproduct_section1">
+					<div class="example_pic"><a href=""><img src="../images/picture5.jpg" alt=""></a></div>
+					<li><a href="">1[基金]债基今年净值增长达9.84%</a></li>
+					<li><a href="">基金10月扎堆调研三行业(附股)</a></li>
+					<li><a href="">结构性行情下建议精选主题基金</a></li>
+					<li><a href="">选基金：近3年收益超20%一览</a></li>
+					<li><a href="">[理财]理财有细节：精选资产配置消灭理财空档</a></li>
+					<li><a href="">22日在售高收益银行理财产品重要理财信息汇总</a></li>
+					<li><a href="">名人家里是非多遗嘱不明致名家遗产纷争频发</a></li>
+					<li><a href="">80后牛散操纵长春一东不赚反亏被证监会罚30万</a></li>
+					<li><a href="">房贷松绑20天刺激作用显现北京二手房签约量激增</a></li>
+					<li><a href="">年息118%P2P项目调查：1人注册4域名高息引自融质疑</a></li>
+					<li><a href="">名人家里是非多遗嘱不明致名家遗产纷争频发</a></li>
+					<li><a href="">[外汇]人民币汇率创七个月新高将与美元欧元齐头并进</a></li>
+					<li><a href="">[黄金]金价涨至六周高位 道明证券:金价还有上涨空间</a></li>
+					<li><a href="">[彩票] 司机中奖4000万彩票疑被弟媳偷走2元圆富翁梦</a></li>
+				</ul>
+				<ul class="investproduct_section2">
+					<div class="example_pic"><a href=""><img src="../images/picture5.jpg" alt=""></a></div>
+					<li><a href="">2[基金]债基今年净值增长达9.84%</a></li>
+					<li><a href="">基金10月扎堆调研三行业(附股)</a></li>
+					<li><a href="">结构性行情下建议精选主题基金</a></li>
+					<li><a href="">选基金：近3年收益超20%一览</a></li>
+					<li><a href="">[理财]理财有细节：精选资产配置消灭理财空档</a></li>
+					<li><a href="">22日在售高收益银行理财产品重要理财信息汇总</a></li>
+					<li><a href="">名人家里是非多遗嘱不明致名家遗产纷争频发</a></li>
+					<li><a href="">80后牛散操纵长春一东不赚反亏被证监会罚30万</a></li>
+					<li><a href="">房贷松绑20天刺激作用显现北京二手房签约量激增</a></li>
+					<li><a href="">年息118%P2P项目调查：1人注册4域名高息引自融质疑</a></li>
+					<li><a href="">名人家里是非多遗嘱不明致名家遗产纷争频发</a></li>
+					<li><a href="">[外汇]人民币汇率创七个月新高将与美元欧元齐头并进</a></li>
+					<li><a href="">[黄金]金价涨至六周高位 道明证券:金价还有上涨空间</a></li>
+					<li><a href="">[彩票] 司机中奖4000万彩票疑被弟媳偷走2元圆富翁梦</a></li>
+				</ul>
+				<ul class="investproduct_section3">
+					<div class="example_pic"><a href=""><img src="../images/picture5.jpg" alt=""></a></div>
+					<li><a href="">3[基金]债基今年净值增长达9.84%</a></li>
+					<li><a href="">基金10月扎堆调研三行业(附股)</a></li>
+					<li><a href="">结构性行情下建议精选主题基金</a></li>
+					<li><a href="">选基金：近3年收益超20%一览</a></li>
+					<li><a href="">[理财]理财有细节：精选资产配置消灭理财空档</a></li>
+					<li><a href="">22日在售高收益银行理财产品重要理财信息汇总</a></li>
+					<li><a href="">名人家里是非多遗嘱不明致名家遗产纷争频发</a></li>
+					<li><a href="">80后牛散操纵长春一东不赚反亏被证监会罚30万</a></li>
+					<li><a href="">房贷松绑20天刺激作用显现北京二手房签约量激增</a></li>
+					<li><a href="">年息118%P2P项目调查：1人注册4域名高息引自融质疑</a></li>
+					<li><a href="">名人家里是非多遗嘱不明致名家遗产纷争频发</a></li>
+					<li><a href="">[外汇]人民币汇率创七个月新高将与美元欧元齐头并进</a></li>
+					<li><a href="">[黄金]金价涨至六周高位 道明证券:金价还有上涨空间</a></li>
+					<li><a href="">[彩票] 司机中奖4000万彩票疑被弟媳偷走2元圆富翁梦</a></li>
+				</ul>
+
+			</div>
+		</div>
+		<img src="../images/ad3.jpg" alt="">
+		<div>
+			<div class="ads">
+				<a href=""><img src="../images/ad1.jpg" alt=""></a><a href=""><img src="../images/ad2.jpg" alt=""></a>
+			</div>
+			<div class="bank">
+				<h2><span class="bank_nav1 active" onmouseover=changec(1)>银行</span><a href="">银行产品</a></h2>
+				<ul class="bank_section1">
+					<div class="example_pic"><a href=""><img src="../images/picture3.jpg" alt=""></a></div>
+					<li><a href="">新政松房贷 刚需难觅优惠折扣</a></li>
+					<li><a href="">“一元团购”银行理财产品靠谱吗？</a></li>
+					<li><a href="">加点“洋玩意” 外币理财有门道</a></li>
+					<li><a href="">信用卡没离身被盗刷1.8万</a></li>
+					<li><a href="">“芯”时代将至 银行卡“换卡不换号”难度大</a></li>
+					<li><a href="">银行房贷利率优惠皆有附加条件国有银行更甚</a></li>
+					<li><a href="">银行服务被指不及格六成小微贷款为高利贷</a></li>
+					<li><a href="">前三季上海地区存款由升转降票据直贴逆势增长</a></li>
+					<li><a href="">浙商银行出房贷细则房贷结清买别墅也可享首套政策</a></li>
+					<li><a href="">不良贷款压力加剧三笔坏账击碎信贷主管“行长梦”</a></li>
+					<li><a href="">恒丰银行40亿刚兑门：储户保险箱变股东提款机</a></li>
+					<li><a href="">监管趋严逼退银行资金体内套利创新性产品被叫停</a></li>
+					<li><a href="">美元强势上涨带动外币理财升温</a></li>
+					<li><a href="">存款偏离度监管显效银行转推预约长期型理财品</a></li>
+				</ul>
+			</div>
+			<div class="houseloan">
+				<h2><span class="houseloan_nav1 active" onmouseover=changed(1)>房产</span><span class="houseloan_nav2" onmouseover=changed(2)>家居</span><span class="houseloan_nav3" onmouseover=changed(3)>二手房</span><a href="">房屋贷款</a></h2>
+				<ul class="houseloan_section1">
+					<div class="example_pic"><a href=""><img src="../images/picture4.jpg" alt=""></a></div>
+					<li><a href="">1最新|现在是买房好时机吗？</a></li>
+					<li><a href="">江城置业|0月供以租养贷赚套房</a></li>
+					<li><a href="">独家|胡蕾:踮脚走过地产黄金时代</a></li>
+					<li><a href="">观点|7折房贷为何难产</a></li>
+					<li><a href="">新闻| 楼盘割肉跑量是不差钱武汉两周卖了万套房</a></li>
+					<li><a href="">楼市| 任志强宣布一个月后退休三季度GDP增速7.3%</a></li>
+					<li><a href="">武汉| 湖景房起价仅4880元只用付首付不用还贷款</a></li>
+					<li><a href="">热盘| 相距100米竟然差3000元小鲜肉带你后湖置业</a></li>
+					<li><a href="">要闻| 北京为何不能取消限购天津全面解除楼市限购</a></li>
+					<li><a href="">深度| 冯仑隐退还是投身理想城万达版吉尼斯风暴来袭</a></li>
+					<li><a href="">活动| 移动租售季中国网络经纪人联盟</a></li>
+					<li><a href="">家居| 有必要买儿童专用漆吗165平纯白的梦幻空间</a></li>
+					<li><a href="">新房供暖成难题业主无奈选择租房住</a></li>
+					<li><a href="">创下5年新低专家称基础设施建设是新增长点</a></li>
+				</ul>
+				<ul class="houseloan_section2">
+					<div class="example_pic"><a href=""><img src="../images/picture4.jpg" alt=""></a></div>
+					<li><a href="">2最新|现在是买房好时机吗？</a></li>
+					<li><a href="">江城置业|0月供以租养贷赚套房</a></li>
+					<li><a href="">独家|胡蕾:踮脚走过地产黄金时代</a></li>
+					<li><a href="">观点|7折房贷为何难产</a></li>
+					<li><a href="">新闻| 楼盘割肉跑量是不差钱武汉两周卖了万套房</a></li>
+					<li><a href="">楼市| 任志强宣布一个月后退休三季度GDP增速7.3%</a></li>
+					<li><a href="">武汉| 湖景房起价仅4880元只用付首付不用还贷款</a></li>
+					<li><a href="">热盘| 相距100米竟然差3000元小鲜肉带你后湖置业</a></li>
+					<li><a href="">要闻| 北京为何不能取消限购天津全面解除楼市限购</a></li>
+					<li><a href="">深度| 冯仑隐退还是投身理想城万达版吉尼斯风暴来袭</a></li>
+					<li><a href="">活动| 移动租售季中国网络经纪人联盟</a></li>
+					<li><a href="">家居| 有必要买儿童专用漆吗165平纯白的梦幻空间</a></li>
+					<li><a href="">新房供暖成难题业主无奈选择租房住</a></li>
+					<li><a href="">创下5年新低专家称基础设施建设是新增长点</a></li>
+				</ul>
+				<ul class="houseloan_section3">
+					<div class="example_pic"><a href=""><img src="../images/picture4.jpg" alt=""></a></div>
+					<li><a href="">3最新|现在是买房好时机吗？</a></li>
+					<li><a href="">江城置业|0月供以租养贷赚套房</a></li>
+					<li><a href="">独家|胡蕾:踮脚走过地产黄金时代</a></li>
+					<li><a href="">观点|7折房贷为何难产</a></li>
+					<li><a href="">新闻| 楼盘割肉跑量是不差钱武汉两周卖了万套房</a></li>
+					<li><a href="">楼市| 任志强宣布一个月后退休三季度GDP增速7.3%</a></li>
+					<li><a href="">武汉| 湖景房起价仅4880元只用付首付不用还贷款</a></li>
+					<li><a href="">热盘| 相距100米竟然差3000元小鲜肉带你后湖置业</a></li>
+					<li><a href="">要闻| 北京为何不能取消限购天津全面解除楼市限购</a></li>
+					<li><a href="">深度| 冯仑隐退还是投身理想城万达版吉尼斯风暴来袭</a></li>
+					<li><a href="">活动| 移动租售季中国网络经纪人联盟</a></li>
+					<li><a href="">家居| 有必要买儿童专用漆吗165平纯白的梦幻空间</a></li>
+					<li><a href="">新房供暖成难题业主无奈选择租房住</a></li>
+					<li><a href="">创下5年新低专家称基础设施建设是新增长点</a></li>
+				</ul>
+			</div>
+		</div>
+		<img src="../images/ad4.jpg" alt="">
+	</div>
+
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+</body>
+</html>

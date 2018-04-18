@@ -1,0 +1,232 @@
+label.red{
+	position: relative;
+}
+label.red:before{
+	content: "*";
+	position: absolute;
+	top: 2px;
+	left: -8px;
+	color: #ff0000;
+}
+body{
+	background-color: #f5f5f5;
+}
+.hea{
+	background-color: #fff;
+}
+.registered{
+	width: 76%;
+	margin: 30px auto 0;
+	border: 1px solid #d0d0d0;
+	padding-bottom: 70px;
+	background-color: #fff;
+}
+.top_registered{
+	position: relative;
+}
+.top_registered img{
+	position: absolute;
+	top: -8px;
+	left: 20px;
+}
+.top_registered{
+	border-bottom: 1px solid #d0d0d0;
+	height: 42px;
+	line-height: 42px;
+	color: #3c3c3c;
+	font-size: 13px;
+	text-align: right;
+	padding-right: 20px;
+}
+.top_registered a{
+	color: #004bc8;
+	font-size: 13px;
+}
+.top_registered a:hover{
+	text-decoration: underline;
+}
+.tip{
+	width: 80%;
+	margin: 20px auto;
+	text-align: center;
+}
+.tip span{
+	display: inline-block;
+	width: 25%;
+	height: 54px;
+	line-height: 58px;
+	font-size: 18px;
+	margin-right: 46px;
+	background: url(../images/gray_arrow.png) center bottom no-repeat;
+	background-size: contain;
+	position: relative;
+	text-align: center;
+	color: #aeaeae;
+}
+.tip span:before{
+	width: 42px;
+	height: 42px;
+	border: 2px solid #aeaeae;
+	border-radius: 100%;
+	position: absolute;
+	right: -46px;
+	top: 9%;
+	font-size: 22px;
+	line-height: 43px;
+	color: #aeaeae;
+}
+.tip span:nth-child(1){
+	color: #ba1b20;
+	background: url(../images/red_arrow.png) center bottom no-repeat;
+	background-size: contain;
+}
+.tip span:nth-child(1):before{
+	content: "1";
+	border: 2px solid #ba1b20;
+	color: #ba1b20;
+}
+.tip span:nth-child(2):before{
+	content: "2";
+}
+.tip span:nth-child(3):before{
+	content: "3";
+}
+
+.form_registered ul{
+	padding-left: 28%;
+	margin-top: 40px;
+}
+.form_registered label{
+	display: inline-block;
+	width: 104px;
+	font-size: 16px;
+	color: #333;
+}
+.form_registered input[type="text"],.form_registered input[type="password"]{
+	display: inline-block;
+	width: 255px;
+	height: 26px;
+	padding: 2px 4px;
+	border: 1px solid #77a4e2;
+	font-size: 14px;
+}
+.form_registered li{
+	margin-bottom:20px;
+}
+.form_registered li>div{
+	display: inline-block;
+}
+.form_registered li:nth-child(1) span,.role span{
+	display: inline-block;
+	width: 120px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	position: relative;
+	font-size: 16px;
+	border: 1px solid #77a4e2;
+	margin-right: 16px;
+}
+.role{
+	margin-top: -10px;
+}
+.role span{
+	width: 56px;
+	height: 28px;
+	line-height: 28px;
+	margin: 0;
+}
+.form_registered input[type="radio"]{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	margin: 0;
+	opacity: 0;
+}
+.form_registered input[type="radio"]:hover{
+	cursor: pointer;
+}
+.form_registered li:nth-child(1) span.selected,.role span.selected{
+	color: #fff;
+	background-color: #ba1b20;
+	border: 1px solid transparent;
+}
+.role{
+	display: none;
+	margin-top: 6px;
+}
+.role_invest span:nth-of-type(1){
+	margin-left: 18px;
+}
+.form_registered li:nth-child(1) .role span{
+	font-size: 16px;
+	height: 28px;
+	line-height: 28px;
+	display: inline-block;
+	width: 56px;
+	margin: 0;
+}
+.form_registered .validation img{
+	vertical-align: middle;
+}
+.form_registered .validation .Validform_checktip{
+	display: inline-block;
+	vertical-align: middle;
+}
+.form_registered .validation a{
+	color:#0041e5;
+	font-size:14px;
+}
+.form_registered .validation a:hover{
+	text-decoration:underline;
+}
+.form_registered .validation input{
+	width: 119px;
+}
+#validecode{
+	width: 127px;
+}
+#btnSendCode{
+	font-size: 14px;
+	padding: 6px 10px;
+}
+#btnSendCode.red{
+	color:#fff;
+	background-color:#ba1b20;
+	border:1px solid transparent;
+}
+#btnSendCode:hover{
+	cursor:pointer;
+}
+.form_registered input[type="submit"]{
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #ba1b20;
+	border-radius: 4px;
+	font-family: "微软雅黑";
+	padding: 10px 85px;
+	border: 0;
+	margin: 20px 0;
+}
+.form_registered input[type="submit"]:hover{
+	cursor: pointer;
+	background-color: #b73337;
+}
+@media screen and (min-width: 845px) and (max-width: 1114px){
+	.registered{
+		width: 90%;
+	}
+}
+@media screen and (min-width: 1115px) and (max-width: 1180px){
+	.registered{
+		width: 85%;
+	}
+}
+@media screen and (min-width: 1400px){
+	.registered{
+		width: 1024px;
+	}
+}

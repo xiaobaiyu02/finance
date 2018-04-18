@@ -1,0 +1,356 @@
+<!DOCTYPE html><!-- 此页面参照http://www.wangdaizhijia.com/pingtai-more-60.html -->
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<link rel="stylesheet" type="text/css" href="../css/platdetail.css" />
+	<link rel="stylesheet" type="text/css" href="../css/jquery.fancybox.css" />
+	<script type="text/javascript" src="../js/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script>
+	<script type="text/javascript" src="../js/exporting.js"></script><!-- 动态柱状图http://www.highcharts.com/ -->
+	<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
+
+	<script type="text/javascript">
+		function tabchange(id){
+			$(".platdetail_nav a").removeClass("active");
+			$(".platdetail_nav"+id).addClass("active");
+			$(".platdetail_content>li").hide();
+			$(".platdetail_content"+id).show();
+		}
+
+		$(function(){
+			$(".fancybox").fancybox({
+				openEffect	: 'none',
+				closeEffect	: 'none'
+			});
+
+			$(".drop").click(function(){
+				if(parseInt($(".content1").css("height"))==300){
+					$(".content1").css("height","auto");
+					$(".content1").removeClass("mask");
+					$(this).text("收起");	
+				}
+				else{
+					$(".content1").css("height","300px");
+					$(".content1").addClass("mask");
+					$(this).text("展开");					
+				}
+			})
+		})
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			var chart;
+			var idname=["timeLimit","moneydistribut"];
+			var idtitle=["平台标的期限分布","平台标的金额分布"];
+			for(var i=0;i<idname.length;i++){
+				chart= new Highcharts.Chart({
+					chart: {
+						renderTo: idname[i],
+						margin: [20, 170, 10, 40]
+						
+					},
+					title: {
+						text: idtitle[i]
+					},
+					plotArea: {
+						shadow: null,
+						borderWidth: null,
+						backgroundColor: null
+					},
+					tooltip: {
+						formatter: function() {
+							return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+						}
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								formatter: function() {
+									if (this.y > 5) return this.point.name;
+								}
+							},
+
+						}
+					},
+					legend: {
+						layout: 'vertical',
+						style: {
+							left: 'auto',
+							bottom: 'auto',
+							right: '40px',
+							top: '50px',
+						}
+					},
+				    series: [{
+						type: 'pie',
+						data: [
+							['1月标',   79.8],
+							['2月标',   10.0],
+							['3月标',   2.0],
+							['4-6月标', 10.0],
+							['6月以上标', 1.0],
+							['天标',   6.1]
+						]
+					}]
+				});
+			}
+		});
+	</script>
+	<script type="text/javascript">
+		
+			var chart;
+			$(document).ready(function() {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'composite',
+						defaultSeriesType: 'column',
+						margin: [ 30, 20, 80, 45]
+					},
+					title: {
+						text: ''
+					},
+					xAxis: {
+						categories: [
+							'成交积分', 
+							'营收积分', 
+							'透明度', 
+							'人气积分', 
+							'杠杆积分',
+							'分散度',
+							'收益积分',
+							'品牌',
+							'流动性'
+						],
+						labels: {
+							rotation: -45,
+							align: 'right',
+							style: {
+								 font: 'normal 13px Verdana, sans-serif'
+							}
+						}
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: ''
+						}
+					},
+					legend: {
+						enabled: false
+					},
+					tooltip: {
+						formatter: function() {
+							return '<b>'+ this.x +'</b>'+ Highcharts.numberFormat(this.y, 1);
+						}
+					},
+				    series: [{
+						name: 'Population',
+						data: [85, 86.8, 47.6, 82.7, 25.3, 28.2, 47.5, 66.5, 52.6],
+						dataLabels: {
+							enabled: true,
+							rotation: -90,
+							color: '#FFFFFF',
+							align: 'right',
+							x: -3,
+							y: 10,
+							formatter: function() {
+								return this.y;
+							},
+							style: {
+								font: 'normal 13px Verdana, sans-serif'
+							}
+						}			
+					}]
+				});
+				
+				
+			});
+				
+		</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html" class="active">投资平台</a></li>
+		</ul>
+	</div>
+
+	<div class="content">
+		<img src="../images/platAd1.jpg" alt="" class="ads">
+		<div class="left">
+			<div class="generalintro">
+				<h1><img src="../images/plat_logo.jpg" alt=""><span>安全评级&nbsp;&nbsp;A</span></h1>    
+				<ul>
+					<li><label>平台网址：</label>http://www.my089.com</li>
+					<li><label>平均收益：</label>15.19%</li>
+					<li><label>投资期限：</label>1月标(87.9%)、天标(6.8%)等</li>
+					<li><label>注册资金：</label>5000 万元</li>
+					<li><label>所在地区：</label>广东|深圳</li>
+					<li><label>上线时间：</label>2009年03月17日</li>
+					<li><label>自动投标：</label>支持</li>
+					<li><label>投标保障：</label>VIP100%本金保障，非VIP享受50%本金垫付</li>
+					<li><label>保障模式：</label>风险准备金（800万元）</li>
+					<li><label>债权转让：</label>随时转让</li>
+					<li><label>业务类型：</label>（100%）</li>
+					<ul class="grade">
+						<li><span>提现<br>一天内</span></li><li><span>站岗<br>一周内</span></li><li><span>服务<br>较好</span></li><li><span>体验<br>较好</span></li>
+					</ul>
+				</ul>
+			</div>
+
+			<div class="distribut">
+				<div id="timeLimit"></div><div id="moneydistribut"></div>
+			</div>
+
+			<div class="platdetail">
+				<div class="platdetail_nav">
+					<a href="javascript:void(0)" class="active platdetail_nav1" onclick="tabchange(1)">平台简介</a><a href="javascript:void(0)" class="platdetail_nav2" onclick="tabchange(2)">平台高管</a><a href="javascript:void(0)" class="platdetail_nav3" onclick="tabchange(3)">办公环境</a><a href="javascript:void(0)" class="platdetail_nav4" onclick="tabchange(4)">联系方式</a><a href="javascript:void(0)" class="platdetail_nav5" onclick="tabchange(5)">平台费用</a>
+				</div>
+				<ul class="platdetail_content">
+					<li class="platdetail_content1">
+						<a class="drop" href="javascript:void(0)">展开</a>
+						<ul class="content1 mask">
+							<li><span>平台名称：</span>红岭创投</li>
+							<li><span>公司名称：</span>红岭创投</li>
+							<li><span>公司法人：</span>周世平</li>
+							<li><span>成立日期: </span>2011-01-18</li>
+							<li><span>ICP备案号：</span>京ICP证 100953号</li>
+							<li><h5>平台简介：</h5>
+								<p>红岭创投网站隶属于深圳市红岭创投电子商务股份有限公司。红岭创投电子商务有限公司经深圳市工商局登记注册于2009年初成立,位于深圳市罗湖区深南东路5045号深业中心大厦3008(现办公地址已搬至:深圳市福田区益田路益田花园二期19栋11楼)</br>
+								红岭创投严格遵守国家相关法律法规,并敦促其会员在信息发布和使用过程中严格遵守相关法规；同时,我们也将竭尽所能,不断完善对网站平台的管理,同时努力打造网站管理者、网站投资者联盟、政府相关部门 的多方监管的管理模式！朋友,携起手来, 愿您的财富同红岭一起成长；愿您的创业梦想,早日插上飞翔的翅膀……</p>
+							</li>
+							<li>
+								<h5>公司核心价值:</h5>
+								<p>释放用户借款和理财的自主权利</br>借款人通过个人信用申请借款，获得资金；理财人通过公开信息自主选择进行投资，获得收益。</br>建立互联网时代的个人金融风险定价体系</br>通过有效的个人信用模型和大数据挖掘，逐步建立并完善符合时代特征的个人金融风险定价体系。</br>实现更低借款成本和更稳健投资收益受益于精准的个人金融风险定价体系和安全分散有保障的投资机制，借款人和理财人的权益均可得到充分的保障和满足。</p>
+							</li>
+							<li>
+								<h5>公司信息披露：</h5>
+								<p>	<span>法人代表:</span>周世平</br>
+									<span>经营范围：</span>电子商务</br>
+									<span>注册号：</span>440301104945843</br>
+									<span>主体类型：</span>非上市股份有限公司</br>
+									<span>经营期限：</span>自2010年9月17日起至2020年9月17日止</br>
+									<span>电话总机：</span>0755-82831253，82830925</br>
+									<span>传真：</span>0755-82038849</br>
+									<span>企业QQ：</span>800003737</br>
+									<span>服务热线：</span>4000016089</br>
+									<span>总部地址：</span>深圳市 福田区 益田路 益田花园二期19栋11楼（菩提路与益田路交界处）</p>
+							</li>
+						</ul>
+					</li>
+					<li class="platdetail_content2">
+						<ul>
+							<li>
+								<img src="../images/plat_executive1.jpg" alt="">
+								<div>
+									<h5>董事长-周世平</h5>
+									<p>周世平，深圳市红岭创投电子商务股份有限公司董事长，1968年出生于江苏南通，早年来到深圳，专注于股票、期货投资。在2007年P2P网络借贷概念被引入中国后，开始关注网络借贷行业信息。2009年3月创立目前中国最大网络借贷平台——红岭创...</p>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="platdetail_content3">
+						<div id="basic">
+						  	<a class="fancybox" rel="gallery1" href="../images/1_b.jpg" title="红岭创投1"><img src="../images/1_s.jpg" alt="" /></a>
+						  	<a class="fancybox" rel="gallery1" href="../images/2_b.jpg" title="红岭创投2"><img src="../images/2_s.jpg" alt="" /></a>
+						  	<a class="fancybox" rel="gallery1" href="../images/3_b.jpg" title="红岭创投3"><img src="../images/3_s.jpg" alt="" /></a>
+						  	<a class="fancybox" rel="gallery1" href="../images/4_b.jpg" title="红岭创投4"><img src="../images/4_s.jpg" alt="" /></a>
+						  	<a class="fancybox" rel="gallery1" href="../images/5_b.jpg" title="红岭创投5"><img src="../images/5_s.jpg" alt="" /></a>
+						</div>
+					</li>
+					<li class="platdetail_content4">
+						<ul>
+							<li><span>联系地址：</span>深圳市益田创新科技园（福田区益田花园二期19栋7-13楼）</li>
+							<li><span>400电话：</span>4000-016-089</li>
+							<li><span>公司电话：</span>-</li>
+							<li><span>公司传真：</span>0755-82038849</li>
+							<li><span>服务邮箱：</span>info@my089.com</li>
+						</ul>
+					</li>
+					<li class="platdetail_content5">
+						<ul>
+							<li><span>管理费：</span>-</li>
+							<li><span>充值费：</span>-</li>
+							<li><span>提现费：</span>-</li>
+							<li><span>VIP费用：</span>-</li>
+							<li><span>支付方式：</span>-</li>
+						</ul>
+
+					</li>
+				</ul>
+			</div>
+
+
+			
+		</div>
+		<div class="right">
+			<div class="composite">
+				<h5>综合指数：<span>59.81</span></h5>
+				<div id="composite"></div>
+			</div>
+			<ul class="platnews">
+				<h5>红岭创投最新动态</h5>
+				<li><a href="">关于广东某大型企业的融资公告融资公告融资公告</a></li>
+				<li><a href="">关于客服红岭小明离职的公告</a></li>
+				<li><a href="">关于9月20日凌晨红岭创投网站维护</a></li>
+				<li><a href="">关于全新零售贷款产品“房易贷”上线</a></li>
+				<li><a href="">关于9月17日财付通系统维护的通知</a></li>
+				<li><a href="">关于重庆7号项目的融资公告</a></li>
+				<li><a href="">关于本月中旬财付通部分合作银行系统</a></li>
+				<li><a href="">关于浙江1号项目的融资公告</a></li>
+				<li><a href="">关于江苏6号项目的融资公告</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+	</div>
+
+
+</body>
+</html>

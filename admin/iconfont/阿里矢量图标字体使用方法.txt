@@ -1,0 +1,15 @@
+阿里矢量图标字体应用说明文档
+
+首页地址：http://iconfont.cn/
+
+在线应用教程参考：http://iconfont.cn/help/iconuse.html
+
+登录账号：使用新浪微博账号登录
+
+使用本地文件必须包含文件格式：**.eot/**.svg/**.ttf/**.woff
+
+标签定义：<i class="iconfont icon"></i>
+
+css字体定义：@font-face{}
+
+注意事项：在线文件修改实时更新地址

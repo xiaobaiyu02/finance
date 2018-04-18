@@ -1,0 +1,181 @@
+@charset "utf-8";
+@import "base.less";
+
+@label: 100px;
+
+/* right */
+.right { margin-top: 20px; }
+.current { color: @color-2; height: 30px; margin-bottom: @px-20 + 10; padding-left: @px-10; background: @color-7; .border(4px,@color-8,left);}
+.current span { margin: 0  @px-5; color: @color-8; line-height: 30px;}
+.current a { color: @color-1; line-height: 30px;}
+.current a:hover { color: @color-2; }
+
+/* welcome */
+.welcome p { font-size: @ft-s-16 + 16; color: #333333; line-height: 1.25em;}
+
+/* list */
+.del { display: none; position: absolute; background: url(../images/del_bg.png); z-index: 100; filter: 80;}
+.del h3 { line-height: 30px; text-align: left; text-indent: 10px; background: #dddddd;}
+.del_box { position: absolute; width: 360px; height: 240px; background: #ffffff; border: 1px #dddddd solid; text-align: center; z-index: 100; .borderRadius(3px);}
+.del_box .iconfont { line-height: 100px; font-size: 50px; color: #2ABC2A;}
+.del_box .del_icon { font-size: 58px; color: #CC5852;}
+.del_box .btn { width: 150px; margin: 10px auto;}
+.del_box p { font-size: 18px; line-height: 36px;}
+.del_box .btn input { height: 32px; padding: 6px 20px; margin-top: 10px;}
+.del_box .btn .submitGray { margin-left: 10px; border: none;}
+
+.search { margin-bottom: @px-10; line-height: 24px;}
+.search li a { border: 1px @color-5 solid; border-bottom: 0px #ffffff solid; padding: 5px 20px; position: relative; top: 10px; left: 0; margin-left: 10px; font-size: 14px; color: #333333; border-radius: 0; cursor: default;}
+.search li a:hover { color: @color-15;}
+.search .a_active { color: @color-15; }
+.search .date { width: 90px;}
+.search label { line-height: 30px; margin-right: @px-20 * 2;}
+.search .keyword,.search .selectBlue { padding: 3px; }
+.search .selectBlue { height: 30px; }
+.search select { padding-right: 0;}
+.search span { margin: 0 @px-10; line-height: 24px; color: @color-1;}
+.search .submitBlue,.search .buttonOrange { margin-right: @px-20;}
+.search a { padding: 0px 10px; height: 30px; line-height: 30px; .borderRadius(3px); color: @color-9;}
+
+.list { border-top: 1px @color-5 solid; margin-bottom: @px-10; overflow: auto;}
+.list table { margin-bottom: 20px; }
+.list .last { width: 180px; *width: 180px;}
+.list .last button { padding: 4px 10px;}
+.list .last a { padding: 7px 11px; line-height: 32px; vertical-align: top; border-radius: 3px; color: #ffffff;}
+
+.list th, .list td { max-width: 200px; white-space: nowrap; overflow: hidden; text-align: center; cursor: default;}
+.list th { font-size: 16px; height: 24px;}
+.list th .iconfont { margin-left: 10px; }
+.list .chkAll { margin: 8px 5px 0 11px; }
+.list label { margin-right: 20px; }
+.fenye a { display: inline-block; padding: @px-5 + 4 @px-10 + 2; line-height: 1em; background: @color-7; color: #333333; font-size: @ft-s-14;}
+.fenye a:hover { background: @color-btnOrange-2; color: @color-9;}
+.fenye .page_active { background: @color-btnOrange-2; color: @color-9;}
+.fenye .allPage { background: none; color: #333333;}
+.fenye .allPage:hover { .fenye .allPage; cursor: default;}
+.fenye .current { border: none; margin: 0 5px; padding: 9px 12px; background: @color-btnOrange-2; color: #ffffff;  }
+
+/* form */
+.main_form { .borderAll(1px,@color-11);}
+.main_form ul li { padding: 20px 0; .border(1px,#e7e7e7,top);}
+.main_form .row_last li { padding: 0; .border(0px,@color-7,top); line-height: 30px;}
+.main_form .row_last input { vertical-align: middle; position: relative; bottom: 1px;}
+.main_form .row_last li label { font-size: @ft-s-12; line-height: 28px; margin: 0 10px 0 0; }
+.main_form label { width: @label; text-align: right; font-size: @ft-s-14; line-height: 28px; margin: 0 @px-10 0 50px; }
+.main_form .inputBlue { width: 240px; padding: 3px 0 3px 5px;}
+.main_form textarea { width: 400px; height: 80px;}
+.main_form li span { line-height: 30px; margin-left: 10px;}
+.main_form li label em { line-height: 30px; margin-right: 10px; vertical-align: middle; color: red;}
+.main_form li .required { display: inline-block; width: 5px; height: 2em; line-height: 2em; margin: 5px 0 0 0; color: red;}
+.wrong { line-height: 2em; margin-left: 20px; color: #eb3535;}
+.correct { line-height: 2em; margin-left: 20px; color: #2abc2a;}
+.wrong .iconfont,.correct .iconfont { margin-right: 5px;}
+.main_form .submitBlue,.main_form .resetGray { margin-left: @label + 10; padding: 5px 16px; height: 34px;}
+
+.main_form li form span { margin-left: 0;}
+.main_form .ke-inline-block { border-radius: 3px;}
+.main_form .ke-button-common { background: none;}
+
+.main_form .buttonOrange { margin-left: 20px; }
+.main_form select { padding: 4px 0; height: 30px;}
+.editForm .upload li { width: 202px; height: 152px; margin-right: 20px; overflow: hidden; text-align: center; }
+.editForm .upload li em { line-height: 24px; }
+
+.main_form .type { padding: 0; }
+.main_form .type li { background: #eeeeee; border-top: 1px #cccccc solid; border-bottom: 1px #cccccc solid; }
+.main_form .type label { width: 150px; line-height: 30px; margin-top: 45px; text-align: left; }
+.main_form .type label.fr { width: 200px; height: 122px; margin-top: 0; overflow: ; }
+.main_form .type span.fl { width: 100px; margin-left: 40px; line-height: 30px; margin-top: 45px; font-size: 14px; text-align: right; }
+.main_form .type label img { vertical-align: middle; }
+.main_form .type label .inputBlue { width: 150px; }
+.main_form .type label select { width: 157px; }
+.main_form .type label textarea.inputBlue { width: 400px; }
+
+
+.Validform_checktip{
+    margin-left:8px;
+    line-height:20px;
+    height:20px;
+    overflow:hidden;
+    color:#999;
+    font-size:12px;
+}
+.Validform_right{
+    color:#2abc2a;
+    padding-left:20px;
+    background:url(../images/right.png) no-repeat left center;
+}
+.Validform_wrong{
+    color:#eb3535;
+    padding-left:20px;
+    white-space:nowrap;
+    background:url(../images/error.png) no-repeat left center;
+}
+.Validform_loading{
+    padding-left:20px;
+    background:url(../images/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+    background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999'); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#999;
+background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-gradient(linear, 0 0, 0 100%, from(#999), to(#666)); filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#666666');}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#ccc;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
+
+
+/* login */
+.body_login { background: #d2e9ff;}
+.login { width: 1000px; margin: 0 auto;}
+.login_l { width: 600px;}
+.login_r { width: 280px; padding: 10px 0 10px 50px; margin-left: 70px; box-shadow: 0px 0px 1px #cccccc; .borderRadius(3px); background: #ffffff;}
+.login_r li { margin-bottom: 10px;}
+.login_r .wrong { display: none; color: red;}
+.title h2 { line-height: 40px; color: @color-1;}
+.user_name,.password { width: 200px; line-height: 30px; height: 30px; border: 1px #dddddd solid; .borderRadius(3px);}
+.login_r .iconfont { padding: 0 5px 0 8px; height: 30px; line-height: 30px; color: #cccccc;}
+.user_name input,.password input { margin-top: 5px; border: none; }
+.erweima { width: 200px; height: 30px; line-height: 30px;}
+.erweima input { width: 60px; height: 28px; margin: 0 20px 0 0; border: 1px #dddddd solid; .borderRadius(3px);}
+.erweima span { display: inline-block; width: 75px; height: 30px; overflow: hidden;}
+.erweima span img { width: 75px; height: 30px; overflow: hidden;}
+.login_r .submitBlue { width: 120px; height: 30px; line-height: 30px;}
+
+/* charts */
+.charts a { display: inline-block; padding: 10px 16px; margin: 10px; color: #ffffff; font-size: 14px; background: @color-btnBlue-1; .borderRadius(3px);}
+.charts .a_hover { background: @color-btnBlue-2;}
+.charts iframe { height: 600px;}
+
+/* add_app */
+.add_app { margin-left: 50px;}
+.part { width: 602px; line-height: 36px; .borderRadius(3px); background: @color-7;}
+.part li { width: 200px; text-align: center; font-size: 14px; color: @color-1;}
+.part li:first-child { border-right: 1px #ffffff solid; border-radius: 3px 0 0 3px;}
+.part li:last-child { border-left: 1px #ffffff solid; border-radius: 0 3px 3px 0;}
+.part .li_active { color: #ffffff; background: @color-2;}
+.add_box { margin: 30px 0;}
+.add_row h2 { margin: 20px 0;}
+.add_row li { margin: 20px 0;}
+.add_row li ul li { margin: 0;}
+.add_row span { line-height: 30px;}
+.add_row .inputBlue { width: 240px; height: 30px; line-height: 30px \9;}
+.add_row select { padding: 4px 0;}
+.add_row label { width: 60px; margin-right: 10px; line-height: 2em;}
+.add_row label input { position: relative; top: 4px;}
+.add_row .buttonBlue,.add_row .submitBlue { margin-left: 75px; width: 120px; line-height: 30px; height: 30px;}
+.rows { margin-bottom: 40px;}
+.rows li { margin: 10px 0; line-height: 30px;}
+.rows a { color: @color-2;}
+.rows .download { display: inline-block; padding: 0 18px; background: #47c65d; color: #ffffff; .borderRadius(3px);}
+.rows .iconfont { font-size: 18px;}
+.rows .no,.rows .yes { padding: 3px 8px; color: #ffffff; .borderRadius(3px); cursor: default;}
+.rows .no { background: #999999;}
+.rows .yes { background: #47c65d;}
+
+.part_1 li { text-align: left; margin: 20px 20px 20px 70px; }
+.part_1 li textarea { width: 200px; }
+.part_1 li span { width: 60px; display: inline-block; text-align: right; }
+.part_1 li img { vertical-align: top; }

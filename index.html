@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="css/general.css" />
+	<link rel="stylesheet" type="text/css" href="css/banner.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/city.css" />
+	<link rel="stylesheet" type="text/css" href="css/zebra_datepicker.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="js/suggest.js"></script>
+	<script type="text/javascript" src="js/aircity.js"></script>
+	<script type="text/javascript" src="js/zebra_datepicker.js"></script>
+	<script>
+		$(function(){
+			$(".banner_form").Validform({
+				tiptype:3
+			});
+
+			$( ".calendar" ).Zebra_DatePicker({
+				months: ['一月','二月','三月','四月','五月','六月', '七月','八月','九月','十月','十一月','十二月'],
+				days: ['日','一','二','三','四','五','六'],
+				direction: false,
+				lang_clear_date:"清除",
+				show_select_today:"今天"
+			});
+
+			$("#amount").blur(function(){
+				if($(this).val()!=""&&$("#rate").val()!=""){
+					$(".calcu").attr("disabled",false).addClass("active");
+				}
+				else{
+					$(".calcu").attr("disabled",true).removeClass("active");
+				}
+			})
+			$("#rate").blur(function(){
+				if($(this).val()!=""&&$("#amount").val()!=""){
+					$(".calcu").attr("disabled",false).addClass("active");
+				}
+				else{
+					$(".calcu").attr("disabled",true).removeClass("active");
+				}
+			})
+			
+			$(".cover .x").click(function(){
+				$(this).parent().parent().css("display","none");
+			})
+
+			$(".center .x").click(function(){
+				$(this).parent().css("display","none");
+			})
+
+			$(".applyLoan #arrcity1").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcity_3word1',attachObject:'#suggest1'});
+			$(".applyLoan #arrcity2").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcity_3word2',attachObject:'#suggest2'});
+
+			$(".applyLoan .first a").click(function(){
+				var j=0;
+				$.each($(".first .Validform_checktip"),function(){
+					if($(this).hasClass("Validform_right")||$(this).val()!="") j++;
+					else $(this).parent().find("input").focus();
+				})
+				if($(".first .Validform_checktip").length==j){
+					$(".applyLoan form>ul").hide();
+					$(".second").show();
+				}
+			})
+			$(".applyLoan .second a").click(function(){
+				if($(".second .Validform_checktip").hasClass("Validform_right")||$(".second .Validform_checktip").val()!=""){
+
+					$(".applyLoan form>ul").hide();
+					if($("input[value='person']:checked").length>0 && $("#loantype option[value='1']:selected").length>0)
+						$(".credit_person").show().find(".finish").attr("type","submit");
+					else if($("input[value='company']:checked").length>0 && $("#loantype option[value='1']:selected").length>0)
+						$(".credit_company").show().find(".finish").attr("type","submit");
+					else if($("input[value='person']:checked").length>0 && $("#loantype option[value='2']:selected").length>0){
+						$(".car .person,.car .company").hide(); $(".car .person").show(); 
+						$(".car").show().find(".finish").attr("type","submit");
+					}
+					else if($("input[value='company']:checked").length>0 && $("#loantype option[value='2']:selected").length>0){
+						$(".car .person,.car .company").hide(); $(".car .company").show();
+						$(".car").show().find(".finish").attr("type","submit");
+					}
+					else if($("input[value='person']:checked").length>0 && $("#loantype option[value='3']:selected").length>0){
+						$(".house .person,.house .company").hide(); $(".house .person").show();
+						$(".house").show().find(".finish").attr("type","submit");
+					}
+					else if($("input[value='company']:checked").length>0 && $("#loantype option[value='3']:selected").length>0){	
+						$(".house .person,.house .company").hide(); $(".house .company").show();
+						$(".house").show().find(".finish").attr("type","submit");
+					}
+					else if($("input[value='person']:checked").length>0 && $("#loantype option[value='4']:selected").length>0){				
+						$(".thing .person,.thing .company").hide(); $(".thing .person").show();
+						$(".thing").show().find(".finish").attr("type","submit");
+					}
+					else if($("input[value='company']:checked").length>0 && $("#loantype option[value='4']:selected").length>0){
+						$(".thing .person,.thing .company").hide(); $(".thing .company").show();
+						$(".thing").show().find(".finish").attr("type","submit");
+					}
+					else if($("input[value='person']:checked").length>0 && $("#loantype option[value='5']:selected").length>0){
+						$(".other .person,.other .company").hide(); $(".other .person").show();
+						$(".other").show().find(".finish").attr("type","submit");
+					}
+					else if($("input[value='company']:checked").length>0 && $("#loantype option[value='5']:selected").length>0){
+						$(".other .person,.other .company").hide(); $(".other .company").show();
+						$(".other").show().find(".finish").attr("type","submit");
+					}
+				}
+				else
+					$(".second .Validform_checktip").parent().find("input").focus();
+
+				$(".applyLoan input[type='submit']").click(function(){
+					$(".applyLoan .tip").hide();
+					$(".applyLoan .complete").show();
+				})
+
+			})					
+
+			
+		})
+
+	</script>
+
+</head>
+<body>
+	<div class="cover">
+		<div>
+			<a href=""><img src="images/aaa.jpg" alt=""></a>
+			<span class="x">X</span>
+		</div>
+		
+	</div>
+
+	<div class="center">
+		<div class="demandloan">
+			<h1>贷款需求</h1>
+			<ul>
+				<li><label>借款人：</label><span>王生(个人)</span></li>
+				<li><label>星级：</label><span>5星用户</span></li>
+				<li><label>借款金额：</label><span>50万</span></li>
+				<li><label>借款类型：</label><span>信用贷款</span></li>
+				<li><label>还款方式：</label><span>随借随还</span></li>
+				<li><label>月利率：</label><span>15%</span></li>
+				<li><label>借款用途：</label><span>房贷</span></li>
+				<li><label>用途说明：</label><span>钱不够，还要买车， 总之就是各种买。不买还是人？</span></li>
+				<a href="">我要洽谈</a>
+			</ul>
+			<span class="x">X</span>
+		</div>
+		<div class="adright">
+			<a href=""><img src="images/aaba.jpg" alt=""></a>
+			<span class="x">X</span>
+		</div>
+	</div>
+
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="#">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="login.html">登录</a><a href="registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="index.html" class="active">首页</a></li><li>
+			<a href="invest_product/investindex.html">投资产品</a></li><li>
+			<a href="loan/loanindex.html">贷款项目</a></li><li>
+			<a href="invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	<div class="banner">
+		<div id="wowslider-container1">
+			<div class="ws_images">
+				<ul>
+					<li><a href="www.baidu.com" target="_blank"><img src="images/banner1.jpg" alt="金融平台" title="金融平台" id="wows1_0"/></a>安全，可靠，专业，便捷</li>
+					<li><a href="www.baidu.com" target="_blank"><img src="images/banner2.png" alt="金融平台" title="金融平台" id="wows1_1"/></a>为中国高成长性人群提供普惠金融服务</li>
+					<li><a href="www.baidu.com" target="_blank"><img src="images/banner3.jpg" alt="金融平台" title="金融平台" id="wows1_2"/></a>最高贷款50万，最快一天放款</li>
+					<li><a href="www.baidu.com" target="_blank"><img src="images/banner4.jpg" alt="金融平台" title="金融平台" id="wows1_3"/></a>您不二的选择</li>
+				</ul>
+			</div>
+			<div class="ws_bullets">
+				<div>
+					<a href="#" title="金融平台"><img src="images/banner1_tooltips.jpg" alt="金融平台"/>1</a>
+					<a href="#" title="金融平台"><img src="images/banner2_tooltips.png" alt="金融平台"/>2</a>
+					<a href="#" title="金融平台"><img src="images/banner3_tooltips.jpg" alt="金融平台"/>3</a>
+					<a href="#" title="金融平台"><img src="images/banner4_tooltips.jpg" alt="金融平台"/>4</a>
+				</div>
+			</div>
+			<div class="ws_shadow"></div>
+			<a href="#" class="stop"></a>
+		</div>
+		
+	</div>
+
+	<div class="conten">
+		<div class="briefintro">
+			<ul class="intro">
+				<li>
+					<div class="ico"><span class="tiao"></span><span class="tiao"></span><span class="tiao"></span><span class="tiao"></span><span class="tiao"></span></div>
+					<h1>高收益低门槛</h1>
+					<p>30倍银行存款利息，投资方式灵活多变</p>
+				</li>
+				<li>
+					<div class="ico"><img src="images/ico2.png" alt=""></div>
+					<h1>省时省心省力</h1>
+					<p>足不出户的您就可以指点江山，握所有资讯完成所有操作。</p>
+				</li>
+				<li>
+					<div class="ico"><span>100%</span></div>
+					<h1>全方位安全保障</h1>
+					<p>层层审核线上筛选，线下交易，只为创造让您放心的购物环境。</p>
+				</li>
+				<div class="add"><a href=""><img src="images/ad.jpg" alt=""></a></div>
+			</ul>
+
+			<div class="applyLoan">
+				<h2><span>申请贷款</span></h2>
+				<form action="" method="post" class="banner_form">
+					<ul class="first">
+						<li>
+							<label for="name" class="red">您的姓名：</label>
+							<input type="text" id="name" placeholder="请输入真实姓名" datatype="s">
+						</li>
+						<li>
+							<label for="sex" class="red">您的性别：</label>
+							<div class="pl sex">
+								<input type="radio" name="sex" checked="checked">男&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="sex">女
+							</div>
+							
+						</li>
+						<li>
+							<label for="city" class="red">所在城市：</label>
+							<input type="hidden" value="" id="arrcity_3word1" name="arrcity_3word1" />
+							<input type="text" id="arrcity1" name="arrcity1" placeholder="您现在所在的城市" datatype="*" nullmsg="请填写您所在的城市"/>
+							<div class="ac_results" id="suggest1">&nbsp;</div>
+							
+						</li>
+						<li>
+							<label for="tel" class="red">手机号码：</label>
+							<input type="text" id="tel" placeholder="请填写手机号码" datatype="m">
+						</li>
+						<li>
+							<a href="javascript:void(0)" class="next">下一步</a>
+						</li>
+					</ul>
+					<ul class="second">
+						<li>
+							<label>用户类型：</label>
+							<div class="pl type">
+								<input type="radio" name="type" value="person" checked="checked">个人&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="type" value="company">企业
+							</div>
+						</li>
+						<li>
+							<label>贷款类型：</label>
+							<div class="pl">
+								<select name="loantype" id="loantype">
+									<option value="1">信用贷款</option>
+									<option value="2">车辆抵押贷款</option>
+									<option value="3">房屋抵押贷款</option>
+									<option value="4">实物抵押贷款</option>
+									<option value="5">其他抵押贷款</option>
+								</select>
+							</div>
+						</li>
+						<li>
+							<label for="loanmoney" class="red">贷款金额：</label>
+							<div class="pl">
+								<input type="text" id="loanmoney"  datatype="/^\d+(.\d+)?$/" nullmsg="请填写贷款金额" errormsg="请填写正确的贷款金额"><span class="danwei">元</span>
+							</div>		
+						</li>
+						<li>
+							<label for="loantime">贷款期限：</label>
+							<div class="pl">
+								<input type="text" id="loantime"><span class="danwei">个月</span>
+							</div>		
+						</li>
+						<li>
+							<a href="javascript:void(0)" class="next">下一步</a>
+						</li>
+					</ul>
+					<ul class="credit_person">
+						<li>
+							<label>个人贷款用途：</label>
+							<select name="personuse" id="personuse">
+								<option value="1" selected="selected">创业贷款 </option>
+								<option value="2">购房贷款 </option>
+								<option value="3">买车贷款 </option>
+								<option value="4">经营贷款 </option>
+								<option value="5">装修贷款 </option>
+								<option value="6">结婚贷款 </option>
+								<option value="7">旅游贷款 </option>
+								<option value="8">求学贷款 </option>
+								<option value="9">购物贷款 </option>
+								<option value="10">其他贷款 </option>
+							</select>
+						</li>
+						<li>
+							<label>信用贷款：</label>
+							<div class="pl">
+								<select name="carrera" id="carrera">
+									<option value="">您的职业 </option>
+									<option value="1">企业职员 </option>
+									<option value="2">公务员/教师 </option>
+									<option value="4">律师/医生 </option>
+									<option value="5">自由职业 </option>
+									<option value="6">农民/务工 </option>
+									<option value="7">学生 </option>
+								</select>
+								<select name="wage" id="wage">
+									<option value="">您的月收入 </option>
+									<option value="1">2000元以下 </option>
+									<option value="2">2000-3000元 </option>
+									<option value="4">3000-4000元 </option>
+									<option value="5">4000-5000元 </option>
+									<option value="6">5000-1万元 </option>
+									<option value="7">1万元以上 </option>
+								</select>
+								<select name="age" id="age">
+									<option value="">您的年龄 </option>
+									<option value="1">21岁以下 </option>
+									<option value="2">22-30岁 </option>
+									<option value="4">31-40岁 </option>
+									<option value="5">41-50岁 </option>
+									<option value="6">51岁以上 </option>
+								</select>
+								<select name="wagetype" id="wagetype">
+									<option value="">工资发放形式 </option>
+									<option value="1">银行打卡 </option>
+									<option value="2">现金发放 </option>
+									<option value="4">打卡加现金 </option>
+									<option value="5">其他 </option>
+								</select>
+							</div>
+						</li>
+						<li>
+							<input type="" value="完成" class="finish">
+						</li>
+					</ul>
+					<ul class="credit_company">
+						<li>
+							<label>企业贷款用途：</label>
+							<select name="companyuse" id="companyuse">
+								<option value="1" selected="selected">流动资金贷款</option>
+								<option value="2">购买设备贷款</option>
+								<option value="3">厂房建设贷款</option>
+								<option value="4">竞标投贷款</option>
+								<option value="5">竞标投贷款</option>
+								<option value="6">其他</option>
+							</select>
+						</li>
+						<li>
+							<label>信用贷款：</label>
+							<div class="pl">
+								<select name="industry" id="industry">
+									<option value="">所属行业 </option>
+									<option value="1">农、林、牧、渔业 </option>
+									<option value="2">采掘业 </option>
+									<option value="4">制造业 </option>
+									<option value="5">力、煤气及水的生产和供应业 </option>
+									<option value="6">地质勘察业、水利管理业 </option>
+									<option value="7">交通运输、仓储及邮电通信业 </option>
+									<option value="8">批发和零售贸易、餐饮业 </option>
+								</select>
+								<select name="turnover" id="turnover">
+									<option value="">年营业额 </option>
+									<option value="1">100万以下 </option>
+									<option value="2">100-500万 </option>
+									<option value="4">500-2000万 </option>
+									<option value="5">2000-1亿 </option>
+									<option value="6">1亿以上 </option>
+								</select>
+								<select name="size" id="size">
+									<option value="">公司规模 </option>
+									<option value="1">20人以下 </option>
+									<option value="2">20-49人 </option>
+									<option value="4">50-99人 </option>
+									<option value="5">100-499人 </option>
+									<option value="6">500人以上 </option>
+								</select>
+							</div>
+						</li>
+						<li>
+							<input type="" value="完成" class="finish">
+						</li>						
+					</ul>
+					<ul class="car">
+						<li>
+							<label for="carlocation">车辆所在地：</label>
+							<div class="pl">
+								<input type="hidden" value="" id="arrcity_3word2" name="arrcity_3word2" /> 							
+								<input type="text" id="arrcity2" name="arrcity2" placeholder="车辆所在地"/>
+								<div class="ac_results" id="suggest2">&nbsp;</div>	
+							</div>
+						</li>
+						<li>
+							<label for="carcity">车辆品牌：</label>
+							<div class="pl">
+								<input type="text" name="carcity"/>
+							</div>
+						</li>
+						<li>
+							<label for="carmoney">购买价格：</label>
+							<div class="pl">
+								<input type="text" id="carmoney"><span class="danwei">万元</span>
+							</div>
+						</li>
+						<li>
+							<label for="cartime">购买年份：</label>
+							<div class="pl">
+								<input type="text" id="cartime" name="cartime" class="calendar">
+							</div>
+						</li>
+						<li class="person">
+							<label>个人贷款用途：</label>
+							<select name="personuse" id="personuse">
+								<option value="1" selected="selected">创业贷款 </option>
+								<option value="2">购房贷款 </option>
+								<option value="3">买车贷款 </option>
+								<option value="4">经营贷款 </option>
+								<option value="5">装修贷款 </option>
+								<option value="6">结婚贷款 </option>
+								<option value="7">旅游贷款 </option>
+								<option value="8">求学贷款 </option>
+								<option value="9">购物贷款 </option>
+								<option value="10">其他贷款 </option>
+							</select>
+						</li>
+						<li class="company">
+							<label>企业贷款用途：</label>
+							<select name="companyuse" id="companyuse">
+								<option value="1" selected="selected">流动资金贷款</option>
+								<option value="2">购买设备贷款</option>
+								<option value="3">厂房建设贷款</option>
+								<option value="4">竞标投贷款</option>
+								<option value="5">竞标投贷款</option>
+								<option value="6">其他</option>
+							</select>
+						</li>
+						<li>
+							<input type="" value="完成" class="finish">
+						</li>
+					</ul>
+					<ul class="house">
+						<li>
+							<label for="housemoney">购买价格：</label>
+							<div class="pl">
+								<input type="text" id="housemoney">
+								<span class="danwei">万元</span>
+							</div>
+						</li>
+						<li>
+							<label for="housetime">购买时间：</label>
+							<input type="text" id="housetime" class="calendar">
+						</li>
+						<li>
+							<label>产权选择：</label>
+							<div class="pl">
+								<select>
+									<option value="">请选择产权 </option>
+									<option value="1">大产权 </option>
+									<option value="2">小产权 </option>
+								</select>
+							</div>
+						</li>
+						<li class="person">
+							<label>个人贷款用途：</label>
+							<select name="personuse" id="personuse">
+								<option value="1" selected="selected">创业贷款 </option>
+								<option value="2">购房贷款 </option>
+								<option value="3">买车贷款 </option>
+								<option value="4">经营贷款 </option>
+								<option value="5">装修贷款 </option>
+								<option value="6">结婚贷款 </option>
+								<option value="7">旅游贷款 </option>
+								<option value="8">求学贷款 </option>
+								<option value="9">购物贷款 </option>
+								<option value="10">其他贷款 </option>
+							</select>
+						</li>
+						<li class="company">
+							<label>企业贷款用途：</label>
+							<select name="companyuse" id="companyuse">
+								<option value="1" selected="selected">流动资金贷款</option>
+								<option value="2">购买设备贷款</option>
+								<option value="3">厂房建设贷款</option>
+								<option value="4">竞标投贷款</option>
+								<option value="5">竞标投贷款</option>
+								<option value="6">其他</option>
+							</select>
+						</li>
+						<li>
+							<input type="" value="完成" class="finish">
+						</li>
+					</ul>
+					<ul class="thing">
+						<li>
+							<label for="thing">抵押物品：</label>
+							<input type="text" id="thing" name="thing"/>
+						</li>
+						<li>
+							<label for="thingmoney">购买价格：</label>
+							<div class="pl">
+								<input type="text" id="thingmoney"><span class="danwei">万元</span>
+							</div>
+						</li>
+						<li>
+							<label for="thingtime">购买时间：</label>
+							<input type="text" id="thingtime" class="calendar">
+						</li>
+						<li class="person">
+							<label>个人贷款用途：</label>
+							<select name="personuse" id="personuse">
+								<option value="1" selected="selected">创业贷款 </option>
+								<option value="2">购房贷款 </option>
+								<option value="3">买车贷款 </option>
+								<option value="4">经营贷款 </option>
+								<option value="5">装修贷款 </option>
+								<option value="6">结婚贷款 </option>
+								<option value="7">旅游贷款 </option>
+								<option value="8">求学贷款 </option>
+								<option value="9">购物贷款 </option>
+								<option value="10">其他贷款 </option>
+							</select>
+						</li>
+						<li class="company">
+							<label>企业贷款用途：</label>
+							<select name="companyuse" id="companyuse">
+								<option value="1" selected="selected">流动资金贷款</option>
+								<option value="2">购买设备贷款</option>
+								<option value="3">厂房建设贷款</option>
+								<option value="4">竞标投贷款</option>
+								<option value="5">竞标投贷款</option>
+								<option value="6">其他</option>
+							</select>
+						</li>
+						<li>
+							<input type="" value="完成" class="finish">
+						</li>
+					</ul>
+					<ul class="other">
+						<li>
+							<label for="otherintro">其它抵押贷款说明：</label>
+							<textarea name="otherintro" id="otherintro" ></textarea>
+						</li>
+						<li class="person">
+							<label>个人贷款用途：</label>
+							<select name="personuse" id="personuse">
+								<option value="1" selected="selected">创业贷款 </option>
+								<option value="2">购房贷款 </option>
+								<option value="3">买车贷款 </option>
+								<option value="4">经营贷款 </option>
+								<option value="5">装修贷款 </option>
+								<option value="6">结婚贷款 </option>
+								<option value="7">旅游贷款 </option>
+								<option value="8">求学贷款 </option>
+								<option value="9">购物贷款 </option>
+								<option value="10">其他贷款 </option>
+							</select>
+						</li>
+						<li class="company">
+							<label>企业贷款用途：</label>
+							<select name="companyuse" id="companyuse">
+								<option value="1" selected="selected">流动资金贷款</option>
+								<option value="2">购买设备贷款</option>
+								<option value="3">厂房建设贷款</option>
+								<option value="4">竞标投贷款</option>
+								<option value="5">竞标投贷款</option>
+								<option value="6">其他</option>
+							</select>
+						</li>
+						<li>
+							<input type="" value="完成" class="finish">
+						</li>
+					</ul>
+					
+					<span class="tip">30秒快速注册帮您解决资金烦恼！</span>
+					<ul class="complete">
+						<li><img src="images/icon_right.png"></li>
+						<li>恭喜您，提交成功！</li>
+						<li>我们的贷款顾问会尽快与您联系。<br>为您匹配最适合的贷款产品，请您保持手机畅通！</li>
+						<li>详情咨询：400-000-9335</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div class="bank">
+			<h1 class="allh1"><span>银行 </span> 产品<a href="">查看更多银行产品>></a></h1>
+			<div class="content">
+				<div class="left">
+					<div><a href=""></a><img src="images/bank1.jpg" alt=""></div><div><a href=""></a><img src="images/bank2.jpg" alt=""></div><div><a href=""></a><img src="images/bank2.jpg" alt=""></div><div><a href=""></a><img src="images/bank1.jpg" alt=""></div>
+				</div><div class="right">
+					<h2><a href="">银行产品特点</a></h2>
+					<P>银行理财产品，按照标准的解释，应该是商业银行在对潜在目标客户群分析研究的基础上，针对特定目标客户群开发设计并销售的资金投资和管理计划。在理财产品这种投资方式中，银行只是接受客户的授权管理资金，投资收益与风险由客户或客户与银行按照约定方式双方承担。</P>
+					<p><span>特点一：</span>信托贷款类产品成为理财市场的主导</p>
+					<p><span>特点二：</span>公益性专属性创新产品彰显理财业务价值</p>
+					<p><span>特点三：</span>产品预期年化收益率更趋规范合理</p>
+					<p><span>特点四：</span>产品短期化趋势更为显着，期限结构日臻完善</p>
+					<p><span>特点五：</span>理财业务分层服务体系逐步构建，财富管理职能日益凸显</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="invest">
+			<h1 class="allh1"><span>投资 </span> 产品<a href="">查看更多投资产品>></a></h1>
+			<div class="content">
+				<div class="left">
+					<ul>
+						<li>
+							<img src="images/invest1.jpg" alt="">
+							<div>
+								<h1>平安银行—个人信用贷</h1>
+								<p>产品特点：<span>最高可贷1000万</span><span>利率低至0.66%</span><span>三天放款</span></p>
+								<p>放款条件：月工资3000即可</p>
+								<p>还款方式：先息后本</p>
+								<a href="">查看详情</a>
+							</div>
+						</li>
+						<li>
+							<img src="images/invest1.jpg" alt="">
+							<div>
+								<h1>平安银行—个人信用贷</h1>
+								<p>产品特点：<span>最高可贷1000万</span><span>利率低至0.66%</span><span>三天放款</span></p>
+								<p>放款条件：月工资3000即可</p>
+								<p>还款方式：先息后本</p>
+								<a href="">查看详情</a>
+							</div>
+						</li>
+					</ul>
+				</div><div class="right">
+					<h2><span>投资产品介绍</span></h2>
+					<P>目前，随着网络化的发展，投资理财工具逐步向网络发展。足不出户，即可通过手机、电脑等设备进行投资理财。</P>
+					<h4><a href="">外币投资产品</a></h4>
+					<p><span>投资币种：</span>美元、欧元、港币等币种类。<br>
+						<span>投资期限：</span>产品期限从三个月到五年不等，根据挂钩指标特性、产品结构灵活确定。</p>
+					<h4><a href="">外汇期权业务</a></h4>
+					<p><span>投资方式：</span>大额客户还可以选择非美货币之间的交叉汇价作为标的汇价。<br>
+						<span>投资期限：</span>最长期限为六个月，最短为由中国银行当日公布的期权报价中的到期日决定。</p>
+					<h4><a href="">买入黄金期权业务</a></h4>
+					<p>是指客户根据自己对国际黄金价格未来变动的判断，向银行支付一定金额的买入相应面值...</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="loan">
+			<h1 class="allh1"><span>贷款 </span> 产品<a href="">查看更多贷款产品>></a></h1>
+			<div class="content">
+				<div class="left">
+					<ul>
+						<li>
+							<img src="images/loan1.jpg" alt="">
+							<div>
+								<h1>大型医药流通企业补充流动资金</h1>
+								<p>借款金额：<span>100万</span>起投金额：<span>1万</span>剩余金额：<span>688,051.00元</span></p>
+								<p>年华利率：<span>9.0%</span>还款期限：<span>1个月</span>还款方式：按月付息、到期还本</p>
+								<p><label class="time">剩余时间：</label>01天12小时15分23秒</p>
+								<a href="">查看详情</a>
+							</div>
+						</li>
+						<li>
+							<img src="images/loan1.jpg" alt="">
+							<div>
+								<h1>大型医药流通企业补充流动资金</h1>
+								<p>借款金额：<span>100万</span>起投金额：<span>1万</span>剩余金额：<span>688,051.00元</span></p>
+								<p>年华利率：<span>9.0%</span>还款期限：<span>1个月</span>还款方式：按月付息、到期还本</p>
+								<p><label class="time">剩余时间：</label>01天12小时15分23秒</p>
+								<a href="">查看详情</a>
+							</div>
+						</li>
+
+					</ul>
+				</div><div class="right">
+					<h2><span>贷款分类介绍</span></h2>
+					<P>贷款的方式多种多样鞥适应各种不同的群体，有信用贷款、担保贷款、抵押贷款、保证贷款、票据贴现。借钱又分个体工商业者、私营企业、集体企业、国有企业</P>
+					<h4><a href="">按贷款信用度程度划分</a></h4>
+					<p><span>信用贷款：</span>以借款人的信誉发放的贷款。</p>
+						<p><span>担保贷款：</span>保证贷款、抵押贷款、质押贷款</p>
+						<p><span>抵押贷款：</span>贷款人以购买借款人未到期商业票据的方式发放的贷款。</p>
+						<p><span>流动资金贷款：</span>分为工业流动资金贷款和商业流动资金贷款，以及其他流动资金贷款。</p>
+						<p><span>固定资金贷款：</span>大中型项目的固定资金贷款由国家开发银行，中国建设银行办理。中小型项目的资金，除企业自筹，社会筹集外，也是国有独资商业银行与其他商一项重要的贷款业务。
+					</p>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="rate">
+			<h1 class="allh1"><span>利率 </span> 计算器<a href="">查看更多计算方法>></a></h1>
+			<!-- http://www.weedai.com/tools/index.html http://dai.makepolo.com/view_94_12_10_0.html-->
+			<div class="content">
+				<div class="left calculate">
+					<ul>
+						<li class="calculator">
+							<ul>
+								<li>
+									<label for="type">贷款类型：</label>
+									<select name="type" id="type"><option value="1">房贷</option><option value="2">车贷</option></select>
+								</li>
+								<li>
+									<label for="amount">贷款金额：</label>
+									<input type="text" value="" name="amount" id="amount"> 万元				
+								</li>
+								<li>
+									<label for="pay">还款方式：</label>
+									<select name="pay" id="pay"><option value="1">等额本息</option><option value="2"></option></select>
+								</li>
+								<li>
+									<label for="rate">贷款利率：</label>
+									<input type="text" value="" name="rate" id="rate"> %		
+								</li>
+								<li>
+									<label for="time">还款期限：</label>
+									<select name="time" id="time"><option value="1">12个月</option><option value="2">1年</option></select>
+								</li>
+								<button class="calcu" disabled="true">开始计算</button>
+							</ul>
+						</li>
+						<li class="result">
+							<ul>
+								<li>
+									<label for="interest">累计支付利息：</label>
+									<input type="text" value="" name="interest" id="interest" readonly="readonly"> 元
+								</li>
+								<li>
+									<label for="totle">累计还款总额：</label>
+									<input type="text" value="" name="totle" id="totle" readonly="readonly"> 元
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div><div class="right">
+					<h2><span>率计算器种类</span></h2>
+					<h4><a href="">房贷计算器</a></h4>
+					<p>含有个人住房购房买房按揭贷款计算器、买房贷款计算器，房贷计算器提供等额本金还款法。</p>
+					<h4><a href="">汽车贷款计算器</a></h4>
+					<p>结合汽车贷款计算器、全款购车计算器、器功能，功能齐全，可供您切换使用。汽车贷款计算器可轻松算出全额购车费用或按揭分期...</p>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="financial">
+			<div class="content">
+				<div class="left">
+					<h2><span>金融时讯</span><a href="">更多>></a></h2>
+					<ul>
+						<li>
+							<img src="images/financial1.jpg" alt="">
+							<div><h3><a href="">银行系产品式微 互联网金融“接棒”</a></h3><p>红酒、白酒、普洱茶、艺术品、高端手表……另类投资曾一度成为理财市场的“宠儿”。然而此前一度具备强大“吸睛”效政策和市场的共同推动使得理财市应的各种另类银行理财产品逐渐失去吸引力，取而代之的是...</p></div>
+						</li>
+						<li>
+							<img src="images/financial1.jpg" alt="">
+							<div><h3><a href="">银行系产品式微 互联网金融“接棒”</a></h3><p>红酒、白酒、普洱茶、艺术品、高端手表……另类投资曾一度成为理财市场的“宠儿”。然而，政策和市场的共同推动使得理财市场逐步迎来“大资管”时代，再加上互联网金融理财产品的兴起，使得各类各类金融机构发行的理财产品丰应的各种另类银行理财产品逐渐失去吸引力，取而代之的是...</p></div>
+						</li>
+						<li>
+							<img src="images/financial1.jpg" alt="">
+							<div><h3><a href="">银行系产品式微 互联网金融“接棒”</a></h3><p>红酒、白酒、普洱茶、艺术品、高端手表……另类投资曾一度成为理财市场的“宠儿”。然而，政策和市场的共同推动使得理财市场逐步迎来“大资管”时代，再加上互联网金融理财产品的兴起，增加，此前一度具备强大“吸睛”效应的各种另类银行理财产品逐渐失去吸引力，取而代之的是...</p></div>
+						</li>
+					</ul>
+				</div>
+				<div class="right">
+					<h2><span>投资学堂</span><a href="">更多>></a></h2>
+					<h4><a href="">金融投资产品有那些？</a></h4>
+					<p>基金，A股，港股，债券，黄金，外汇，期货，权证，理财产品，投连险。不管投资什么渠道一定要正长情况的。</p>
+					<h4><a href="">为什么好的投资产品千金难买？</a></h4>
+					<p>既然是好产品大加都会争先购买，所谓僧多粥少就是这个道理，但是现在大家不用发愁，金融平台上汇集了目前国内外最好的投资产品，现在不买更待何时？</p>
+					<h4><a href="">金融平台寻求贷款造成损失谁来负责？</a></h4>
+					<p>不管做什么都是会有风险的，不过大家放心，金融平台上所公布的优质产品都是经过层层审核后才会展现在大家面前。</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="cooperation">
+			<h2><span>合作金融机构</span></h2>
+			<ul>
+				<li><a href=""><img src="images/brand1.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand2.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand3.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand4.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand5.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand6.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand7.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand8.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand9.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand10.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand11.png" alt=""></a></li>
+				<li><a href=""><img src="images/brand12.png" alt=""></a></li>
+			</ul>
+		</div>
+
+		<div class="footer">  
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">网站协议</a></li>
+				<li><a href="">意见反馈</a></li>
+				<li><a href="">友情链接</a></li>
+			</ul>
+			<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+		</div>
+
+	</div>
+		
+
+	<script type="text/javascript" src="js/banner_wowslider.js"></script>
+	<script type="text/javascript" src="js/banner.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>login</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+	</head>
+	<body class="body_login">
+		<div class="login_bg">
+			<div class="login clearfix">
+				<div class="login_l fl">
+					<a href="javascipt:;"><img src="images/login_banner.jpg" /></a>
+				</div>
+				<form action="" method="">
+					<ul class="login_r fr">
+						<li class="title"><h2>管理员登录</h2></li>
+						<li class="user_name"><i class="iconfont">&#xe660;</i><input type="text" placeholder="管理员账号" /></li>
+						<li class="wrong">用户名不存在</li>
+						<li class="password"><i class="iconfont">&#xe648;</i><input type="text" placeholder="密码" /></li>
+						<li class="wrong">密码错误</li>
+						<li class="erweima"><input type="text" placeholder="验证码" /><span><img src="" /></span></li>
+						<li class="wrong">验证码错误</li>
+						<li><input type="submit" value="登录" class="submitBlue" onclick="alert()" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				var heightWindow = $(window).height();
+				var heightLogin = $(".login").height();
+				var halfTop = (heightWindow - heightLogin)/2;
+				$(".login").css("margin-top",halfTop);
+				
+				var heightLogin_l = $(".login_l").height();
+				var heightLogin_r = $(".login_r").height();
+				var halfTop = (heightLogin_l - heightLogin_r)/2;
+				$(".login_r").css("margin-top",halfTop);
+			});
+		</script>
+	</body>
+</html>

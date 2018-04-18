@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../kindeditor/kindeditor-min.js"></script>
+	<script type="text/javascript" src="../kindeditor/lang/zh_CN.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="../kindeditor/themes/default/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/mypublish.css" />
+	<link rel="stylesheet" type="text/css" href="../css/member_left.css" />
+	<script  type="text/javascript">
+		KindEditor.ready(function(K) {
+			var uploadbutton1 = K.uploadbutton({
+				button : K('#shensuprove')[0],
+				fieldName : 'file',
+				url : '',
+				afterUpload : function(data) {
+					$('#upload_shensuprove').html('');
+					if (data.error === 0) {
+						K('input[name="shensuprove"]').val(data.url);
+						K('#upload_shensuprove').append('<img src="'+ data.url +'">');		
+					} else {
+						alert(data.message);
+					}
+				},
+				afterError : function(str) {
+					alert('上传错误');
+				}
+			});
+			uploadbutton1.fileBox.change(function(e) {
+				uploadbutton1.submit();
+			});
+		});
+	</script>
+	<script  type="text/javascript">
+		$(function(){
+			$(".member .left ul li a").click(function(){
+				if($(this).siblings("ul").css("display")=="block")
+					$(this).siblings("ul").slideUp();
+				else
+					$(this).siblings("ul").slideDown();
+			})
+			
+			$(".nav>li").click(function(){
+				$(".nav>li a").removeClass("active");
+				$(this).children("a").addClass("active");
+			});
+			$(".nav>li:nth-child(1)").click(function(){
+				$(".content>li").hide();
+				
+				$(".content>li:nth-child(1)").show()
+			});
+			$(".nav>li:nth-child(2)").click(function(){
+				$(".content>li").hide();
+				$(".content>li:nth-child(2)").show()
+			});
+			$(".nav>li:nth-child(3)").click(function(){
+				$(".content>li").hide();
+				$(".content>li:nth-child(3)").show()
+			});
+			$(".nav>li:nth-child(4)").click(function(){
+				$(".content>li").hide();
+				$(".content>li:nth-child(4)").show()
+			});
+			$(".nav>li:nth-child(5)").click(function(){
+				$(".content>li").hide();
+				$(".content>li:nth-child(5)").show()
+			});
+			$(".nav>li:nth-child(6)").click(function(){
+				$(".content>li").hide();
+				$(".content>li:nth-child(6)").show()
+			});	
+
+			$(".myshensu").Validform({
+				tiptype:3
+			});
+
+			$(".complaint").click(function(){
+				$(".shensu").show();
+			})
+			$(".shensu .close").click(function(){
+				$(".shensu").hide();
+				$(".shensu input[type='reset']").click();
+			})
+		})
+
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html" class="active">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	
+	<div class="member">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="member.html">会员中心</a>
+				</li>
+				<li>
+					<a href="business.html">推荐查看</a>
+				</li>
+				<li>
+					<a href="mypublish.html" class="active">我发布的项目</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">我的账户</a>
+					<ul>
+						<li><a href="person.html">基本资料</a></li><li><a href="company.html">企业资料</a></li>
+						<!--如果注册时是 我要借款——>个人,则只要<li><a href="person.html">基本资料</a></li>-->
+						<!--如果注册时是 我要借款——>企业,则只要<li><a href="company.html">企业资料</a></li>-->
+						<li><a href="security.html">安全认证</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0)">增值服务</a>
+					<ul>
+						<li><a href="">产品推广</a></li>
+						<li><a href="">财富管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">帮助中心</a>
+				</li>
+			</ul>
+		</div><div class="right">
+			<div class="right_header">
+				<h1>我发布的项目</h1><span>&nbsp;&nbsp;&nbsp;&nbsp;/ I released the project</span>
+				<a href="publishProject.html">发布项目</a>
+			</div>
+			<div class="mypublish">
+				<ul class="nav">
+					<li>
+						<a href="javascript:void(0)" class="active">已发布<span></span></a>
+					</li><li>
+						<a href="javascript:void(0)">审核中<span></span></a>
+					</li><li>
+						<a href="javascript:void(0)">已删除<span></span></a>
+					</li><li>
+						<a href="javascript:void(0)">洽谈中<span></span></a>
+					</li><li>
+						<a href="javascript:void(0)">已完成<span></span></a>
+					</li><li>
+						<a href="javascript:void(0)">申诉中<span></span></a>
+					</li>
+				</ul>
+				<ul class="content">				
+					<li class="active">
+						<div class="published_thead"><span>贷款用途</span><span>贷款类型</span><span>贷款金额</span><span>贷款期限</span><span>当前星级</span><span>操作</span></div>
+						<ul>
+							<li>
+								<div class="published_order">发布时间：<span>2014-09-29  15:59:06</span>单号：<span>2014100900001</span>浏览次数：<a href="">0</a></div>
+								<ul class="published_detail">
+									<li>创业贷款</li>
+									<li><span>信用贷款</span><span>车辆抵押贷款</span></li>
+									<li>20万</li><li>36个月</li>
+									<li>2星</li>
+									<li><a href="edit_mypublish.html">查看</a><a href="">删除</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="published_order">发布时间：<span>2014-09-29  15:59:06</span>单号：<span>2014100900001</span>浏览次数：<a href="">0</a></div>
+								<ul class="published_detail">
+									<li>创业贷款</li><li><span>信用贷款</span><span>车辆抵押贷款</span></li><li>20万</li><li>36个月</li><li>2星</li><li><a href="edit_mypublish.html">查看</a><a href="">删除</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="published_thead"><span>贷款用途</span><span>贷款类型</span><span>贷款金额</span><span>贷款期限</span><span>当前星级</span><span>操作</span></div>
+						<ul>
+							<li>
+								<div class="published_order">发布时间：<span>2014-09-29  15:59:06</span>单号：<span>2014100900001</span>浏览次数：<a href="">0</a></div>
+								<ul class="published_detail">
+									<li>创业贷款</li><li><span>信用贷款</span><span>车辆抵押贷款</span></li><li>20万</li><li>36个月</li><li>2星</li><li><a href="">删除</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="published_order">发布时间：<span>2014-09-29  15:59:06</span>单号：<span>2014100900001</span>浏览次数：<a href="">0</a></div>
+								<ul class="published_detail">
+									<li>创业贷款</li><li><span>信用贷款</span><span>车辆抵押贷款</span></li><li>20万</li><li>36个月</li><li>2星</li><li><a href="">删除</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="published_thead"><span>贷款用途</span><span>贷款类型</span><span>贷款金额</span><span>贷款期限</span><span>当前星级</span><span>状态</span></div>
+						<ul>
+							<li>
+								<div class="published_order">发布时间：<span>2014-09-29  15:59:06</span>单号：<span>2014100900001</span>浏览次数：<a href="">0</a></div>
+								<ul class="published_detail">
+									<li>创业贷款</li><li><span>信用贷款</span><span>车辆抵押贷款</span></li><li>20万</li><li>36个月</li><li>2星</li><li><span class="complete">已删除</span></li>
+								</ul>
+							</li>
+							<li>
+								<div class="published_order">发布时间：<span>2014-09-29  15:59:06</span>单号：<span>2014100900001</span>浏览次数：<a href="">0</a></div>
+								<ul class="published_detail">
+									<li>创业贷款</li><li><span>信用贷款</span><span>车辆抵押贷款</span></li><li>20万</li><li>36个月</li><li>2星</li><li><span class="complete">已删除</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="negotiate_thead"><span>贷款类型</span><span>贷款用途</span><span>贷款金额</span><span>贷款期限</span><span>洽谈方</span><span>操作</span></div>
+						<ul>
+							<li>
+								<div class="negotiate_order">洽谈时间：2014-09-29 15:59:06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单号：2014100900001</div>
+								<ul class="negotiate_detail">
+									<li><span class="loantype">信用贷款</span><span class="loantype">车辆抵押贷款</span></li>
+									<li>创业贷款</li>
+									<li>50万</li>
+									<li>10个月</li>
+									<li>
+										<img src="../images/negotiate_people.jpg" alt="">
+										<div><span>3星用户</span><a href="" class="checkdetail">查看信息</a></div>
+									</li>
+									<li><a href="">完成洽谈</a><a href="">取消洽谈</a><a href="javascript:void(0)" class="complaint">我要申诉</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="negotiate_order">洽谈时间：2014-09-29 15:59:06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单号：2014100900001</div>
+								<ul class="negotiate_detail">
+									<li><span class="loantype">信用贷款</span><span class="loantype">车辆抵押贷款</span></li>
+									<li>创业贷款</li>
+									<li>50万</li>
+									<li>10个月</li>
+									<li>
+										<img src="../images/negotiate_people.jpg" alt="">
+										<div><span>3星用户</span><a href="" class="checkdetail">查看信息</a></div>
+									</li>
+									<li><a href="">完成洽谈</a><a href="">取消洽谈</a><a href="javascript:void(0)" class="complaint">我要申诉</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="negotiate_thead"><span>贷款类型</span><span>贷款用途</span><span>贷款金额</span><span>贷款期限</span><span>洽谈方</span><span>状态</span></div>
+						<ul>
+							<li>
+								<div class="negotiate_order">洽谈时间：2014-09-29 15:59:06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单号：2014100900001</div>
+								<ul class="negotiate_detail">
+									<li><span class="loantype">信用贷款</span><span class="loantype">车辆抵押贷款</span></li>
+									<li>创业贷款</li>
+									<li>50万</li>
+									<li>10个月</li>
+									<li>
+										<img src="../images/negotiate_people.jpg" alt="">
+										<div><span>3星用户</span><a href="" class="checkdetail">查看信息</a></div>
+									</li>
+									<li class="complete">完成洽谈</li>
+								</ul>
+							</li>
+							<li>
+								<div class="negotiate_order">洽谈时间：2014-09-29 15:59:06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单号：2014100900001</div>
+								<ul class="negotiate_detail">
+									<li><span class="loantype">信用贷款</span><span class="loantype">车辆抵押贷款</span></li>
+									<li>创业贷款</li>
+									<li>50万</li>
+									<li>10个月</li>
+									<li>
+										<img src="../images/negotiate_people.jpg" alt="">
+										<div><span>3星用户</span><a href="" class="checkdetail">查看信息</a></div>
+									</li>
+									<li class="complete">完成洽谈</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="negotiate_thead"><span>贷款类型</span><span>贷款用途</span><span>贷款金额</span><span>贷款期限</span><span>洽谈方</span><span>操作</span></div>
+						<ul>
+							<li>
+								<div class="negotiate_order">洽谈时间：2014-09-29 15:59:06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单号：2014100900001</div>
+								<ul class="negotiate_detail">
+									<li><span class="loantype">信用贷款</span><span class="loantype">车辆抵押贷款</span></li>
+									<li>创业贷款</li>
+									<li>50万</li>
+									<li>10个月</li>
+									<li>
+										<img src="../images/negotiate_people.jpg" alt="">
+										<div><span>3星用户</span><a href="" class="checkdetail">查看信息</a></div>
+									</li>
+									<li><a href="complaint.html" target="_blank">查看详情</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="negotiate_order">洽谈时间：2014-09-29 15:59:06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单号：2014100900001</div>
+								<ul class="negotiate_detail">
+									<li><span class="loantype">信用贷款</span><span class="loantype">车辆抵押贷款</span></li>
+									<li>创业贷款</li>
+									<li>50万</li>
+									<li>10个月</li>
+									<li>
+										<img src="../images/negotiate_people.jpg" alt="">
+										<div><span>3星用户</span><a href="" class="checkdetail">查看信息</a></div>
+									</li>
+									<li><a href="complaint.html" target="_blank">查看详情</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+	</div>
+
+	<div class="shensu">
+		<form action="" method="post" class="myshensu">
+			<h1>我要申诉</h1>
+			<ul>
+				<li>
+					<label for="reason">申诉原因说明：</label>
+					<textarea name="reson" id="reson" datatype="*" nullmsg="请填写申诉原因"></textarea>
+				</li>
+				<li>
+					<label>上传凭证：</label>
+					<div class="prof">
+						<input type="button" value="上传图像" id="shensuprove"/> 
+						<input type="hidden" name="shensuprove"  value="" readonly="readonly"/>
+						<div class="imgholder" id="upload_shensuprove"><img src=""><div>+</div></div>
+						<div class="tip"><span>上传帮助</span><div>如有多张图片请合并到一张图中上传 支持GIF,JPEG,JPG,PNG,BMP格式</div></div>
+					</div>
+				</li>
+				<li>
+					<label></label>
+					<input type="submit" value="提交申诉">
+					<input type="reset">
+					<a href="javascript:void(0)" class="close">取消</a>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+
+</body>
+</html>

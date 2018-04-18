@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>微金融</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+	</head>
+	<body>
+		<div class="header clearfix">
+			<div class="logo fl"><a href="javascript:;"><img src="../images/logo.png" alt="微金融" /></a></div>
+			<div class="header_r fl clearfix">
+				<ul class="nav fl clearfix">
+					<li class="fl"><a href="javascript:;">会员管理</a></li>
+					<li class="fl"><a href="javascript:;">项目管理</a></li>
+					<li class="fl"><a href="javascript:;">产品管理</a></li>
+					<li class="fl"><a href="javascript:;">文章管理</a></li>
+					<li class="fl"><a href="javascript:;">交易管理</a></li>
+					<li class="fl"><a href="javascript:;">系统管理</a></li>
+					<li class="fl"><a href="javascript:;">平台管理</a></li>
+					<!--<li class="fl"><i class="iconfont">&#xe63c;</i></li>-->
+				</ul>
+				<!--ending of nav-->
+				<div class="user fr">
+					<a href="javascript:;"><i class="iconfont">&#xe63c;</i>系统管理员</a>
+					<a href="javascript:;"><i class="iconfont">&#xe61b;</i>退出</a>
+				</div>
+				<!--ending of user-->
+			</div>
+			<!--ending of header_r-->
+		</div>
+		<!--ending of header-->
+		<div class="content clearfix">
+			<div class="left fl">
+				<ul class="menu">
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>会员管理<i class='iconfont arrow'>&#xe604;</i></a>
+						<ul class="submenu">
+							<li><a href="javascript:;">所有会员</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>借款方<i class='iconfont arrow'>&#xe604;</i></a>
+						<ul class="submenu">
+							<li><a href="javascript:;">个人版</a></li>
+							<li><a href="javascript:;">企业版</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>投资方<i class='iconfont arrow'>&#xe604;</i></a>
+						<ul class="submenu">
+							<li><a href="javascript:;">银行</a></li>
+							<li><a href="javascript:;">基金</a></li>
+							<li><a href="javascript:;">P2P</a></li>
+							<li><a href="javascript:;">企业</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>代理商平台<i class='iconfont arrow'>&#xe604;</i></a></li>
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>管理员<i class='iconfont arrow'>&#xe604;</i></a></li>
+				</ul>
+				<!--ending of menu-->
+			</div>
+			<!--ending of left-->
+			<div class="right fl">
+				<div class="current">
+					<span><a href="javascript:;">会员管理</a></span>
+					<span>/</span>
+					<span><a href="javascript:;">个人版</a></span>
+					<span>/</span>
+					<span>新增</span>
+				</div>
+				<!--ending of current-->
+				<div class="main_form">
+					<form class="editForm" action="" method="">
+						<ul class="clearfix">
+							<li class="clearfix fl width_100">
+								<label class="fl">选择名称：</label>
+								<select class="selectBlue fl">
+									<option selected="selected">请选择</option>
+									<option>名称1</option>
+									<option>名称2</option>
+									<option>名称3</option>
+								</select>
+								<ul class="clearfix fl row_last" style="margin-left: 40px;">
+									<li class="fl">
+										<input type="radio" checked="checked" name="style" value="" placeholder="" />
+										<label>个人</label>
+									</li>
+									<li class="fl">
+										<input type="radio" name="style" value="" placeholder="" />
+										<label>企业</label>
+									</li>
+								</ul>
+							</li>
+							<li class="clearfix fl width_100">
+								<label class="fl">会员账号：</label>
+								<input type="text" class="inputBlue fl" value="" name="" placeholder="请输入真实姓名" datatype="s">
+							</li>
+							<li class="clearfix fl width_100">
+								<label class="fl">登录密码：</label>
+								<input class="inputBlue fl" type="password" value="" placeholder="" name="" datatype="n6-16" />
+							</li>
+							<li class="clearfix fl width_100">
+								<label class="fl">确认添加：</label>
+								<input class="submitOrange fl" id="btn" type="submit" value="提交" onclick="" />
+							</li>
+						</ul>
+					</form>
+					<!--ending of form-->
+				</div>
+				<!--ending of main_form-->
+			</div>
+			<!--ending of right-->
+		</div>
+		<!--ending of content-->
+		<div class="footer clearfix">
+			<p>Copyright © 2009-2014 杭州手趣科技 版权所有: 浙ICP备09040239号</p>
+		</div>
+		<!--ending of footer-->
+		
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/script.js"></script>
+		<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$(".editForm").Validform({
+					tiptype:3
+				});
+				
+				$(function(){
+					$("*").sookinValid();
+				});
+				
+				/*
+				//表单输入格式判断,在当前行添加元素
+				var wrong = "<p class='wrong fl'><i class='iconfont'>&#xe620;</i>请输入正确内容</p>";
+				var correct = "<p class='correct fl'><i class='iconfont'>&#xe66f;</i>输入正确</p>";
+				//错误提示
+				$(".addform li.clearfix").append(wrong);
+				//正确提示
+				$(".addform li.clearfix").append(correct);*/
+			});
+		</script>
+	</body>
+</html>

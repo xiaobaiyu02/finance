@@ -1,0 +1,369 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1;font-family: "微软雅黑";}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+ul{list-style:none;}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration: none;color: #000;}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+input,select,textarea{
+	font-family: "微软雅黑";border: 1px solid #d0d0d0;
+}
+.Validform_checktip{
+	margin-left:8px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+	color:#999;
+	font-size:12px;
+}
+.Validform_right{
+	color:#71b83d;
+	padding-left:20px;
+	background:url(../images/right.png) no-repeat left center;
+}
+.Validform_wrong{
+	color:red;
+	padding-left:20px;
+	white-space:nowrap;
+	background:url(../images/error.png) no-repeat left center;
+}
+.Validform_loading{
+	padding-left:20px;
+	background:url(../images/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+	background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999'); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#999;
+background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-gradient(linear, 0 0, 0 100%, from(#999), to(#666)); filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#666666');}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#ccc;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
+
+/*头部注册登录*/
+.top{
+	width: 100%;
+	background-color: #fafafa;
+	box-shadow: 0 1px 2px #dadada;
+	font-size: 13px;
+}
+.top>div{
+	width: 1024px;
+	margin: 0 auto;
+	height: 33px;
+}
+.top .left{
+	float: left;
+}
+.top span{
+	float: right;
+	line-height: 33px;
+}
+.top li{
+	display: inline-block;
+}
+.top a{
+	padding: 1px 10px;
+	line-height: 33px;
+	font-size: 13px;
+}
+.top li~li a{
+	border-left: 1px solid #ccc;
+}
+.top a:hover{
+	color: #666;
+}
+
+.header{
+	width: 1024px;
+	height: 75px;
+	margin: 0 auto;
+}
+.header .left{
+	float: left;
+	height: 54px;
+	width:328px;
+	margin-top: 10px;
+}
+.header .left ul{
+	float: right;
+	padding: 5px 0 5px 10px;
+	margin-top: 2px;
+}
+.header .left ul li{
+	color: #a5a5a5;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+}
+.header .right{
+	float: right;
+	margin-top: 20px;
+}
+.header .right a{
+	display: inline-block;
+	border: 1px solid #eeeaea;
+	width: 72px;
+	height: 33px;
+	text-align: center;
+	line-height: 33px;
+	color: #222;
+}
+.header .right a:hover{
+	box-shadow: 1px 1px 1px #d6d6d6;
+}
+.header .right a~a{
+	margin-left: 10px;
+}
+.nav{
+	width: 100%;
+	height: 46px;
+	background-color: #ee5151;
+}
+.nav ul{
+	width: 1024px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.nav ul li{
+	display: inline-block;
+	width: 16.66%;
+}
+.nav ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align:center;
+	background-color: #ee5151;
+	font-size: 18px;
+	color: #fff;
+	line-height: 46px;
+	-moz-transition: background-color 0.4s linear;
+	-webkit-transition: background-color 0.4s linear;
+	-o-transition: background-color 0.4s linear;
+	transition: background-color 0.4s linear;
+}
+.nav ul li a.active{
+	background-color: #c92323;
+}
+.nav ul li a:hover{
+	background-color: #c92323;
+}
+
+.applyLoan{
+	float: right;
+	width: 29%;
+	background-color: #fff;
+	border: 1px solid #dadada;
+	border-radius: 4px;
+	padding-bottom: 18px;
+}
+
+.applyLoan h2{
+	padding: 10px 0 10px 10px;
+	border-bottom: 1px solid #eeeaea;
+	box-shadow: 0 1px 2px #eee;
+}
+.applyLoan .tip{
+	color: #2b69da;
+	font-size: 12px;
+	display: inline-block;
+	margin: 14px 0 0 16px;
+}
+.applyLoan h2 span{
+	padding-left: 6px;
+	color: #2d2d2d;
+	border-left:3px solid #c92323; 
+	font-size: 17px;
+	font-weight: normal;
+}
+.applyLoan form{
+	position: relative;
+}
+.applyLoan form>ul{
+	text-align: center;
+	margin-top: 16px;
+}
+.applyLoan form>ul{
+	display: none;
+}
+.applyLoan form>ul.first{
+	display: block;	
+}
+.applyLoan form>ul.complete{
+	margin: 0;
+	padding: 37px 0;
+}
+.applyLoan .complete li{
+	margin-bottom: 10px;
+}
+.applyLoan .complete li:nth-child(2),.applyLoan .complete li:nth-child(4){
+	color: #0f75b6;
+	font-size: 18px;
+}
+.applyLoan .complete li:nth-child(3){
+	font-size: 13px;
+	line-height: 18px;
+}
+.applyLoan form>ul>li,.applyLoan form>ul>ul>li{
+	margin-bottom: 20px;
+	position: relative;
+}
+.applyLoan form>ul>li:last-child{
+	margin-bottom: 0;	
+}
+.applyLoan form label{
+	color: #5e5e5e;
+	font-size: 14px;
+	display: inline-block;
+	width: 82px;
+	text-align: left;
+	position: relative;
+}
+.applyLoan form label.red:before{
+	content: "* ";
+	position: absolute;
+	color: red;
+	top: 2px;
+	left: -8px;
+}
+.applyLoan form li .pl{
+	width: 174px;
+	text-align: left;
+	display: inline-block;
+	font-size: 14px;
+	position: relative;
+}
+.applyLoan #suggest1,.applyLoan #suggest2 {
+	top: 30px !important;
+	left: 100px !important;
+}
+.applyLoan #suggest2 {
+	left: 0px !important;
+}
+.danwei{
+	position: absolute;
+	right: 20px;
+	top: 8px;
+}
+.applyLoan form input[type='radio']{
+	vertical-align: -2px;
+}
+.applyLoan form input[type='text']{
+	width: 160px;
+	height: 20px;
+	line-height: 20px;
+	padding: 4px 6px;
+	border: 1px solid #ddd;
+}
+.applyLoan form select{
+	width: 174px;
+	padding: 4px 6px;
+	border: 1px solid #ddd;
+}
+.applyLoan form .Validform_checktip{
+	position: absolute;
+	bottom: -20px;
+	right: 12px;
+}
+.applyLoan form input[type='submit'],.applyLoan form .next{
+	display: block;
+	margin: 0 auto;
+	width: 268px;
+	padding: 7px 0;
+	color: #fff;
+	background-color: rgba(186,27,32,.8);
+	border: 1px solid #eee;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	cursor: pointer;
+	border-radius: 6px;
+}
+.applyLoan form input[type='submit']:hover,.applyLoan form .next:hover{
+	background-color: rgba(186,27,32,1);
+}
+.applyLoan form .credit_person label,.applyLoan form .credit_company label{
+	vertical-align: top;
+	margin-top: 6px;
+}
+.applyLoan form .credit_person select,.applyLoan form .credit_company select{
+	margin-bottom: 10px;
+}
+.applyLoan form .Zebra_DatePicker_Icon_Wrapper{
+	border:0;
+}
+.applyLoan form .person label,.applyLoan form .company label,label[for="otherintro"]{
+	vertical-align: top;
+	margin-top: 2px;
+}
+.applyLoan form .person,.applyLoan form .company{
+	display: none;
+}
+.applyLoan form  textarea#otherintro{
+	width: 186px;
+	height: 104px;
+	resize:none;
+}
+.applyLoan form .credit_person>li{
+	margin-bottom: 0;
+}
+.applyLoan form .car>li{
+	margin-bottom: 10px;
+}
+.applyLoan form .house>li,.applyLoan form .thing>li{
+	margin-bottom: 15px;
+}
+
+
+.conten>div.footer{
+	font-size: 12px;
+	color: #4d4d4d;
+	text-align: center;
+	margin: 50px 0 30px;
+	clear: both;
+	
+}
+
+.clear{
+	width: 100%;
+	clear: both;
+}
+.footer{
+	width: 1024px;
+	font-size: 12px;
+	color: #4d4d4d;
+	text-align: center;
+	margin: 50px auto 30px;
+	clear: both;
+}
+.footer ul{
+	border-top: 1px solid #aeadad;
+	border-bottom: 1px solid #aeadad;
+	margin-bottom: 14px;
+
+}
+.footer li{
+	display: inline-block;
+}
+.footer li~li a{
+	border-left:1px solid #aeadad;
+}
+.footer li a{
+	font-size: 12px;
+	padding: 0 10px;
+	color: #4d4d4d;
+	line-height: 34px;
+}
+.footer li a:hover{
+	text-decoration: underline;
+}
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>交易管理</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
+		
+	</head>
+	<body>
+		<div class="header clearfix">
+			<div class="logo fl"><a href="javascript:;"><img src="../images/logo.png" alt="微金融" /></a></div>
+			<div class="header_r fl clearfix">
+				<ul class="nav fl clearfix">
+					<li class="fl"><a href="javascript:;">会员管理</a></li>
+					<li class="fl"><a href="javascript:;">项目管理</a></li>
+					<li class="fl"><a href="javascript:;">产品管理</a></li>
+					<li class="fl"><a href="javascript:;">文章管理</a></li>
+					<li class="fl"><a href="javascript:;">交易管理</a></li>
+					<li class="fl"><a href="javascript:;">系统管理</a></li>
+					<li class="fl"><a href="javascript:;">平台管理</a></li>
+					<!--<li class="fl"><i class="iconfont">&#xe63c;</i></li>-->
+				</ul>
+				<!--ending of nav-->
+				<div class="user fr">
+					<a href="javascript:;"><i class="iconfont">&#xe63c;</i>系统管理员</a>
+					<a href="javascript:;"><i class="iconfont">&#xe61b;</i>退出</a>
+				</div>
+				<!--ending of user-->
+			</div>
+			<!--ending of header_r-->
+		</div>
+		<!--ending of header-->
+		<div class="content clearfix">
+			<div class="left fl">
+				<ul class="menu">
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>交易管理<i class='iconfont arrow'>&#xe604;</i></a></li>
+				</ul>
+				<!--ending of menu-->
+			</div>
+			<!--ending of left-->
+			<div class="right fl">
+				<div class="current">
+					<span><a href="javascript:;">交易管理</a></span>
+					<span>/</span>
+					<span>申诉记录</span>
+				</div>
+				<!--ending of current-->
+				<div class="main_form">
+					<div class="info">
+						<p>发起时间：<span>2014-10-27 18:23</span></p>
+						<p>申诉编号：<span>564987951614984</span></p>
+						<p>申诉原因：<span>我没有收到投资方的钱，投资方说给了</span></p>
+					</div>
+					<ul>
+						<li><h3>留言板</h3></li>
+						<li class="clearfix">
+							<a href="javascript:;" class="fl"><img src="" width="40" height="40" /></a>
+							<dl>
+								<dt><a href="javascript:;">钱先生</a><span>借款方</span><em>2014-10-27 18:23</em></dt>
+								<dd>我没有收到投资方的钱，投资方说给了。</dd>
+								<dd><img src="" width="" height="" alt="截图" /></dd>
+							</dl>
+						</li>
+						<li class="clearfix">
+							<a href="javascript:;" class="fl"><img src="" width="40" height="40" /></a>
+							<dl>
+								<dt><a href="javascript:;">钱先生</a><span>借款方</span><em>2014-10-27 18:23</em></dt>
+								<dd>我没有收到投资方的钱，投资方说给了。</dd>
+								<dd><img src="" width="" height="" alt="截图" /></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<!--ending of main_form-->
+			</div>
+			<!--ending of right-->
+		</div>
+		<!--ending of content-->
+		<div class="footer clearfix">
+			<p>Copyright © 2009-2014 杭州手趣科技 版权所有: 浙ICP备09040239号</p>
+		</div>
+		<!--ending of footer-->
+		
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/script.js"></script>
+		<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+		<script type="text/javascript" src="../kindeditor/kindeditor-min.js"></script>
+		<script type="text/javascript" src="../kindeditor/lang/zh-CN.js"></script>
+		<script type="text/javascript">
+			KindEditor.ready(function(K) {
+				var uploadbutton1 = K.uploadbutton({
+					button : K('#upload_button')[0],
+					fieldName : 'file',
+					url : '',
+					afterUpload : function(data) {
+						$('#img').html('');
+						if (data.error === 0) {
+							K('input[name="pic"]').val(data.url);
+							K('#img').append('<img src="'+ data.url +'">');		
+						} else {
+							alert(data.message);
+						}
+					},
+					afterError : function(str) {
+						alert('文件过大');
+					}
+				});
+				uploadbutton1.fileBox.change(function(e) {
+					uploadbutton1.submit();
+				});
+			});
+		
+		
+			$(document).ready(function(){
+				
+				$(".editForm").Validform({
+					tiptype:3
+				});
+				
+				
+				$(".type ul li").hide();
+				$("input[name='style']").click(function(){
+					var $index = $(this).parent("li").index();
+					if($(this).attr("checked")){
+						$(".type ul li").eq($index).show();
+					}else{
+						$(".type ul li").eq($index).hide();
+					};
+				});
+				
+				$("input[name='name']:eq(0)").click(function(){
+					if($(this).attr("checked")){
+						$(this).parent().parent().parent("li").next("li").hide();
+					}else{
+					};
+				});
+				$("input[name='name']:eq(1)").click(function(){
+					if($(this).attr("checked")){
+						$(this).parents("li").next("li").show();
+					}else{
+					};
+				});
+				
+				
+			});
+		</script>
+	</body>
+</html>

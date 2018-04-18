@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+
+	<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+	
+	<script type="text/javascript" src="../js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script>
+	<script type="text/javascript" src="../js/exporting.js"></script><!-- 动态柱状图http://www.highcharts.com/ -->
+
+	<link rel="stylesheet" type="text/css" href="../css/flexslider.css" />
+	<link rel="stylesheet" type="text/css" href="../css/investplatform.css" />
+	<script type="text/javascript">
+		function changeDiv(id){
+
+			$(".nav_data a").removeClass("active");
+			$(".data"+id).addClass("active");
+			$(".contnet_data>li>div").hide();
+			$("#container"+id).show();
+
+
+			var chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'container'+id,
+					margin: [80, 110, 45, 60],
+					zoomType: 'xy'
+				},
+				title: {
+					text: '昨日指数：成交 2674.34 利率 12.37 人气 2.43',
+					style: {
+						margin: '10px 0 0 0' // center it
+					}
+				},
+				xAxis: [{
+					categories: ['10/10', '10/11', '10/12', '10/13', '10/14', '10/15', 
+						'10/16', '10/17', '10/18', '10/19']
+				}],
+				yAxis: [{ // Primary yAxis
+					labels: {
+						formatter: function() {
+							return this.value +'K';
+						},
+						style: {
+							color: '#89A54E'
+						}
+					},
+					title: {
+						text: '人 气（人）',
+						style: {
+							color: '#89A54E'
+						},
+						margin: 30
+					},
+					opposite: true
+					
+				}, { // Secondary yAxis
+					title: {
+						text: '成 交 量（万）',
+						margin: 40,
+						style: {
+							color: '#4572A7'
+						}
+					},
+					labels: {
+						formatter: function() {
+							return this.value +'K';
+						},
+						style: {
+							color: '#4572A7'
+						}
+					}
+					
+				}, { // Tertiary yAxis
+					title: {
+						text: '利 率（%）',
+						margin: 40,
+						style: {
+							color: '#AA4643'
+						}
+					},
+					labels: {
+						formatter: function() {
+							return this.value;
+						},
+						style: {
+							color: '#AA4643'
+						}
+					},
+					opposite: true,
+					offset: 50
+				}],
+				tooltip: {
+					formatter: function() {
+						
+						return ''+
+							this.x +': '+ this.y;
+					}
+				},
+				legend: {
+					layout: 'vertical',
+					style: {
+						left: '120px',
+						bottom: 'auto',
+						right: 'auto',
+						top: '90px'
+					},
+					backgroundColor: '#FFFFFF'
+				},
+				series: [{
+					name: '成交量',
+					color: '#4572A7',
+					type: 'column',
+					yAxis: 1,
+					data: [2.57, 3, 6, 5.68, 6.78, 7.56, 6.78, 3.78, 8.6,4.34]
+				
+				}, {
+					name: '利率(%)',
+					type: 'spline',
+					color: '#AA4643',
+					yAxis: 2,
+					data: [15, 15.22, 15.32, 15.45, 15, 15.89, 15.54, 15.89, 14.78, 15.45]
+				
+				}, {
+					name: '人气',
+					color: '#89A54E',
+					type: 'spline',
+					data: [3, 3.56, 3.566, 4.565, 6.756, 4.665, 2.355, 5.657, 5.895, 3.453]
+				}]
+			});
+			$("tspan[x='306']").css("font-size","14px");
+		}
+
+
+	</script>
+	<script>
+		$(function(){
+			$('.flexslider').flexslider();
+
+			$(".level h2 span:nth-child(1)").click(function(){
+				$(".level h2 span").removeClass("active");
+				$(this).addClass("active");
+				$(".content_level>*").hide();
+				$(".rate").show();
+			})
+			$(".level h2 span:nth-child(2)").click(function(){
+				$(".level h2 span").removeClass("active");
+				$(this).addClass("active");
+				$(".content_level>*").hide();
+				$(".archive").show();
+			})
+
+			var chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'container1',
+					margin: [80, 110, 45, 60],
+					zoomType: 'xy'
+				},
+				title: {
+					text: '昨日指数：成交 2674.34 利率 12.37 人气 2.43',
+					style: {
+						margin: '10px 0 0 0' // center it
+					}
+				},
+				xAxis: [{
+					categories: ['10/10', '10/11', '10/12', '10/13', '10/14', '10/15', 
+						'10/16', '10/17', '10/18', '10/19']
+				}],
+				yAxis: [{ // Primary yAxis
+					labels: {
+						formatter: function() {
+							return this.value +'K';
+						},
+						style: {
+							color: '#89A54E'
+						}
+					},
+					title: {
+						text: '人 气（人）',
+						style: {
+							color: '#89A54E'
+						},
+						margin: 30
+					},
+					opposite: true
+					
+				}, { // Secondary yAxis
+					title: {
+						text: '成 交 量（万）',
+						margin: 40,
+						style: {
+							color: '#4572A7'
+						}
+					},
+					labels: {
+						formatter: function() {
+							return this.value +'K';
+						},
+						style: {
+							color: '#4572A7'
+						}
+					}
+					
+				}, { // Tertiary yAxis
+					title: {
+						text: '利 率（%）',
+						margin: 40,
+						style: {
+							color: '#AA4643'
+						}
+					},
+					labels: {
+						formatter: function() {
+							return this.value;
+						},
+						style: {
+							color: '#AA4643'
+						}
+					},
+					opposite: true,
+					offset: 50
+				}],
+				tooltip: {
+					formatter: function() {
+						
+						return ''+
+							this.x +': '+ this.y;
+					}
+				},
+				legend: {
+					layout: 'vertical',
+					style: {
+						left: '120px',
+						bottom: 'auto',
+						right: 'auto',
+						top: '90px'
+					},
+					backgroundColor: '#FFFFFF'
+				},
+				series: [{
+					name: '成交量',
+					color: '#4572A7',
+					type: 'column',
+					yAxis: 1,
+					data: [2.57, 3, 6, 5.68, 6.78, 7.56, 6.78, 3.78, 8.6,4.34]
+				
+				}, {
+					name: '利率(%)',
+					type: 'spline',
+					color: '#AA4643',
+					yAxis: 2,
+					data: [15, 15.22, 15.32, 15.45, 15, 15.89, 15.54, 15.89, 14.78, 15.45]
+				
+				}, {
+					name: '人气',
+					color: '#89A54E',
+					type: 'spline',
+					data: [3, 3.56, 3.566, 4.565, 6.756, 4.665, 2.355, 5.657, 5.895, 3.453]
+				}]
+			});
+			$("tspan[x='306']").css("font-size","14px");
+		})
+
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html" class="active">投资平台</a></li>
+		</ul>
+	</div>
+
+	<div class="banner">
+		<div class="flexslider">
+			<ul class="slides">
+				<li><img src="../images/investplatform1.jpg" alt=""></li><li><img src="../images/investbanner1.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="left">
+			<div class="data">
+				<h2>平台数据<a href="">更多>></a></h2>
+				<!-- <img src="../images/aa.jpg" alt="" height="360" style="display:block;margin:0 auto;"> -->
+				<ul class="nav_data">
+					<li><a href="" class="data1 active" onmouseover="changeDiv(1);">网贷指数</a></li>
+					<li><a href="" class="data2" onmouseover="changeDiv(2);">人人贷</a></li>
+					<li><a href="" class="data3" onmouseover="changeDiv(3);">红岭创投</a></li>
+					<li><a href="" class="data4" onmouseover="changeDiv(4);">拍拍贷</a></li>
+					<li><a href="" class="data5" onmouseover="changeDiv(5);">陆金所</a></li>
+					<li><a href="" class="data6" onmouseover="changeDiv(6);">宜人贷</a></li>
+					<li><a href="" class="data7" onmouseover="changeDiv(7);">808信贷</a></li>
+					<li><a href="" class="data8" onmouseover="changeDiv(8);">微贷网</a></li>
+					<li><a href="" class="data9" onmouseover="changeDiv(9);">团贷网</a></li>
+					<li><a href="" class="data10" onmouseover="changeDiv(10);">E速网</a></li>
+					<li><a href="" class="data11" onmouseover="changeDiv(11);">PPmoney</a></li>
+					<li><a href="" class="data12" onmouseover="changeDiv(12);">温州贷</a></li>
+					<li><a href="" class="data13" onmouseover="changeDiv(13);">有利网</a></li>
+				</ul>
+				<ul class="contnet_data">
+					<li><div id="container1"></div></li>
+					<li><div id="container2"></div></li>
+					<li><div id="container3">afg</div></li>
+					<li><div id="container4">afg</div></li>
+					<li><div id="container5">afg</div></li>
+					<li><div id="container6">afg</div></li>
+					<li><div id="container7">afg</div></li>
+					<li><div id="container8">afg</div></li>
+					<li><div id="container9">afg</div></li>
+					<li><div id="container10">afg</div></li>
+					<li><div id="container11">afg</div></li>
+					<li><div id="container12">afg</div></li>
+					<li><div id="container13">afg</div></li>
+				</ul>
+			</div>
+			<div class="level">
+				<h2>
+					<span class="active">平台评级<a href="">更多>></a></span>
+					<span>平台档案<a href="">更多>></a></span>
+				</h2>
+
+				<div class="content_level">
+					<table class="rate">
+						<thead>
+							<tr>
+								<td width="90px">序号</td>
+								<td width="90px">平台</td>
+								<td width="90px">综合指数</td>
+								<td width="90px">上线时间</td>
+								<td width="90px">所在城市</td>
+								<td width="90px">成交</td>
+								<td width="90px">人气</td>
+								<td width="90px">收益</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>1</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>2</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>3</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>4</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>5</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>6</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>7</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>8</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>9</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+							<tr><td>10</td><td>金融平台</td><td>99.99</td><td>2014.10</td><td>湖北|武汉</td><td>88.88</td><td>99.99</td><td>99.99</td></tr>
+						</tbody>
+					</table>
+					<ul class="archive">
+						<li>
+							<img src="../images/logo.png" alt="">
+							<div>
+								<h5>金融平台</h5>
+								<span>安全评级：<strong>SSS</strong></span>
+								<span>上线时间：2014-10-10</span>
+								<span>平均收益：20.20%</span>
+								<span>注册资金：5000万元</span>
+								<span>注册地区：湖北，武汉</span>
+								<span>投资期限：-</span>
+								<span>网友评价：提现一两天，站岗一周内，服务号，体验好！</span>
+								<a href="platdetail.html">查看档案</a>
+							</div>
+						</li>
+						<li>
+							<img src="../images/logo.png" alt="">
+							<div>
+								<h5>金融平台</h5>
+								<span>安全评级：<strong>SSS</strong></span>
+								<span>上线时间：2014-10-10</span>
+								<span>平均收益：20.20%</span>
+								<span>注册资金：5000万元</span>
+								<span>注册地区：湖北，武汉</span>
+								<span>投资期限：-</span>
+								<span>网友评价：提现一两天，站岗一周内，服务号，体验好！</span>
+								<a href="platdetail.html">查看档案</a>
+							</div>
+						</li><li>
+							<img src="../images/logo.png" alt="">
+							<div>
+								<h5>金融平台</h5>
+								<span>安全评级：<strong>SSS</strong></span>
+								<span>上线时间：2014-10-10</span>
+								<span>平均收益：20.20%</span>
+								<span>注册资金：5000万元</span>
+								<span>注册地区：湖北，武汉</span>
+								<span>投资期限：-</span>
+								<span>网友评价：提现一两天，站岗一周内，服务号，体验好！</span>
+								<a href="platdetail.html">查看档案</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+		<div class="right">
+			<div class="role">
+				<h2>平台录入规则<a href="">更多>></a></h2>
+				<ul>
+					<li>
+						<h3><a href="">平台录入规则</a></h3>
+						<p>平台按综合利率分为“&gt;24%、24%~18%、 &lt;18%”三档，每档取其中总成交量TOP10 为参考样本，来体现数据，其余平台及总体数据，请参考数据中心。</p>
+					</li>
+					<li>
+						<h3><a href="">平台数据的作用</a></h3>
+						<p>根据成交人数，借款期限等数据。然后 根据这些据，做进一步的分析，计算出 各项指标。包括加权成交量、平均借款 周期等。</p>
+						<p>特点一：信息全面、集中</p>
+						<p>特点二：时时更新</p>
+						<p>特点三：各平台数据清晰明了</p>
+					</li>
+				</ul>
+			</div>
+			<div class="indicator">
+				<h2>评级指标<a href="">更多>></a></h2>
+				<ul>
+					<li>
+						<h3><a href="">纳入评级库的条件</a></h3>
+						<p>有以下任一情形的不列入评级库：<br> 1.平台上连续（三天内）出现三个及以 上借款标的综合年化利率≥36%；<br>2.三个月内平台综合年化率&ge;30%；<br>3.单个借款人平均借款金额&ge;（注册资金、风险准备金、0.5&Chi;自身担保公司...）</p>
+					</li>
+					<li>
+						<h3><a href="">打分方法</a></h3>
+						<p>1.各项一级、二级指标在0到100分范围 内打分，无及格分数线 <br>2.建立了一个有100家以上平台数据的评 级库 <br>3.对于可获取数据的定量指标，采用先取对数，然后标准化的方法得到打分...</p>
+					</li>
+				</ul>				
+			</div>
+		</div>
+	
+
+
+	</div>
+
+
+	<div class="footer">
+		<ul>
+			<li><a href="">关于我们</a></li>
+			<li><a href="">网站协议</a></li>
+			<li><a href="">意见反馈</a></li>
+			<li><a href="">友情链接</a></li>
+		</ul>
+		<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+	</div>
+
+	</div>
+
+
+</body>
+</html>

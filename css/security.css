@@ -1,0 +1,43 @@
+.security{
+	padding: 0 20px 30px;
+	color: #323232;
+	border: 1px solid #d0d0d0;
+	margin: 20px 0 0 0;
+}
+.security li{
+	padding: 20px 0;
+	border-bottom: 1px solid #d0d0d0;
+}
+.security li>*{
+	display: inline-block;
+	vertical-align: middle;
+}
+.security h1{
+	font-size: 18px;
+	font-weight: normal;
+	width: 220px;
+}
+.security h1 img{
+	vertical-align: middle;
+	margin-right: 20px;
+	width: 73px;
+	height: 73px;
+}
+.security p{
+	font-size: 14px;
+	line-height: 16px;
+	width: 372px;
+	margin: 0 30px;
+}
+.security a{
+	color: #fff;
+	font-size: 15px;
+	width: 80px;
+	text-align: center;
+	line-height: 30px;
+	height: 30px;
+	background-color: #ba1b20;
+}
+.security a:hover{
+	background-color: #b83236;
+}

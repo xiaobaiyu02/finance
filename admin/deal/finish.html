@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>交易管理</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+	</head>
+	<style>
+		.del_box { width: 450px; height: 360px; }
+	</style>
+	<body>
+		<div class="del">
+			<div class="del_box">
+				<h3>提示框</h3>
+				<ul class="part_1">
+					<li>
+						<span>驳回原因：</span>
+						<textarea class="inputBlue" style="height: 80px;"></textarea>
+					</li>
+					<li>
+						<span>截图：</span>
+						<img src="../images/upload_photo.jpg" width="200" height="120" alt="截图" />
+					</li>
+					<li class="btn clearfix">
+						<input class="buttonBlue open fl" type="button" value="确认" onclick="" />
+						<input class="submitGray close fl" type="button" value="取消" onclick="" />
+					</li>
+				</ul>
+				<!--ending of part_1-->
+				
+				<div class="part_2">
+					<i class="iconfont">&#xe671;</i>
+					<p>已驳回</p>
+					<div class="btn clearfix">
+						<input class="buttonBlue close fl" style=" margin-left: 43px;" type="button" value="关闭" onclick="" />
+					</div>
+				</div>
+				<!--ending of part_2-->
+			</div>
+			<!--ending of del_box-->
+		</div>
+		<!--ending of 二次确认弹出框-->
+		
+		<div class="header clearfix">
+			<div class="logo fl"><a href="javascript:;"><img src="../images/logo.png" alt="微金融" /></a></div>
+			<div class="header_r fl clearfix">
+				<ul class="nav fl clearfix">
+					<li class="fl"><a href="javascript:;">会员管理</a></li>
+					<li class="fl"><a href="javascript:;">项目管理</a></li>
+					<li class="fl"><a href="javascript:;">产品管理</a></li>
+					<li class="fl"><a href="javascript:;">文章管理</a></li>
+					<li class="fl"><a href="javascript:;">交易管理</a></li>
+					<li class="fl"><a href="javascript:;">系统管理</a></li>
+					<li class="fl"><a href="javascript:;">平台管理</a></li>
+					<!--<li class="fl"><i class="iconfont">&#xe63c;</i></li>-->
+				</ul>
+				<!--ending of nav-->
+				<div class="user fr">
+					<a href="javascript:;"><i class="iconfont">&#xe63c;</i>系统管理员</a>
+					<a href="javascript:;"><i class="iconfont">&#xe61b;</i>退出</a>
+				</div>
+				<!--ending of user-->
+			</div>
+			<!--ending of header_r-->
+		</div>
+		<!--ending of header-->
+		<div class="content clearfix">
+			<div class="left fl">
+				<ul class="menu">
+					<li><a href="javascript:;" class="a_1"><i class="iconfont">&#xe603;</i>交易管理<i class='iconfont arrow'>&#xe604;</i></a></li>
+				</ul>
+				<!--ending of menu-->
+			</div>
+			<!--ending of left-->
+			<div class="right fl">
+				<div class="current">
+					<span><a href="javascript:;">交易管理</a></span>
+					<span>/</span>
+					<span>已完成</span>
+				</div>
+				<!--ending of current-->
+				
+				<div class="main_list clearfix">
+					<div class="search clearfix">
+						<ul class="clearfix fl">
+							<li class="fl"><a href="discuss.html">洽谈中</a></li>
+							<li class="fl"><a href="finish.html" class="a_active">已完成</a></li>
+							<li class="fl"><a href="appeal.html">申诉中</a></li>
+						</ul>
+						<form class="clearfix fr" action="" method="">
+							<label class="fl">关键字：<input type="text" class="inputBlue keyword" placeholder="请输入关键词" value="" /></label><!--
+							<label class="fl">时间：
+								<input type="text" class="Wdate inputBlue date" placeholder="2014-09-23" value="" name="" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+								<span>至</span>
+								<input type="text" class="Wdate inputBlue date" placeholder="2014-09-23" value="" name="" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+							</label>-->
+							<label class="fl">筛选：
+								<select class="selectBlue">
+									<option selected="selected">所有分类</option>
+									<option>文章1</option>
+									<option>文章1</option>
+								</select>
+							</label>
+							<input type="submit" class="buttonOrange fl" value="查询" onclick="" />
+							<a href="javascript:;" class="buttonOrange fl">+&nbsp;添加</a>
+						</form>
+					</div>
+					<!--ending of search-->
+					
+						
+					<div class="list">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>项目编号</th>
+									<th>借款人</th>
+									<th>用户类型</th>
+									<th>贷款类型</th>
+									<th>贷款金额<i class="iconfont">&#xe604;</i></th>
+									<th>交易时间<i class="iconfont">&#xe604;</i></th>
+									<th>投资方</th>
+									<th class="last">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="checkbox" name="chkItem" />&nbsp;&nbsp;1</td>
+									<td>03333</td>
+									<td>钱先生</td>
+									<td>个人用户</td>
+									<td>信用贷款</td>
+									<td>500万</td>
+									<td>2014-10-25 11:30:13</td>
+									<td>宋先生</td>
+									<td class="last">
+										<a href="detail.html" class="buttonBlue">查看</a>
+									</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="chkItem" />&nbsp;&nbsp;1</td>
+									<td>03333</td>
+									<td>钱先生</td>
+									<td>个人用户</td>
+									<td>信用贷款</td>
+									<td>500万</td>
+									<td>2014-10-25 11:30:13</td>
+									<td>宋先生</td>
+									<td class="last">
+										<a href="detail.html" class="buttonBlue">查看</a>
+									</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="chkItem" />&nbsp;&nbsp;1</td>
+									<td>03333</td>
+									<td>钱先生</td>
+									<td>个人用户</td>
+									<td>信用贷款</td>
+									<td>500万</td>
+									<td>2014-10-25 11:30:13</td>
+									<td>宋先生</td>
+									<td class="last">
+										<a href="detail.html" class="buttonBlue">查看</a>
+									</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="chkItem" />&nbsp;&nbsp;1</td>
+									<td>03333</td>
+									<td>钱先生</td>
+									<td>个人用户</td>
+									<td>信用贷款</td>
+									<td>500万</td>
+									<td>2014-10-25 11:30:13</td>
+									<td>宋先生</td>
+									<td class="last">
+										<a href="detail.html" class="buttonBlue">查看</a>
+									</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="chkItem" />&nbsp;&nbsp;1</td>
+									<td>03333</td>
+									<td>钱先生</td>
+									<td>个人用户</td>
+									<td>信用贷款</td>
+									<td>500万</td>
+									<td>2014-10-25 11:30:13</td>
+									<td>宋先生</td>
+									<td class="last">
+										<a href="detail.html" class="buttonBlue">查看</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="clearfix">
+							<div class="fl" style="line-height: 32px;">
+								<label><input type="checkbox" class="chkAll" name="chkItem" />全选</label><input class="buttonRed del_btn" type="button" value="全部删除" onclick="" />
+							</div>
+							<div class="fenye fr">
+								<a href="/admin/member/index/p/1.html">上一页</a>
+								<a href="/admin/member/index/p/1.html">1</a>
+								<span class="current">2</span>
+								<a href="/admin/member/index/p/3.html">3</a>
+								<a href="/admin/member/index/p/4.html">4</a>
+								<a href="/admin/member/index/p/3.html">下一页</a> 2/4页 12 条记录
+							</div>
+						</div>
+						<!--ending of fenye-->
+					</div>
+					<!--ending of second list-->
+					
+					
+				</div>
+				<!--ending of main-->
+			</div>
+			<!--ending of right-->
+		</div>
+		<!--ending of content-->
+		<div class="footer clearfix">
+			<p>Copyright © 2009-2014 杭州手趣科技 版权所有: 浙ICP备09040239号</p>
+		</div>
+		<!--ending of footer-->
+
+		<script type="text/javascript" src="../js/jquery.min.js" ></script>
+		<script type="text/javascript" src="../js/script.js"></script>
+		<script type="text/javascript" src="../js/wdatepicker/WdatePicker.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+			});
+		</script>
+	</body>
+</html>

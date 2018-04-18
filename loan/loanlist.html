@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>金融平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="../css/general.css" />
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../js/suggest.js"></script>
+	<script type="text/javascript" src="../js/aircity.js"></script>
+
+	<script type="text/javascript" src="../js/jquery.flexslider-min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/flexslider.css" />
+	<link rel="stylesheet" type="text/css" href="../css/city.css" />
+	<link rel="stylesheet" type="text/css" href="../css/loanlist.css" />
+	<style>
+		#suggest1 {top: 30px !important;left: 90px !important;}
+	</style>
+	<script>
+		$(function(){
+			$(".banner_form").Validform({
+				tiptype:3
+			});
+			$('.flexslider').flexslider();
+			
+			$("#arrcity1").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcity_3word1',attachObject:'#suggest1'});
+
+			$(".condition li a").click(function(){
+				$(this).parent().find("a").removeClass("choose");
+				$(this).addClass("choose")
+			})
+		})
+
+	</script>
+
+</head>
+<body>
+	<div class="top">
+		<div>
+			<ul class="left">
+				<li><a href="../index.html">金融首页</a></li><li><a href="">加入收藏</a></li>
+			</ul>
+			<span>欢迎来到金融平台！</span>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="left">
+			<img src="../images/logo.png" alt="">
+			<ul>
+				<li>客服热线：400 123 4567</li>
+				<li>官方QQ群：123456789</li>
+			</ul>
+		</div>
+		<div class="right">
+			<a href="../login.html">登录</a><a href="../registered.html">注册</a>
+		</div>
+	</div>
+
+	<div class="nav">
+		<ul>
+			<li><a href="../index.html">首页</a></li><li>
+			<a href="../invest_product/investindex.html">投资产品</a></li><li>
+			<a href="../loan/loanindex.html" class="active">贷款项目</a></li><li>
+			<a href="../invest_class/classindex.html">投资学堂</a></li><li>
+			<a href="../financialnews/newsindex.html">金融时讯</a></li><li>
+			<a href="../invest_platform/investplatform.html">投资平台</a></li>
+		</ul>
+	</div>
+
+	<div class="banner">
+		<div class="flexslider">
+			<ul class="slides">
+				<li><img src="../images/banner1_loanindex.jpg" alt=""></li><li><img src="../images/investbanner1.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="briefintro">
+			<ul class="intro">
+				<li>
+					<div class="ico"><img src="../images/ico5.png" alt=""></div>
+					<h1>便捷申请</h1>
+					<p>通过网上完成在线自助申请，或通过销售人员申请</p>
+				</li>
+				<li>
+					<div class="ico"><span class="zhen"></span></div>
+					<h1>快速审批</h1>
+					<p>最快24小时内获得审批结果</p>
+				</li>
+				<li>
+					<div class="ico"><span>FREE</span></div>
+					<h1>免费发布</h1>
+					<p>完成交易前的一切操作均不收取任何费用</p>
+				</li>
+				<div class="add"><a href=""><img src="../images/loanad.jpg" alt=""></a></div>
+			</ul>
+
+			<div class="applyLoan">
+				<h2><span>申请贷款</span></h2>
+				<form action="" method="post" class="banner_form">
+					<ul>
+						<li>
+							<label for="name">您的姓名：</label>
+							<input type="text" id="name" placeholder="请输入真实姓名" datatype="s">
+						</li>
+						<li>
+							<label for="sex">您的性别：</label>
+							<div class="sex">
+								<input type="radio" name="sex" checked="checked">男&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="sex">女
+							</div>
+							
+						</li>
+						<li>
+							<label for="city">所在城市：</label>
+							<input type="hidden" value="" id="arrcity_3word1" name="arrcity_3word1" />
+							<input type="text" id="arrcity1" name="arrcity1" placeholder="您现在所在的城市" datatype="*" nullmsg="请填写您所在的城市"/>
+							<div class="ac_results" id="suggest1">&nbsp;</div>
+							
+						</li>
+						<li>
+							<label for="tel">手机号码：</label>
+							<input type="text" id="tel" placeholder="请填写手机号码" datatype="m">
+						</li>
+						<li>
+							<input type="submit" value="下一步">
+						</li>
+						<li class=tip><span>30秒快速注册帮您解决资金烦恼！</span></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div class="loanproducts">
+			<div class="left">
+				<div class="condition">
+					<h1>筛选条件</h1>
+					<ul>
+						<li><label>用户类型：</label><a href="" class="choose">不限</a><a href="">个人</a><a href="">企业</a></li>
+						<li><label>贷款类型：</label><a href="" class="choose">不限</a><a href="">信用贷款</a><a href="">房产抵押贷款</a><a href="">车辆抵押贷款</a><a href="">实物抵押贷款</a><a href="">其他抵押贷款</a></li>
+					</ul>
+				</div>
+				<table>
+					<thead>
+						<tr>
+							<th width="17.5%">姓名</th>
+							<th width="10%">地区</th>
+							<th width="10%"><a href="">星级<span>&darr;</span></a></th>
+							<th width="10%">用户类型</th>
+							<th width="17.5%"><a href="">贷款类型<span>&darr;</span></a></th>
+							<th width="17.5%"><a href="">发布时间<span>&darr;</span></a></th>
+							<th width="17.5%"><a href="">贷款金额<span>&darr;</span></a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr>
+						<tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr><tr>
+							<td colspan="7"><a href=""><span>尼禄</span><span>武汉</span><span>3星</span><span>个人</span><span>实物抵押贷款</span><span>2014-02-10 10:45</span><span>15万元</span></a></td>
+						</tr>
+
+					</tbody>
+				</table>
+				<div class="page"></div>
+				
+			</div>
+			<div class="right">
+				<ul class="case">
+					<h2><span>成功案例</span><a href="">换一批</a></h2>
+					<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+					<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+					<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+					<li><div><p>尼禄（武汉）</p><p>实物抵押贷款<span>15</span>万元</p></div><span>贷款成功</span></li>
+				</ul>
+				<ul class="same">
+					<h2><span>相关贷款</span></h2>
+					<li>
+						<div class="loanpic">
+							<img src="../images/loanproduct.jpg">
+							<h5>房屋抵押贷款</h5>
+						</div>
+						<ul class="loanintro">
+							<li><strong>武汉王先生</strong><span>5星</span>用户</li>
+							<li><label>贷款金额：</label>200万元</li>
+							<li><label>年化利率：</label>15%</li>
+							<li><a href="">立即洽谈</a></li>
+						</ul>
+					</li>
+					<li>
+						<div class="loanpic">
+							<img src="../images/loanproduct.jpg">
+							<h5>房屋抵押贷款</h5>
+						</div>
+						<ul class="loanintro">
+							<li><strong>武汉王先生</strong><span>5星</span>用户</li>
+							<li><label>贷款金额：</label>200万元</li>
+							<li><label>年化利率：</label>15%</li>
+							<li><a href="">立即洽谈</a></li>
+						</ul>
+					</li>
+					<li>
+						<div class="loanpic">
+							<img src="../images/loanproduct.jpg">
+							<h5>房屋抵押贷款</h5>
+						</div>
+						<ul class="loanintro">
+							<li><strong>武汉王先生</strong><span>5星</span>用户</li>
+							<li><label>贷款金额：</label>200万元</li>
+							<li><label>年化利率：</label>15%</li>
+							<li><a href="">立即洽谈</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer">
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">网站协议</a></li>
+				<li><a href="">意见反馈</a></li>
+				<li><a href="">友情链接</a></li>
+			</ul>
+			<p>Copyright © 2014 All Rights Reserved  武汉掌联科技股份有限公司版权所有</p>
+		</div>
+
+	</div>
+		
+</body>
+</html>
